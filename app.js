@@ -20,8 +20,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const index = require('./routes/index');
+const error = require('./routes/error');
 
 app.use('/', index);
+app.use('/error', error);
+app.use('/404', error);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -38,7 +41,8 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  console.log(err.message);
+  res.redirect('404');
 });
 
 module.exports = app;
