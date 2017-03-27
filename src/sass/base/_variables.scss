@@ -1,0 +1,35 @@
+// Colors
+$black:   #000;
+$white:   #fff;
+$gray:    lightgray;
+
+$text:    $black;
+
+// Fonts-sizes
+$base-font-size: (
+  xs: 1rem,
+  sm: 1.1rem,
+  md: 1.125rem,
+  lg: 1.125rem   // 18px
+);
+
+// Fonts
+$serif: "Helvetica", serif;
+$sans-serif: "Times", sans-serif;
+
+$base-font: $sans-serif;
+
+// Layout
+$container:      75rem; // 1200px
+$gutter:         1.28rem; // 20px
+$double-gutter:  $gutter * 2; // 40px
+
+// Global used breakpoints
+  // Layout
+  $bp-container: $container + $double-gutter; // 1564px
+
+  // The breakpoint for the adjust mixin
+  $adjust-xs: 500px;
+  $adjust-sm: 800px;
+  $adjust-md: 1000px;
+  $adjust-lg: 1300px;
