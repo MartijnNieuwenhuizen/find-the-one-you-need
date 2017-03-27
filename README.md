@@ -13,10 +13,10 @@ Find the one you nee is a project for my Thesis and is all about finding the co-
 #### End goal
 The goal of this sprint is to make the chart work with the JSON structure and let it zoom in on a particular aria by clicking on that area.
 
-1. Make the base layout of the project
-2. Get the user input by making a form for the main input of the chat
-3. Style the chat. Alway's on the right side on the screen, the starting screen will come later
-4. Make the tags on the top of the page
+1. ~~Make the base layout of the project~~
+2. ~~Get the user input by making a form for the main input of the chat~~
+3. ~~Style the chat. Alway's on the right side on the screen, the starting screen will come later~~
+4. ~~Make the tags on the top of the page~~
 5. Setup a fake JSON file
 6. Install D3.js
 7. Find the closest matching visualization and import it

@@ -2,13 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const buzzwords = require('./modules/buzzwords');
-
-
-
-
-
+const fakeData = require('./modules/fakeData');
 
 router.get('/', (req, res, next) => {
+  console.log(fakeData);
+
   const content = {
     test: 'test'
   };
