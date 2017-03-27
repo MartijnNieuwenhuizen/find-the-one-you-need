@@ -17,8 +17,8 @@ The goal of this sprint is to make the chart work with the JSON structure and le
 2. ~~Get the user input by making a form for the main input of the chat~~
 3. ~~Style the chat. Alway's on the right side on the screen, the starting screen will come later~~
 4. ~~Make the tags on the top of the page~~
-5. Setup a fake JSON file
-6. Install D3.js
+5. ~~Setup a fake JSON file~~
+6. ~~Install D3.js~~
 7. Find the closest matching visualization and import it
 8. Create the base visualization I need for the design
 9. Make the visualization interactive by handling the click
