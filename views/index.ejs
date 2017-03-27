@@ -2,9 +2,11 @@
 
   <main class="main">
     <form class="main--chat chat" action="/" method="post">
-      <%# @TODO: hide message for screanreaders %>
-      <label for="message">Type your message</label>
-      <input id="message" type="text" name="message">
+      <fieldset class="chat--container">
+        <%# @TODO: hide message for screanreaders %>
+        <label class="chat--message" for="message">Type your message</label>
+        <input class="chat--input" id="message" type="text" name="message">
+      </fieldset>
     </form>
 
     <section class="main--visualisation visualisation">

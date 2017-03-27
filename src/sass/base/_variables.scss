@@ -28,6 +28,8 @@ $double-gutter:  $gutter * 2; // 40px
   // Layout
   $bp-container: $container + $double-gutter; // 1564px
 
+  $bp-align-mains: 800px;
+
   // The breakpoint for the adjust mixin
   $adjust-xs: 500px;
   $adjust-sm: 800px;
