@@ -1,0 +1,18 @@
+.main {
+
+  @include min-width($bp-align-mains) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  &--chat {
+    max-width: 25.75rem; width: 100%;
+    min-height: 100vh;
+    order: 1;
+  }
+  &--visualisation {
+    min-height: 100vh;
+    flex: 1;
+  }
+}

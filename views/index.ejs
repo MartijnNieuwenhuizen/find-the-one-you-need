@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include ./base/head.ejs %>
+
+  <main class="main">
+    <form class="main--chat chat" action="/" method="post">
+      <fieldset class="chat--container">
+        <%# @TODO: hide message for screanreaders %>
+        <label class="chat--message message" for="message">Type your message</label>
+        <input class="chat--input" id="message" type="text" name="message">
+      </fieldset>
+    </form>
+
+    <section class="main--visualisation visualisation">
+      <h1>here comes the visualisation</h1>
+    </section>
+  </main>
+
+<%- include ./base/footer.ejs %>
