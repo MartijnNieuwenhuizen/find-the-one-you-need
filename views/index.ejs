@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= test %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= test %></h1>
-  </body>
-</html>
+<%- include ./base/head.ejs %>
+
+  <main class="main">
+    <form class="main--chat chat" action="/" method="post">
+      <%# @TODO: hide message for screanreaders %>
+      <label for="message">Type your message</label>
+      <input id="message" type="text" name="message">
+    </form>
+
+    <section class="main--visualisation visualisation">
+      <h1>here comes the visualisation</h1>
+    </section>
+  </main>
+
+<%- include ./base/footer.ejs %>
