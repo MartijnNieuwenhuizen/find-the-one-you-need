@@ -1,7 +1,11 @@
 <% if (locals.buzzWords) { %>
-  <ul>
+  <p class="form--buzzwords buzzwords">
   <% buzzWords.forEach(buzzWord => { %>
-    <li><%= buzzWord %></li>
+    <% if (buzzWord.match === true) { %>
+      <span class="match match--<%= buzzWord.type %>"><%= buzzWord.word %></span>
+    <% } else { %>
+      <%= buzzWord.word %>
+    <% } %>
   <% }) %>
-  </ul>
+  </p>
 <% } %>

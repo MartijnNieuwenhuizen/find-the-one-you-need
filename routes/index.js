@@ -2,15 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 const buzzwords = require('./modules/buzzwords');
-const fakeData = require('./modules/fakeData');
 
 router.get('/', (req, res, next) => {
-  console.log(fakeData);
-
   const content = {
-    test: 'test'
+    test: 'test',
   };
-  res.render('index', content);
+  render();
+
+  function render() {
+    res.render('index', content);
+  }
 });
 
 
@@ -22,6 +23,7 @@ router.post('/', (req, res, next) => {
   const content = {};
   const message = req.body.message;
   if (!message) { res.rederect('404'); }
+  content.message = message;
 
     // Filter the right words from the message
     // This is a demo function!!!!!

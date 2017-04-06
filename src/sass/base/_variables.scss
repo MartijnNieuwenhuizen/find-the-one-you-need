@@ -6,6 +6,8 @@ $light-gray:  #F7F7F7;
 
 $text:        $black;
 
+$input-bg: $light-gray;
+
 // Fonts-sizes
 $base-font-size: (
   xs: 1rem,
@@ -15,8 +17,8 @@ $base-font-size: (
 );
 
 // Fonts
-$serif: "Helvetica", serif;
-$sans-serif: "Times", sans-serif;
+$serif: "Times", sans-serif;
+$sans-serif: "Helvetica", serif;
 
 $base-font: $sans-serif;
 
@@ -24,6 +26,13 @@ $base-font: $sans-serif;
 $container:      75rem; // 1200px
 $gutter:         1.28rem; // 20px
 $double-gutter:  $gutter * 2; // 40px
+
+
+
+// Global Vars
+$input-padding: .65rem 1rem .6rem 1rem;
+$input-padding-extended: .8rem 1.13rem .8rem 1.13rem;
+
 
 // Global used breakpoints
   // Layout
