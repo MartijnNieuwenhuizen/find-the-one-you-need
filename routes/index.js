@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const buzzwords = require('./modules/buzzwords');
+const people = require('./modules/people');
 
 router.get('/', (req, res, next) => {
   const content = {};
@@ -14,8 +15,10 @@ router.get('/', (req, res, next) => {
     buzzwords.get(message)
       .then(matches => {
         content.buzzWords = matches;
-
-        // Search matches
+        return matches;
+      })
+      .then(words => {
+        people.match(words)
         render();
       })
       .catch(err => {
