@@ -3,16 +3,13 @@
   <main class="main">
     <form class="main--chat chat" action="/" method="post">
       <fieldset class="chat--container">
-        <%# @TODO: hide message for screanreaders %>
-        <label class="chat--message message" for="message">Type your message</label>
-        <input class="chat--input" id="message" type="text" name="message">
+        <label class="chat--message message" for="message">Type your message</label> <%# @TODO: hide message for screanreaders %>
+        <div class="chat--message-container">
+          <input class="chat--input message--input" id="message" type="text" name="message">
+          <%- include ./modules/buzzwords.ejs %>
+        </div>
       </fieldset>
     </form>
-
-    <section class="main--visualisation visualisation">
-      <%- include ./modules/buzzwords.ejs %>
-
-    </section>
   </main>
 
 <%- include ./base/footer.ejs %>

@@ -17,13 +17,19 @@ const buzzwords = {
           }
         });
         if (checker === true) {
-          return `<span>${word}</span>`;
+          return {
+            word,
+            match: true,
+            type: 'development'
+          };
         } else {
-          return word;
+          return {
+            word,
+            matche: false
+          };
         }
       });
 
-      console.log(check);
       bla === true ? resolve(check) : reject('no matches');
 
 
