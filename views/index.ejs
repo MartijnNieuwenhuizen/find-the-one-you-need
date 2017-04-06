@@ -1,7 +1,7 @@
 <%- include ./base/head.ejs %>
 
   <main class="layout">
-    <form class="layout--form form" action="/" method="post">
+    <form class="layout--form form" action="/" method="get">
       <fieldset class="form--container">
         <label class="form--message message" for="message">Wat voor persoon zoek je?</label> <%# @TODO: hide message for screanreaders %>
         <div class="form--input-container">
@@ -17,8 +17,8 @@
           <input class="form--input message--input" id="message"  type="text" name="message" value="<%- value %>" placeholder="<%- placeholder %>">
           <%- include ./modules/buzzwords.ejs %>
           <div class="form--controls controls">
-            <button class="controls--remove" type="remove" name="button">Wis</button>
             <button class="controls--submit" type="submit" name="button">Zoek</button>
+            <button class="controls--remove" type="remove" name="button">Wis</button>
           </div>
         </div>
       </fieldset>
