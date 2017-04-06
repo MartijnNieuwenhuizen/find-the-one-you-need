@@ -1,0 +1,11 @@
+.match {
+  border-radius: 10% / 50%;
+  padding: .3rem 1.6rem;
+  padding: .3rem .7rem;
+  // @TODO: fix the jumping bug
+}
+
+.match--development {
+  color: white;
+  background-color: tomato;
+}

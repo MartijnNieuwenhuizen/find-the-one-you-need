@@ -1,0 +1,65 @@
+.form {
+
+  &--container {
+    border: 0;
+  }
+
+  &--message {
+    display: none;
+  }
+
+  &--input-container {
+    position: relative;
+    margin-top: 1rem;
+  }
+  &--input,
+  &--buzzwords {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+  }
+
+  &--input {
+    z-index: 1;
+    padding: $input-padding;
+
+    background-color: transparent;
+    color: transparent;
+    border: 2px solid $input-bg;
+    border-radius: 10px;
+
+    // Make the fonts the same as the overlaying styles
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    word-spacing: inherit;
+
+    &:focus {
+      color: inherit;
+      outline: 0;
+      background-color: $input-bg;
+
+      // Remove the buzzwords if the input has foucs
+      + .form--buzzwords {
+        z-index: -1;
+        display: none;
+      }
+    }
+  }
+  // Default style is the style of the input because the buzzwords overlay the input
+  &--buzzwords {
+    z-index: 0;
+    margin: 0;
+    padding: $input-padding-extended;
+
+    background-color: $input-bg;
+    border-radius: 10px;
+  }
+
+  &--controls {
+    position: absolute;
+    top: 0; right: 0;
+    z-index: 2;
+    padding: $input-padding;
+  }
+}
