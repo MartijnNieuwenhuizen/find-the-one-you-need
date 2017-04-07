@@ -16,6 +16,13 @@ $base-font-size: (
   lg: 1.125rem   // 18px
 );
 
+$personal-font-size: (
+  xs: .9375rem,
+  sm: .9375rem,
+  md: .9375rem,
+  lg: .9375rem   // 15px
+);
+
 // Fonts
 $serif: "Times", sans-serif;
 $sans-serif: "Helvetica", serif;
@@ -30,9 +37,12 @@ $double-gutter:  $gutter * 2; // 40px
 
 
 // Global Vars
-$input-padding: .65rem 1rem .6rem 1rem;
-$input-padding-extended: .8rem 1.13rem .8rem 1.13rem;
+  // form
+  $input-padding: .65rem 1rem .6rem 1rem;
+  $input-padding-extended: .8rem 1.13rem .8rem 1.13rem;
 
+  // cards
+  $card-label-width: 2.6875rem;
 
 // Global used breakpoints
   // Layout

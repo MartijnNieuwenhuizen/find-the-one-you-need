@@ -1,0 +1,43 @@
+.personal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  border: 1px solid lime;
+
+  &--img-container {
+    width: 9.375rem; height: 9.375rem;
+    display: inline-block;
+  }
+  &--img {
+    width: 100%;
+    height: 100%; // Purely dev purposes
+    background-color: green;
+  }
+
+  &--info {
+    display: inline-block;
+    width: 8rem;
+    margin-left: .4rem;
+  }
+
+  &--name {
+    @include adjust($personal-font-size);
+  }
+  &--role {
+    @include adjust($personal-font-size);
+  }
+  &--location {
+    display: inline-block;
+    @include adjust($personal-font-size);
+
+    &:before {
+      content: "";
+      width: .75rem; height: .75rem;
+      display: inline-block;
+      margin-right: .3rem;
+
+      background-color: $black;
+    }
+  }
+}
