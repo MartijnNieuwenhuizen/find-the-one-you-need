@@ -6,9 +6,9 @@ const people = require('./modules/people');
 
 router.get('/', (req, res, next) => {
   const content = {};
-  const message = req.query.message;
+  const message = req.query.message ? req.query.message : '';
 
-  if (!message) { render(); }
+  if (!message.length) { render(); return; }
 
   content.message = message;
     // Filter the right words from the message. This is a demo function!!!!!
@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
         return matches;
       })
       .then(words => {
-        people.match(words)
+        people.match(words);
         render();
       })
       .catch(err => {
