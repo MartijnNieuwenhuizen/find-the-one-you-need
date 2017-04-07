@@ -26,6 +26,37 @@ a {
   color: inherit;
 }
 
+.area {
+  position: relative;
+}
+
+.area--title-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: green;
+  width: 2.6875rem;
+  height: 100%;
+}
+
+.area--title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: rotate(-90deg) translate(-50%, -50%);
+  -ms-transform: rotate(-90deg) translate(-50%, -50%);
+  transform: rotate(-90deg) translate(-50%, -50%);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+.area--subtitle {
+  margin: 0;
+}
+
 .form--container {
   border: 0;
 }
@@ -87,6 +118,17 @@ a {
   padding: 0.65rem 1rem 0.6rem 1rem;
 }
 
+.knolage-areas {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.knolage-areas--item {
+  margin-bottom: .625rem;
+  padding: 1rem 1rem 1rem 2.6875rem;
+}
+
 .layout--header {
   max-width: 68.75rem;
   margin: 0 auto;
@@ -128,6 +170,7 @@ a {
   flex-direction: row;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  padding-left: 2.6875rem;
   border: 1px solid lime;
 }
 
@@ -226,10 +269,6 @@ a {
   display: inline-block;
   margin-right: .3rem;
   background-color: #000;
-}
-
-.result {
-  padding-left: 2.6875rem;
 }
 
 .results--list {

@@ -1,0 +1,25 @@
+.area {
+  position: relative;
+
+  &--title-container {
+    position: absolute;
+    top: 0; left: 0;
+    background: green;
+
+    width: $card-label-width; height: 100%;
+  }
+
+
+  &--title {
+    position: absolute;
+    top: 50%; left: 50%;
+    margin: 0; padding: 0;
+
+    transform: rotate(-90deg) translate(-50%, -50%);
+    transform-origin: 0 0;
+  }
+
+  &--subtitle {
+    margin: 0;
+  }
+}
