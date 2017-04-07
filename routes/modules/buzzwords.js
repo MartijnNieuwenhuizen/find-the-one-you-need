@@ -20,7 +20,7 @@ const buzzwords = {
           return {
             word,
             match: true,
-            type: 'development'
+            type: 'development' // @TODO: make this dynamic
           };
         } else {
           return {
