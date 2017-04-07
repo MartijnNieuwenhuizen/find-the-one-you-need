@@ -6,7 +6,7 @@ const people = require('./modules/people');
 
 router.get('/', (req, res, next) => {
   const content = {};
-  const message = req.query.message ? req.query.message : '';
+  const message = req.query.message ? req.query.message : 'Hello You NodeJS people and other KLM employees';
 
   if (!message.length) { render(); return; }
 
