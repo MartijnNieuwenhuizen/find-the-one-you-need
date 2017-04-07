@@ -8,11 +8,11 @@
     justify-content: space-around;
   }
   &--item {
-    width: 20.8125rem;
+    width: 22rem;
     display: inline-block;
     margin: 0 .8rem 1rem .8rem;
 
-    background-color: rgba(green, .2);
+    border: 1px solid lime;
     list-style-type: none;
   }
 }
