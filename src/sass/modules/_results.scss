@@ -1,10 +1,18 @@
 .results {
-  background-color: green;
 
   &--list {
-
+    @include reset-list;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
   }
   &--item {
+    width: 20.8125rem;
+    display: inline-block;
+    margin: 0 .8rem 1rem .8rem;
 
+    background-color: rgba(green, .2);
+    list-style-type: none;
   }
 }

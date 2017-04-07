@@ -24,6 +24,12 @@
   color: inherit;
 }
 
+// Reset the default values of a list
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+}
+
 // Add a max width to an element
 // Take care of paddings on small screens
 // Center this element on larger screens
