@@ -1,10 +1,15 @@
 <%- include ./base/head.ejs %>
-  <main class="layout">
-    <header>
-      <%# <h1>Find the one you need!</h1>%>
-      <%- include ./modules/form.ejs %>
-    </header>
+
+  <header class="layout--header">
+    <%- include ./modules/form.ejs %>
+  </header>
+
+  <main class="layout--main">
     <%- include ./modules/results.ejs %>
   </main>
+
+  <footer class="layout--footer">
+
+  </footer>
 
 <%- include ./base/footer.ejs %>

@@ -24,6 +24,12 @@
   color: inherit;
 }
 
+// Reset the default values of a list
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+}
+
 // Add a max width to an element
 // Take care of paddings on small screens
 // Center this element on larger screens
@@ -38,7 +44,7 @@
     padding-right: $gutter;
     box-sizing: border-box;
 
-    @include breakpoint($bp-container) {
+    @include min-width($bp-container) {
       padding-left: 0;
       padding-right: 0;
     }
@@ -53,17 +59,17 @@
         #{$property}: $i;
       }
       @if( $item == "sm") {
-        @include breakpoint($adjust-sm) {
+        @include min-width($adjust-sm) {
           #{$property}: $i;
         }
       }
       @if( $item == "md") {
-        @include breakpoint($adjust-md) {
+        @include min-width($adjust-md) {
           #{$property}: $i;
         }
       }
       @if( $item == "lg") {
-        @include breakpoint($adjust-lg) {
+        @include min-width($adjust-lg) {
           #{$property}: $i;
         }
       }
@@ -81,10 +87,10 @@
     margin: 1rem $gutter;
     vertical-align: top;
 
-    @include breakpoint($bp-half) {
+    @include min-width($bp-half) {
       width: calc(49% - #{$double-gutter});
     }
-    @include breakpoint($bp-third) {
+    @include min-width($bp-third) {
       width: calc(33% - #{$double-gutter});
     }
   }
