@@ -1,28 +1,10 @@
 <%- include ./base/head.ejs %>
-
   <main class="layout">
-    <form class="layout--form form" action="/" method="get">
-      <fieldset class="form--container">
-        <label class="form--message message" for="message">Wat voor persoon zoek je?</label> <%# @TODO: hide message for screanreaders %>
-        <div class="form--input-container">
-          <%# Only set the placeholder when there are no buzzwords %>
-          <%
-            let placeholder = 'Wat voor persoon zoek je?';
-            let value = '';
-          %>
-          <%
-            if (locals.buzzWords) { placeholder = ''; }
-            if (locals.message) { value = locals.message; }
-          %>
-          <input class="form--input message--input" id="message"  type="text" name="message" value="<%- value %>" placeholder="<%- placeholder %>">
-          <%- include ./modules/buzzwords.ejs %>
-          <div class="form--controls controls">
-            <button class="controls--submit" type="submit" name="button">Zoek</button>
-            <button class="controls--remove" type="remove" name="button">Wis</button>
-          </div>
-        </div>
-      </fieldset>
-    </form>
+    <header>
+      <%# <h1>Find the one you need!</h1>%>
+      <%- include ./modules/form.ejs %>
+    </header>
+    <%- include ./modules/results.ejs %>
   </main>
 
 <%- include ./base/footer.ejs %>

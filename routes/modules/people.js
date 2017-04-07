@@ -5,9 +5,10 @@ const people = {
     return new Promise(function(resolve, reject) {
       const tags = checkedBuzzwords.filter(word => word.match === true); // only get the matching tags
 
+      const filterUnique = (tag, i, arr) => arr.indexOf(tag) === i;
       const uniqueTypes = tags
         .map(tag => tag.type) // Get an array of all the types
-        .filter((tag, i, arr) => arr.indexOf(tag) === i ); // Filter only the unique types
+        .filter(filterUnique); // Filter only the unique types
 
       // Get all the peeps
       const peeps = fakeData;
