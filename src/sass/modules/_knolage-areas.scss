@@ -1,0 +1,9 @@
+.knolage-areas {
+  @include reset-list;
+  list-style-type: none;
+
+  &--item {
+    margin-bottom: .625rem;
+    padding: 1rem 1rem 1rem $card-label-width;
+  }
+}
