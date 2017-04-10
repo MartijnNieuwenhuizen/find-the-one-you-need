@@ -1,7 +1,7 @@
 const fakeData = require('./fakedata');
 
 const people = {
-  match: function(checkedBuzzwords) {
+  getByBuzzwords: function(checkedBuzzwords) {
     return new Promise(function(resolve, reject) {
       const tags = checkedBuzzwords.filter(word => word.match === true); // only get the matching tags
 
@@ -12,27 +12,28 @@ const people = {
 
       // Get all the peeps
       const peeps = fakeData;
+      
 
-      function _isContains(json, value) {
-        let contains = false;
-        Object.keys(json).some(key => {
-          contains = typeof json[key] === 'object' ?
-          _isContains(json[key], value) : json[key] === value;
-          return contains;
-        });
-        return contains;
-      }
+      // function _isContains(json, value) {
+      //   let contains = false;
+      //   // Object.keys(json).some(key => {
+      //   //   contains = typeof json[key] === 'object' ?
+      //   //   _isContains(json[key], value) : json[key] === value;
+      //   //   return contains;
+      //   // });
+      //   return contains;
+      // }
 
       // Filter only the relevant peeps
-      peeps.filter((peep, i, arr) => {
-        const bla = _isContains(peep, 'NodeJS');
-        console.log('_isContains');
-        console.log(bla);
+      // peeps.filter((peep, i, arr) => {
+        // const bla = _isContains(peep, 'NodeJS');
+        // console.log('_isContains');
+        // console.log(bla);
         // uniqueTypes.forEach(type => {
         //
         //   console.log(peep.tags.development);
         // });
-      });
+      // });
       // Reder these and indicate whitch types need to collaps
 
 

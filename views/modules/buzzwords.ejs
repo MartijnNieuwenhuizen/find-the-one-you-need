@@ -1,10 +1,10 @@
-<% if (locals.buzzWords) { %>
+<% if (locals.buzzwords && buzzwords[0].word.length) { %>
   <p class="form--buzzwords buzzwords">
-  <% buzzWords.forEach(buzzWord => { %>
-    <% if (buzzWord.match === true) { %>
-      <span class="match match--<%= buzzWord.type %>"><%= buzzWord.word %></span>
+  <% buzzwords.forEach(buzzword => { %>
+    <% if (buzzword.match === true) { %>
+      <span class="match match--<%= buzzword.type %>"><%= buzzword.word %></span>
     <% } else { %>
-      <%= buzzWord.word %>
+      <%= buzzword.word %>
     <% } %>
   <% }) %>
   </p>
