@@ -66,6 +66,24 @@ a {
   list-style-type: none;
 }
 
+.category--title {
+  background-color: lightgray;
+}
+
+.category--item {
+  background-color: tomato;
+  margin: .05rem 0;
+}
+
+.category--item-container {
+  height: 1px;
+  overflow: hidden;
+}
+
+.category #layout:target .category--item-container {
+  height: auto;
+}
+
 .form--container {
   border: 0;
 }

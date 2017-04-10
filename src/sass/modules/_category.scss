@@ -2,10 +2,22 @@
   @include reset-list;
 
   &--title {
-
+    background-color: $gray;
   }
 
-  &--title {
+  &--item {
+    background-color: tomato;
+    margin: .05rem 0;
+  }
 
+  &--item-container {
+    height: 1px;
+    overflow: hidden;
+  }
+
+  #layout:target {
+    .category--item-container {
+      height: auto;
+    }
   }
 }
