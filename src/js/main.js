@@ -1,2 +1,4 @@
-const d3 = require('d3');
-console.log(d3);
+if (document.querySelector('.category')) {
+  const Pannels = require('./modules/collapse');
+  Pannels.collect();
+}

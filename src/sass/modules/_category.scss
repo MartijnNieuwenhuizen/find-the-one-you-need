@@ -21,3 +21,22 @@
     }
   }
 }
+
+
+.pannel-open {
+  .category--item-container {
+    height: auto;
+  }
+
+  // & + .category--item,
+  // & + .category--item + .category--item,
+  // & + .category--item + .category--item + .category--item {
+  //   height: 1px;
+  //   overflow: hidden;
+  // }
+  //
+  // & + li + li + li + li,
+  // & + li + li + li + li + li {
+  //   display: none;
+  // }
+}
