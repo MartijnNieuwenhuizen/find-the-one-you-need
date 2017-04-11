@@ -28,6 +28,10 @@
 @mixin reset-list {
   margin: 0;
   padding: 0;
+
+  li {
+    list-style-type: none;
+  }
 }
 
 // Add a max width to an element
