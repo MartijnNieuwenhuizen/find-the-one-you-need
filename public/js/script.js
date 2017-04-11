@@ -19,7 +19,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 })({ 1: [function (require, module, exports) {
     if (document.querySelector('.category')) {
       var Pannels = require('./modules/collapse');
-      Pannels.collect();
+      Pannels.launch();
     }
   }, { "./modules/collapse": 2 }], 2: [function (require, module, exports) {
     var Pannels = function () {
@@ -28,43 +28,78 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(Pannels, null, [{
-        key: "collect",
-        value: function collect() {
-          var pannels = Array.from(document.querySelectorAll('.category--item'));
-          var collapsablePannels = pannels.filter(function (pannel) {
-            return pannel.id.length;
-          });
-
-          Pannels.addListener(collapsablePannels);
+        key: "launch",
+        value: function launch() {
+          var pannelLinks = Pannels.getLinks();
+          Pannels.addClickBehavior(pannelLinks);
         }
       }, {
-        key: "addListener",
-        value: function addListener(panels) {
+        key: "getLinks",
+        value: function getLinks() {
+          return document.querySelectorAll('a.area--subtitle');
+        }
+      }, {
+        key: "addClickBehavior",
+        value: function addClickBehavior(panels) {
           panels.forEach(function (panel) {
-            panel.addEventListener('click', Pannels.open, true);
+            panel.addEventListener('click', Pannels.toggle, true);
           });
         }
       }, {
-        key: "open",
-        value: function open(e) {
-          Pannels.closeAllOpen(this);
-          this.classList.add('pannel-open');
+        key: "getPannelCategory",
+        value: function getPannelCategory(parrentNode) {
+          return parrentNode.dataset.categoryTitle;
+        }
+      }, {
+        key: "getAllPannelsWithCategory",
+        value: function getAllPannelsWithCategory(categoryName) {
+          return Array.from(document.querySelectorAll("[data-category-title=" + categoryName + "]"));
+        }
+      }, {
+        key: "closeAllPannelsInCategory",
+        value: function closeAllPannelsInCategory(pannelsInCategory) {
+          pannelsInCategory.forEach(function (pannelCatagory) {
+            var pannels = Array.from(pannelCatagory.children);
+
+            pannels.forEach(function (pannel) {
+              Pannels.close(pannel);
+            });
+          });
+        }
+      }, {
+        key: "openAllPannelsWithHash",
+        value: function openAllPannelsWithHash(hash) {
+          var pannelsNeedOpening = Array.from(document.querySelectorAll(hash));
+
+          pannelsNeedOpening.forEach(function (pannel) {
+            Pannels.open(pannel);
+          });
+        }
+      }, {
+        key: "toggle",
+        value: function toggle(e) {
+          var pannelItem = this.parentNode;
+          var pannel = pannelItem.parentNode;
+          var hash = this.hash;
+
+          var pannelCategory = Pannels.getPannelCategory(pannel);
+          var pannelsInCategory = Pannels.getAllPannelsWithCategory(pannelCategory);
+          Pannels.closeAllPannelsInCategory(pannelsInCategory);
+          Pannels.openAllPannelsWithHash(hash);
 
           e.preventDefault();
         }
       }, {
-        key: "close",
-        value: function close(el) {
-          el.classList.remove('pannel-open');
+        key: "open",
+        value: function open(pannel) {
+          pannel.classList.add('pannel-open');
         }
       }, {
-        key: "closeAllOpen",
-        value: function closeAllOpen(clickedEl) {
-          var pannelParrent = clickedEl.parentNode;
-          var pannelSibblingsOpen = pannelParrent.querySelectorAll('.category--item');
-          pannelSibblingsOpen.forEach(function (sibbling) {
-            Pannels.close(sibbling);
-          });
+        key: "close",
+        value: function close(pannel) {
+          if (pannel.classList.contains('pannel-open')) {
+            pannel.classList.remove('pannel-open');
+          }
         }
       }]);
 
@@ -72,13 +107,4 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     module.exports = Pannels;
-
-    // filter all the pannels that have an id
-
-
-    // loop thrue each pannel
-    // Add event listener
-    // get the parrent
-    // make all the elements in it collaps
-    // make the clickable element pop open
   }, {}] }, {}, [1]);

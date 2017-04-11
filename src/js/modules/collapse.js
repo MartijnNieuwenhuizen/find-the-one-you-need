@@ -1,47 +1,66 @@
 class Pannels {
-  static collect() {
-    const pannels = Array.from(document.querySelectorAll('.category--item'));
-    const collapsablePannels = pannels.filter(pannel => pannel.id.length);
-
-    Pannels.addListener(collapsablePannels);
+  static launch() {
+    const pannelLinks = Pannels.getLinks();
+    Pannels.addClickBehavior(pannelLinks);
   }
 
-  static addListener(panels) {
+  static getLinks() {
+    return document.querySelectorAll('a.area--subtitle');
+  }
+
+  static addClickBehavior(panels) {
     panels.forEach(panel => {
-      panel.addEventListener('click', Pannels.open, true);
+      panel.addEventListener('click', Pannels.toggle, true);
     });
   }
 
-  static open(e) {
-    Pannels.closeAllOpen(this)
-    this.classList.add('pannel-open');
+  static getPannelCategory(parrentNode) {
+    return parrentNode.dataset.categoryTitle;
+  }
+
+  static getAllPannelsWithCategory(categoryName) {
+    return Array.from(document.querySelectorAll(`[data-category-title=${categoryName}]`));
+  }
+
+  static closeAllPannelsInCategory(pannelsInCategory) {
+    pannelsInCategory.forEach(pannelCatagory => {
+      const pannels = Array.from(pannelCatagory.children);
+
+      pannels.forEach(pannel => {
+        Pannels.close(pannel);
+      });
+    });
+  }
+
+  static openAllPannelsWithHash(hash) {
+    const pannelsNeedOpening = Array.from(document.querySelectorAll(hash));
+
+    pannelsNeedOpening.forEach(pannel => {
+      Pannels.open(pannel);
+    });
+  }
+
+  static toggle(e) {
+    const pannelItem = this.parentNode;
+    const pannel = pannelItem.parentNode;
+    const hash = this.hash;
+
+    const pannelCategory = Pannels.getPannelCategory(pannel);
+    const pannelsInCategory = Pannels.getAllPannelsWithCategory(pannelCategory);
+    Pannels.closeAllPannelsInCategory(pannelsInCategory);
+    Pannels.openAllPannelsWithHash(hash);
 
     e.preventDefault();
   }
 
-  static close(el) {
-    el.classList.remove('pannel-open');
+  static open(pannel) {
+    pannel.classList.add('pannel-open');
   }
-
-  static closeAllOpen(clickedEl) {
-    const pannelParrent = clickedEl.parentNode;
-    const pannelSibblingsOpen = pannelParrent.querySelectorAll('.category--item');
-    pannelSibblingsOpen.forEach(sibbling => {
-      Pannels.close(sibbling);
-    });
+  static close(pannel) {
+    if ( pannel.classList.contains('pannel-open') ) {
+      pannel.classList.remove('pannel-open');
+    }
   }
 }
 
 module.exports = Pannels;
-
-
-
-
-// filter all the pannels that have an id
-
-
-// loop thrue each pannel
-// Add event listener
-  // get the parrent
-  // make all the elements in it collaps
-  // make the clickable element pop open
