@@ -6,7 +6,7 @@
   }
 
   &--item {
-    background-color: tomato;
+    background-color: lighten($gray, 10%);
     margin: .05rem 0;
   }
 

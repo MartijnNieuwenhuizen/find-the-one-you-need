@@ -34,7 +34,7 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  background: green;
+  background-color: #bababa;
   width: 2.6875rem;
   height: 100%;
 }
@@ -71,7 +71,7 @@ a {
 }
 
 .category--item {
-  background-color: tomato;
+  background-color: #ededed;
   margin: .05rem 0;
 }
 
@@ -206,7 +206,6 @@ a {
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   padding-left: 2.6875rem;
-  border: 1px solid lime;
 }
 
 .personal--img-container {
@@ -218,7 +217,8 @@ a {
 .personal--img {
   width: 100%;
   height: 100%;
-  background-color: green;
+  background-color: #ededed;
+  border: 0;
 }
 
 .personal--info {
@@ -330,7 +330,6 @@ a {
   width: 22rem;
   display: inline-block;
   margin: 0 .8rem 1rem .8rem;
-  border: 1px solid lime;
   list-style-type: none;
 }
 

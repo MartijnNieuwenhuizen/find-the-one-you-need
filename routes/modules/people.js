@@ -12,7 +12,7 @@ const people = {
 
       // Get all the peeps
       const peeps = fakeData;
-      
+
 
       // function _isContains(json, value) {
       //   let contains = false;

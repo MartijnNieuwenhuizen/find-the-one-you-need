@@ -1,7 +1,9 @@
-<section class="results">
-  <ul class="results--list">
-    <%- include ./result.ejs %>
-    <%- include ./result.ejs %>
-    <%- include ./result.ejs %>
-  </ul>
-</section>
+<% if (locals.message.length) { %>
+  <section class="results">
+    <ul class="results--list">
+      <%- include ./result.ejs %>
+      <%- include ./result.ejs %>
+      <%- include ./result.ejs %>
+    </ul>
+  </section>
+<% } %>
