@@ -3,15 +3,23 @@ const fakeData = require('./fakedata');
 const people = {
   getByBuzzwords: function(checkedBuzzwords) {
     return new Promise(function(resolve, reject) {
-      const tags = checkedBuzzwords.filter(word => word.match === true); // only get the matching tags
+
+      const matchTags = word => word.match === true;
+      const tags = checkedBuzzwords.filter(matchTags); // only get the matching tags
 
       const filterUnique = (tag, i, arr) => arr.indexOf(tag) === i;
       const uniqueTypes = tags
         .map(tag => tag.type) // Get an array of all the types
         .filter(filterUnique); // Filter only the unique types
 
-      // Get all the peeps
-      const peeps = fakeData;
+
+
+
+
+      // // Get all the peeps
+      // const peeps = fakeData;
+
+
 
 
       // function _isContains(json, value) {
