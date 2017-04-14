@@ -1,21 +1,31 @@
 const express = require('express');
 const router = express.Router();
 
-const Buzzwords = require('./modules/Buzzwords');
-const Areas = require('./modules/Areas');
-const People = require('./modules/People');
+const Hits = require('./modules/hits');
+const People = require('./modules/people');
 
 router.get('/', (req, res, next) => {
 
-  // const message = req.query.message || '';
-  // const buzzwords = Buzzwords.create(message);
-  // const uniqueAreas = buzzwords.then(words => Areas.getUniqueByBuzzwords(words));
-  // const matchedPeople = uniqueAreas.then(areas => People.getByArea(areas, ));
-  //
-  // Promise.all([buzzwords])
-  //   .then(([buzzwords]) => {
-  //     res.render('index', { message, buzzwords });
-  //   });
+  const message = req.query.message || '';
+  const hits = Hits.getFromSentence(message); // Get all the hits from the message!
+  const messageWithHits = Hits.getInMessage(message, hits); // Get the sentance with hits to render them
+  const allPeople = People.getAll(hits);
+
+  console.log(allPeople);
+
+
+
+  res.render('index', {people: allPeople, message, buzzwords: messageWithHits});
+
+
+
+
+
+
+
+  // Relevant for the rendering
+    // Get the entire sentence with the matched words
+    // Get the area's that need to be collapsed
 
 });
 module.exports = router;
