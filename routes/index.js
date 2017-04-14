@@ -9,13 +9,17 @@ router.get('/', (req, res, next) => {
   const message = req.query.message || '';
   const hits = Hits.getFromSentence(message); // Get all the hits from the message!
   const messageWithHits = Hits.getInMessage(message, hits); // Get the sentance with hits to render them
-  const allPeople = People.getAll(hits);
-
-  console.log(allPeople);
-
+  console.log('DBDBDBDBDBDBDBDBDBD');
+  console.log(req.db);
 
 
-  res.render('index', {people: allPeople, message, buzzwords: messageWithHits});
+  // const allPeople = People.getAll(hits);
+
+  const matchedPeople = People.getMatched(hits);
+
+
+
+  res.render('index', {people: matchedPeople, message, buzzwords: messageWithHits});
 
 
 
