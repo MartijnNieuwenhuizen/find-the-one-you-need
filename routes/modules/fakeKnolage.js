@@ -4,12 +4,23 @@ module.exports = [
     areas: [
       {
         name: 'Front-end',
+        className: 'front-end',
         subArea: [
           {
             name: 'CSS',
             points: [
               {
                 name: 'CSS Grid',
+                hash: 'css-grid',
+              }
+            ]
+          },
+          {
+            name: 'HTML',
+            points: [
+              {
+                name: 'Progressive Enhancement',
+                hash: 'progressive-enhancement',
               }
             ]
           }
@@ -17,12 +28,14 @@ module.exports = [
       },
       {
         name: 'Design',
+        className: 'design',
         subArea: [
           {
             name: 'Programs',
             points: [
               {
                 name: 'Sketch',
+                hash: 'sketch',
               }
             ]
           }
@@ -47,12 +60,14 @@ module.exports = [
     areas: [
       {
         name: 'Front-end',
+        className: 'front-end',
         subArea: [
           {
             name: 'CSS',
             points: [
               {
                 name: 'CSS Grid',
+                hash: 'css-grid',
               }
             ]
           }
@@ -82,12 +97,23 @@ module.exports = [
     areas: [
       {
         name: 'Front-end',
+        className: 'front-end',
         subArea: [
           {
             name: 'CSS',
             points: [
               {
                 name: 'CSS Grid',
+                hash: 'css-grid',
+              }
+            ]
+          },
+          {
+            name: 'HTML',
+            points: [
+              {
+                name: 'Progressive Enhancement',
+                hash: 'progressive-enhancement',
               }
             ]
           }

@@ -1,0 +1,19 @@
+<dl class="sub-category">
+  <dt class="category--title"><%- subArea.name %></dt>
+
+  <% subArea.points.forEach(point => { %>
+    <dd class="category--item fed--tegniques" id="<%- point.hash %>">
+      <a href="#<%- point.hash %>" class="area--subtitle"><%- point.name %></a>
+      <div class="category--item-container">
+
+        <% if (area.name === 'Front-end') { %>
+          <p>here comes a data vis that matches Front-end</p>
+        <% } %>
+        <% if (area.name === 'Design') { %>
+          <p>here comes a data vis that matches Design</p>
+        <% } %>
+
+      </div>
+    </dd>
+  <% }); %>
+</dl>
