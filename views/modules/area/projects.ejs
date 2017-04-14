@@ -1,0 +1,11 @@
+<li class="knolage-areas--item area area-project">
+  <div class="area--title-container">
+    <h3 class="area--title">Projecten</h3>
+  </div>
+  <ul class="projects">
+    <% person.knolage.projects.forEach(project => { %>
+      <%- include ./project.ejs %>
+    <% }) %>
+  </ul>
+  <a href="#">Bekijk alle projecten waar <%- person.name.first %> aan heeft gewerkt</a>
+</li>

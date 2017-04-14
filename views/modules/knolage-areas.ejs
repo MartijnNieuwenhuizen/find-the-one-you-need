@@ -1,7 +1,13 @@
 <ul class="knolage-areas">
+
   <% person.knolage.areas.forEach(area => { %>
     <% if (area.name === 'Front-end') { %>
       <%- include ./area/front-end.ejs %>
     <% } %>
+    <% if (area.name === 'Design') { %>
+      <%- include ./area/design.ejs %>
+    <% } %>
   <% }) %>
+
+  <%- include ./area/projects.ejs %>
 </ul>

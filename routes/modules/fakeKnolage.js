@@ -15,6 +15,19 @@ module.exports = [
           }
         ]
       },
+      {
+        name: 'Design',
+        subArea: [
+          {
+            name: 'Programs',
+            points: [
+              {
+                name: 'Sketch',
+              }
+            ]
+          }
+        ]
+      }
     ],
     projects: [
       {
