@@ -73,6 +73,21 @@ module.exports = [
           }
         ]
       },
+      {
+        name: 'Design',
+        className: 'design',
+        subArea: [
+          {
+            name: 'Programs',
+            points: [
+              {
+                name: 'Sketch',
+                hash: 'sketch',
+              }
+            ]
+          }
+        ]
+      }
     ],
     projects: [
       {

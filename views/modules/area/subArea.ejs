@@ -7,10 +7,10 @@
       <div class="category--item-container">
 
         <% if (area.name === 'Front-end') { %>
-          <p>here comes a data vis that matches Front-end</p>
+          <%- include ./front-end.ejs %>
         <% } %>
         <% if (area.name === 'Design') { %>
-          <p>here comes a data vis that matches Design</p>
+          <%- include ./design.ejs %>
         <% } %>
 
       </div>
