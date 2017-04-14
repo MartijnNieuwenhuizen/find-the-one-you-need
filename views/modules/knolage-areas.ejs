@@ -1,7 +1,7 @@
 <ul class="knolage-areas">
-
-  <%# forEach Knolage area %>
-  <%- include ./area/projects.ejs %>
-  <%- include ./area/front-end.ejs %>
-  <%- include ./area/design.ejs %>
+  <% person.knolage.areas.forEach(area => { %>
+    <% if (area.name === 'Front-end') { %>
+      <%- include ./area/front-end.ejs %>
+    <% } %>
+  <% }) %>
 </ul>
