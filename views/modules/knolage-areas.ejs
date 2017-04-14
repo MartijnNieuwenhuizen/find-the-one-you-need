@@ -1,7 +1,36 @@
 <ul class="knolage-areas">
 
-  <%# forEach Knolage area %>
-  <%- include ./area/projects.ejs %>
-  <%- include ./area/front-end.ejs %>
-  <%- include ./area/design.ejs %>
+  <% person.knolage.areas.forEach(area => { %>
+    <li class="knolage-areas--item area area-<%- area.className %>">
+      <div class="area--title-container">
+        <h3 class="area--title"><%- area.name %></h3>
+      </div>
+
+      <% if (area.subArea) { %>
+        <div class="category fed">
+
+          <% area.subArea.forEach(subArea => { %>
+            <%- include ./area/subArea.ejs %>
+          <% }); %>
+
+          <a href="#">Bekijk alle <%- area.name %> Skills van <%- person.name.first %></a>
+        <div>
+      <% } %>
+    </li>
+  <% }); %>
+
+
+  <li class="knolage-areas--item area area-project">
+    <div class="area--title-container">
+      <h3 class="area--title">Projects</h3>
+    </div>
+
+    <ul class="projects">
+      <% person.knolage.projects.forEach(project => { %>
+        <%- include ./area/project.ejs %>
+      <% }) %>
+    </ul>
+
+    <a href="#">Bekijk alle projecten waar <%- person.name.first %> aan heeft gewerkt</a>
+  </li>
 </ul>

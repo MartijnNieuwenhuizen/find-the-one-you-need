@@ -2,7 +2,8 @@ module.exports = [
   {
     name: {
       first: 'Martijn',
-      last: 'Nieuwenhuizen'
+      last: 'Nieuwenhuizen',
+      full: 'Martijn Nieuwenhuizen'
     },
     role: 'Front-end Developer',
     location: 'Amsterdam',
@@ -12,7 +13,8 @@ module.exports = [
   {
     name: {
       first: 'Sandy',
-      last: 'Smith'
+      last: 'Smith',
+      full: 'Sandy Smith'
     },
     role: 'Front-end Developer',
     location: 'Eindhoven',
@@ -22,7 +24,8 @@ module.exports = [
   {
     name: {
       first: 'Bjurn',
-      last: 'Kuipers'
+      last: 'Kuipers',
+      full: 'Bjurn Kuipers'
     },
     role: 'Senior Front-end Developer',
     location: 'Hoorn',

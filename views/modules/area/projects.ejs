@@ -1,21 +1,11 @@
-<li class="knolage-areas--item area area-projects">
+<li class="knolage-areas--item area area-project">
   <div class="area--title-container">
-    <h3 class="area--title">[Projecten]</h3>
+    <h3 class="area--title">Projecten</h3>
   </div>
-
   <ul class="projects">
-    <li class="project">
-      <h4 class="project--title area--subtitle">[Nuon]</h4>
-      <p class="project--hours">[34] uur</p>
-
-      <dl class="project--activities">
-        <dt class="project--activities-title">Werkzaamheden</dt>
-        <dd class="project--activities-item">Login scherm</dd>
-        <dd class="project--activities-item">Chatbot Logica</dd>
-        <dd class="project--activities-item">Vertalingen</dd>
-        <dd class="project--activities-item">Footer 2.0</dd>
-      </dl>
-    </li>
+    <% person.knolage.projects.forEach(project => { %>
+      <%- include ./project.ejs %>
+    <% }) %>
   </ul>
-  <a href="#">Bekijk alle projecten waar [Joost] aan heeft gewerkt</a>
+  <a href="#">Bekijk alle projecten waar <%- person.name.first %> aan heeft gewerkt</a>
 </li>

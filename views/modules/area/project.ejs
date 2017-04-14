@@ -1,0 +1,12 @@
+<li class="project">
+  <h4 class="project--title area--subtitle"><%- project.name %></h4>
+  <% if (project.role) { %> <p class="project--role">Role: <%- project.role %></p> <% } %>
+
+  <% if (project.assignments) { %>
+    <dl class="project--activities">
+      <% project.assignments.forEach(assignment => { %>
+        <dt class="project--activities-title"><%- assignment %></dt>
+      <% }); %>
+    </dl>
+  <% } %>
+</li>

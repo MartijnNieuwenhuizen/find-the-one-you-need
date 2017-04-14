@@ -45,6 +45,7 @@ a {
   left: 50%;
   margin: 0;
   padding: 0;
+  white-space: nowrap;
   -webkit-transform: rotate(-90deg) translate(-50%, -50%);
   -ms-transform: rotate(-90deg) translate(-50%, -50%);
   transform: rotate(-90deg) translate(-50%, -50%);

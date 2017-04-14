@@ -4,9 +4,9 @@
   </div>
 
   <div class="personal--info">
-    <h2 class="personal--name">Joost van der Aards</h2>
-    <p class="personal--role">Front-end Developer</p>
+    <h2 class="personal--name"><%- person.name.full %></h2>
+    <p class="personal--role"><%- person.role %></p>
     <%# If person is on location, add the class to make the icon green %>
-    <p class="personal--location on-location">Amsterdam</p>
+    <p class="personal--location on-location"><%- person.location %></p>
   </div>
 </div>

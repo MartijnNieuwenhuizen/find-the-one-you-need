@@ -1,9 +1,9 @@
-<% if (locals.message.length) { %>
+<% if (people) { %>
   <section class="results">
     <ul class="results--list">
-      <%- include ./result.ejs %>
-      <%- include ./result.ejs %>
-      <%- include ./result.ejs %>
+      <% people.forEach(person => { %>
+        <%- include ./result.ejs %>
+      <% }) %>
     </ul>
   </section>
 <% } %>
