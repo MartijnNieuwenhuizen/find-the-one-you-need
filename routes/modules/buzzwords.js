@@ -18,7 +18,7 @@ class Buzzwords {
       return {
         word,
         match: true,
-        type: 'development' // @TODO: make this dynamic
+        type: 'front-end' // @TODO: make this dynamic
       };
     } else {
       return {

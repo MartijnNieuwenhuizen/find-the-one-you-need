@@ -1,54 +1,29 @@
-const fakeData = require('./fakedata');
+const fakePeople = require('./fakePeople');
+const fakeKnolage = require('./fakeKnolage');
 
-const people = {
-  getByBuzzwords: function(checkedBuzzwords) {
+class People {
+  static getByArea(areas) {
     return new Promise(function(resolve, reject) {
 
-      const matchTags = word => word.match === true;
-      const tags = checkedBuzzwords.filter(matchTags); // only get the matching tags
+      const _uniqueAreas = areas.uniqueAreas;
+      const _tags = areas.areas;
 
-      const filterUnique = (tag, i, arr) => arr.indexOf(tag) === i;
-      const uniqueTypes = tags
-        .map(tag => tag.type) // Get an array of all the types
-        .filter(filterUnique); // Filter only the unique types
+      console.log('_uniqueAreas: ', _uniqueAreas);
+      console.log('_tags: ', _tags);
 
 
-
-
-
-      // // Get all the peeps
-      // const peeps = fakeData;
+      // Get all the area's that need to be show with the people
+      // find the buzzwords in the area and give them an active class?
+      // const areas = Areas.filterAreas(words);
 
 
 
-
-      // function _isContains(json, value) {
-      //   let contains = false;
-      //   // Object.keys(json).some(key => {
-      //   //   contains = typeof json[key] === 'object' ?
-      //   //   _isContains(json[key], value) : json[key] === value;
-      //   //   return contains;
-      //   // });
-      //   return contains;
-      // }
-
-      // Filter only the relevant peeps
-      // peeps.filter((peep, i, arr) => {
-        // const bla = _isContains(peep, 'NodeJS');
-        // console.log('_isContains');
-        // console.log(bla);
-        // uniqueTypes.forEach(type => {
-        //
-        //   console.log(peep.tags.development);
-        // });
-      // });
-      // Reder these and indicate whitch types need to collaps
-
-
-      // resolve(person)
-      // reject('no matches');
+      // How to:
+      // Get all the tags from the search query
+      // Get all the relevant area's i need te search in
+      // Check if each person
     });
   }
-};
+}
 
-module.exports = people;
+module.exports = People;
