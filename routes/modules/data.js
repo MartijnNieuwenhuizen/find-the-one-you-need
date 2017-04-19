@@ -35,13 +35,11 @@ data.people = [
 
 data.tags = [
   {
-    _id: 345345,
     name: 'nodejs',
     type: 'knolage',
     people: [1, 2]
   },
   {
-    _id: 234921,
     name: 'nuon',
     type: 'project',
     people: [1]
