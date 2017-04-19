@@ -19,12 +19,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// Make a connection to the DB
+const db = require('monk')('localhost:1880');
+app.use((req,res,next) => {
+  req.db = db;
+  next();
+});
+
+
 const index = require('./routes/index');
 const error = require('./routes/error');
 
 app.use('/', index);
 app.use('/error', error);
 app.use('/404', error);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
