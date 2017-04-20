@@ -12,6 +12,7 @@ class People {
       const matches = [];
       people.find({})
         .each((person, {close, pause, resume}) => {
+          console.log('person: ',person);
           const personNeeded = peopleIds.includes(String(person._id));
           if ( personNeeded ) {
             matches.push(person);
@@ -23,31 +24,12 @@ class People {
     });
   }
 
-  static getMatched(hits, db) {
+  // Get all possible matches
+  static getAllMatched(hits, db) {
     return new Promise(function(resolve, reject) {
       const peopleIds = [];
       const tags = db.get('tags');
       const hitToSmallerCase = hits.map(hit => hit.name.toLowerCase());
-
-      // 58f0da01875ac759ff31f2ca
-      // 58f0da01875ac759ff31f2cb
-      // 58f0da01875ac759ff31f2cc
-
-      // nodejs
-      // es6
-
-      // tags.insert([
-      //   {
-      //     name: 'xml',
-      //     fullName: 'XML',
-      //     type: 'knolage',
-      //     category: 'front-end',
-      //     subCategory: 'js',
-      //     people: [ '58f0da01875ac759ff31f2ca' ]
-      //   }
-      // ]);
-
-
 
       tags.find({})
         .each((tag, {close, pause, resume}) => {
@@ -60,10 +42,55 @@ class People {
         .then(() => {
           const uniqueMatches = People.getUnique(peopleIds);
           const matchedPeople = People.getPeopleData(uniqueMatches, db);
-          matchedPeople
-            .then(people => {
-              resolve(people);
-            });
+          matchedPeople.then(people => {
+            resolve(people);
+          });
+        });
+    });
+  }
+
+  // Get all people who match all the tags
+  static getMatched(hits, db) {
+    return new Promise(function(resolve, reject) {
+      const peopleIds = [];
+      const tags = db.get('tags');
+      const hitToSmallerCase = hits.map(hit => hit.name.toLowerCase());
+
+      const begin = [];
+      tags.find({})
+        .each((tag, {close, pause, resume}) => {
+          const match = hitToSmallerCase.includes(tag.name);
+          if (match) {
+            peopleIds.push(...tag.people);
+            resume();
+          }
+        })
+        .then(() => {
+          const uniqueMatches = People.getUnique(peopleIds);
+          const topMatches = uniqueMatches
+            .map(personalId => {
+              const count = peopleIds.filter(id => personalId === id);
+              return {
+                id: personalId,
+                count: count.length
+              };
+            })
+            .sort((person, prev) => { if ( person.count < prev.count ) { return -1; }})
+            .filter(person => {
+              if (person.count === hits.length) {
+                return true;
+              }
+            })
+            .map(person => person.id);
+
+          if (topMatches.length === 0) {
+            console.log('nooooooooooooo');
+          }
+
+          const matchedPeople = People.getPeopleData(topMatches, db);
+          matchedPeople.then(people => {
+            resolve(people);
+          });
         });
     });
   }
@@ -114,7 +141,7 @@ class People {
         .then(() => {
           // reorder the knolage points
           people.forEach(person => {
-            person.knolage = People.reorderKnolage(person.knolage);
+            person.knolage = People.attachKnolage(person.knolage);
           });
 
           resolve(people);
@@ -134,7 +161,7 @@ class People {
     });
   }
 
-  static reorderKnolage(knolage) {
+  static attachKnolage(knolage) {
     const _knolage = knolage;
     const filterUnique = (tag, i, arr) => arr.indexOf(tag) === i;
 
@@ -223,6 +250,25 @@ class People {
   //     return person;
   //   });
   // }
+
+
+        // 58f0da01875ac759ff31f2ca
+        // 58f0da01875ac759ff31f2cb
+        // 58f0da01875ac759ff31f2cc
+
+        // nodejs
+        // es6
+
+        // tags.insert([
+        //   {
+        //     name: 'xml',
+        //     fullName: 'XML',
+        //     type: 'knolage',
+        //     category: 'front-end',
+        //     subCategory: 'js',
+        //     people: [ '58f0da01875ac759ff31f2ca' ]
+        //   }
+        // ]);
 
 }
 

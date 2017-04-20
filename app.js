@@ -22,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Make a connection to the DB
 const db = require('monk')('localhost:1880');
+
 app.use((req,res,next) => {
   req.db = db;
   next();
