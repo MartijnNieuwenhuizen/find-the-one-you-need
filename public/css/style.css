@@ -307,7 +307,7 @@ a {
   padding-left: 1.28rem;
   padding-right: 1.28rem;
   box-sizing: border-box;
-  margin-bottom: 3.5rem;
+  margin-bottom: 6.5rem;
 }
 
 @media (min-width: 71.31rem) {
@@ -499,6 +499,10 @@ a {
   display: inline-block;
   margin: 0 .8rem 1rem .8rem;
   list-style-type: none;
+}
+
+.see-more {
+  font-size: 10px;
 }
 
 .sub-category {
