@@ -8,17 +8,16 @@ router.get('/', (req, res, next) => {
   const db = req.db;
 
   const message = req.query.message || '';
-  const hits = Hits.getFromSentence(message); // Get all the hits from the message!
-  const messageWithHits = Hits.getInMessage(message, hits); // Get the sentance with hits to render them
+  const hitsInSentance = Hits.getFromSentence(message, db); // Get all the hits from the message!
 
+  const messageWithHits = hitsInSentance.then(hitss => Hits.reconstructSentance(message, hitss)); // Get the sentance with hits to render them
+  const matchedPeople = hitsInSentance.then(hitss => People.getMatched(hitss, db));
 
-  // const allPeople = People.getAll(hits);
-  const matchedPeople = People.getMatched(hits, db);
   const people = matchedPeople.then(peopleData => People.getAllData(peopleData, db));
 
-  Promise.all([people])
-    .then(([peopleRender]) => {
-      res.render('index', { people: peopleRender, message, buzzwords: messageWithHits });
+  Promise.all([people, messageWithHits])
+    .then(([peopleRender, buzzwordMessage]) => {
+      res.render('index', { people: peopleRender, message, buzzwords: buzzwordMessage });
     });
 
   // Relevant for the rendering
