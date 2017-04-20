@@ -176,7 +176,8 @@ a {
   }
 }
 
-.category--item {
+.category--item,
+.project {
   margin: .05rem 0;
   padding: 0.75rem 0.625rem;
   background-color: #ededed;
@@ -462,6 +463,15 @@ a {
   display: inline-block;
   margin-right: .3rem;
   background-color: #000;
+}
+
+.projects {
+  margin: 0;
+  padding: 0;
+}
+
+.projects li {
+  list-style-type: none;
 }
 
 .results--list {
