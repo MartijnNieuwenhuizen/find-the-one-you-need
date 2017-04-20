@@ -27,7 +27,7 @@ class People {
     return new Promise(function(resolve, reject) {
       const peopleIds = [];
       const tags = db.get('tags');
-      const hitToSmallerCase = hits.map(hit => hit.toLowerCase());
+      const hitToSmallerCase = hits.map(hit => hit.name.toLowerCase());
 
       // 58f0da01875ac759ff31f2ca
       // 58f0da01875ac759ff31f2cb
@@ -199,9 +199,6 @@ class People {
         name: knolagePoint.name,
         hash: knolagePoint.name
       });
-
-      console.log(newKnolage);
-
     });
 
     return newKnolage;

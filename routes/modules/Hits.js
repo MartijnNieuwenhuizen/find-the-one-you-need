@@ -1,43 +1,59 @@
-const fakeHitWords = ['nodeJS', 'javascript', 'Nuon', 'KLM', 'SASS', 'ES6'];
+// const fakeHitWords = ['nodeJS', 'javascript', 'Nuon', 'KLM', 'SASS', 'ES6'];
 
 class Hits {
-  static getFromSentence(sentence) {
-    const sentenceArray = sentence.split(' ');
-    const hits = Hits.match(sentenceArray);
+  static getFromSentence(sentence, db) {
+    return new Promise(function(resolve, reject) {
+      const sentenceArray = sentence.split(' ');
+      const lowerCaseSentance = sentenceArray.map(word => word.toLowerCase());
+      const hits = Hits.match(lowerCaseSentance, db);
 
-    return hits;
-  }
-
-  static match(sentenceArray) {
-    return fakeHitWords.filter(possibleHit => {
-      let isHit = false;
-
-      sentenceArray.forEach(word => {
-        if ( possibleHit.toUpperCase() === word.toUpperCase() ) { isHit = true; }
+      hits.then(result => {
+        resolve(result);
       });
-
-      return isHit;
     });
   }
 
-  static getInMessage(sentence, hits) {
+  static match(sentenceArray, db) {
+    return new Promise(function(resolve, reject) {
+      const tags = db.get('tags');
+      const matches = [];
+
+      tags.find({})
+        .each((tag, {close, pause, resume}) => {
+          const match = sentenceArray.includes(tag.name);
+          if (match) {
+            const type = tag.category ? tag.category : tag.type;
+
+            matches.push({
+              name: tag.name,
+              type: type
+            });
+          }
+        })
+        .then(() => {
+          resolve(matches);
+        });
+    });
+  }
+
+  static reconstructSentance(sentence, hits) {
     const sentenceArray = sentence.split(' ');
 
     const sentenceWithHits = sentenceArray.map(word => {
       let isHit = false;
+      let type;
       hits.forEach(hit => {
-        if ( word.toUpperCase() === hit.toUpperCase() ) { isHit = true; }
+        if ( word.toLowerCase() === hit.name.toLowerCase() ) {
+          isHit = true;
+          type = hit.type;
+        }
       });
 
       if (isHit) {
-        let type = 'front-end';
-        if (word === 'Nuon' || word === 'KLM') {
-          type = 'project';
-        }
         return {
           word,
           match: true,
-          type: type // @TODO: make this dynamic
+          type: type
         };
       } else {
         return {
@@ -46,7 +62,6 @@ class Hits {
         };
       }
     });
-
     return sentenceWithHits;
   }
 }
