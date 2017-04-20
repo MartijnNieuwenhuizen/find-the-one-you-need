@@ -29,4 +29,30 @@
     @include reset-link;
     @include area-subtitle;
   }
+
+  &--front-end {
+    .area--title-container {
+      @extend .match--front-end;
+    }
+    .category--title {
+      $background-color: map-get($front-end, 'med');
+      color: get-text-color($background-color);
+
+      background-color: $background-color;
+      background: linear-gradient( 45deg, $background-color, lighten($background-color, 10%) );
+    }
+  }
+
+  &--design {
+    .area--title-container {
+      @extend .match--design;
+    }
+    .category--title {
+      $background-color: map-get($design, 'med');
+      color: get-text-color($background-color);
+
+      background-color: $background-color;
+      background: linear-gradient( 45deg, $background-color, lighten($background-color, 10%) );
+    }
+  }
 }

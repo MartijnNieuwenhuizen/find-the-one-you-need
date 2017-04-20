@@ -1,13 +1,13 @@
 <ul class="knolage-areas">
   <% if (person.knolage.length)  { %>
     <% person.knolage.forEach(area => { %>
-      <li class="knolage-areas--item area area-<%- area.className %>">
-        <div class="area--title-container match--<%- area.name %>">
+      <li class="knolage-areas--item area area--<%- area.name %>">
+        <div class="area--title-container">
           <h3 class="area--title"><%- area.name %></h3>
         </div>
 
         <% if (area.subArea) { %>
-          <div class="category fed">
+          <div class="category">
 
             <% area.subArea.forEach(subArea => { %>
               <%- include ./area/subArea.ejs %>

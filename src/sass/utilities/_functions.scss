@@ -1,0 +1,7 @@
+@function get-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return $text;
+  } @else {
+    @return $white;
+  }
+}
