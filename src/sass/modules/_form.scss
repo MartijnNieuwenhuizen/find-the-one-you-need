@@ -19,6 +19,7 @@
     width: 100%;
 
     @include category-title;
+    text-transform: none;
   }
 
   &--input {
