@@ -8,7 +8,34 @@ $text:            $black;
 $input-bg:        $light-gray;
 
 $brand-primary:   #98C220;
-$front-end:       #98C220;
+
+$front-end: (
+  dark:    #F5A623,
+  med:     #F3B55B,
+  light:   #EFC27F,
+  lighter: #F3D8B2
+);
+
+$project: (
+  dark:    #66C2E8,
+  med:     #84CBE7,
+  light:   #99CEE3,
+  lighter: #B6DAE8
+);
+
+$design: (
+  dark:    #47AB8B,
+  med:     #56B498,
+  light:   #67C2A9,
+  lighter: #88D3C0
+);
+
+$back-end: (
+  dark:    #CE6121,
+  med:     #CD7040,
+  light:   #CD7952,
+  lighter: #D39379
+);
 
 
 // Fonts-sizes
