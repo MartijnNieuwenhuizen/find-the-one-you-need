@@ -65,7 +65,6 @@ class People {
           }
         })
         .then(() => {
-          console.log('peopleIds: ', peopleIds);
           const uniqueMatches = People.getUnique(peopleIds);
           const topMatches = uniqueMatches
             .map(personalId => {
@@ -76,13 +75,12 @@ class People {
               };
             })
             .sort((person, prev) => { if ( person.count < prev.count ) { return -1; }})
-            .map(person => {
+            .filter(person => {
               if (person.count === hits.length) {
-                return person.id;
+                return true;
               }
-            });
-
-            console.log('topMatches: ', topMatches);
+            })
+            .map(person => person.id);
 
           const matchedPeople = People.getPeopleData(topMatches, db);
           matchedPeople.then(people => {
