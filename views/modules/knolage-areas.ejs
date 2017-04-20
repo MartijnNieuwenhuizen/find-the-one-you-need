@@ -1,19 +1,19 @@
 <ul class="knolage-areas">
   <% if (person.knolage.length)  { %>
     <% person.knolage.forEach(area => { %>
-      <li class="knolage-areas--item area area-<%- area.className %>">
+      <li class="knolage-areas--item area area--<%- area.name %>">
         <div class="area--title-container">
           <h3 class="area--title"><%- area.name %></h3>
         </div>
 
         <% if (area.subArea) { %>
-          <div class="category fed">
+          <div class="category">
 
             <% area.subArea.forEach(subArea => { %>
               <%- include ./area/subArea.ejs %>
             <% }); %>
 
-            <a href="#">Bekijk alle <%- area.name %> Skills van <%- person.name.first %></a>
+            <a href="#" class="see-more">Bekijk alle <%- area.name %> Skills van <%- person.name.first %></a>
           <div>
         <% } %>
       </li>
@@ -22,7 +22,7 @@
 
   <% if (person.project.length)  { %>
     <li class="knolage-areas--item area area-project">
-      <div class="area--title-container">
+      <div class="area--title-container match--project">
         <h3 class="area--title">Projects</h3>
       </div>
 
@@ -32,7 +32,7 @@
         <% }) %>
       </ul>
 
-      <a href="#">Bekijk alle projecten waar <%- person.name.first %> aan heeft gewerkt</a>
+      <a href="#" class="see-more">Bekijk alle projecten waar <%- person.name.first %> aan heeft gewerkt</a>
     </li>
 
   <% } %>

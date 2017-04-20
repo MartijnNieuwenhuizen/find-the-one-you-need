@@ -13,9 +13,36 @@ body {
 }
 
 body {
-  font-size: 1em;
-  line-height: 1;
-  font-family: "Helvetica", serif;
+  font-family: "Roboto", serif;
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "kern" on;
+  font-feature-settings: "kern" on;
+}
+
+body {
+  font-size: 1rem;
+}
+
+@media (min-width: 800px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  body {
+    font-size: 1rem;
+  }
 }
 
 img {
@@ -34,9 +61,11 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #bababa;
   width: 2.6875rem;
   height: 100%;
+  background-color: #bababa;
+  border-top-left-radius: 0.7rem;
+  border-bottom-left-radius: 0.7rem;
 }
 
 .area--title {
@@ -46,6 +75,9 @@ a {
   margin: 0;
   padding: 0;
   white-space: nowrap;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: .05rem;
   -webkit-transform: rotate(-90deg) translate(-50%, -50%);
   -ms-transform: rotate(-90deg) translate(-50%, -50%);
   transform: rotate(-90deg) translate(-50%, -50%);
@@ -54,8 +86,72 @@ a {
   transform-origin: 0 0;
 }
 
+.area--title {
+  font-size: 1rem;
+}
+
+@media (min-width: 800px) {
+  .area--title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .area--title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .area--title {
+    font-size: 1.375rem;
+  }
+}
+
 .area--subtitle {
   margin: 0;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: .05rem;
+}
+
+.area--subtitle {
+  font-size: 1rem;
+}
+
+@media (min-width: 800px) {
+  .area--subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .area--subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .area--subtitle {
+    font-size: 1.375rem;
+  }
+}
+
+.area--front-end .category--title {
+  color: #000;
+  background-color: #F3B55B;
+  background: -webkit-linear-gradient(45deg, #F3B55B, #f6ca8b);
+  background: linear-gradient(45deg, #F3B55B, #f6ca8b);
+}
+
+.area--design .category--title {
+  color: #000;
+  background-color: #56B498;
+  background: -webkit-linear-gradient(45deg, #56B498, #79c4ae);
+  background: linear-gradient(45deg, #56B498, #79c4ae);
 }
 
 .category {
@@ -69,11 +165,38 @@ a {
 
 .category--title {
   background-color: lightgray;
+  padding: 0.3rem 0.625rem;
+  font-weight: 400;
+  text-transform: capitalize;
 }
 
-.category--item {
-  background-color: #ededed;
+.category--title {
+  font-size: 1rem;
+}
+
+@media (min-width: 800px) {
+  .category--title {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .category--title {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .category--title {
+    font-size: 1rem;
+  }
+}
+
+.category--item,
+.project {
   margin: .05rem 0;
+  padding: 0.75rem 0.625rem;
+  background-color: #FBFBFB;
 }
 
 .category--item-container {
@@ -108,6 +231,35 @@ a {
   top: 0;
   left: 0;
   width: 100%;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-transform: none;
+}
+
+.form--input,
+.form--buzzwords {
+  font-size: 1rem;
+}
+
+@media (min-width: 800px) {
+  .form--input,
+  .form--buzzwords {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .form--input,
+  .form--buzzwords {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .form--input,
+  .form--buzzwords {
+    font-size: 1rem;
+  }
 }
 
 .form--input {
@@ -161,8 +313,9 @@ a {
 }
 
 .knolage-areas--item {
-  margin-bottom: .625rem;
-  padding: 1rem 1rem 1rem 2.6875rem;
+  min-height: 9rem;
+  margin-bottom: 1.25rem;
+  padding: 0 1rem 0 2.6875rem;
 }
 
 .layout--header {
@@ -171,7 +324,7 @@ a {
   padding-left: 1.28rem;
   padding-right: 1.28rem;
   box-sizing: border-box;
-  margin-bottom: 3.5rem;
+  margin-bottom: 6.5rem;
 }
 
 @media (min-width: 71.31rem) {
@@ -191,9 +344,21 @@ a {
   padding: .3rem .7rem;
 }
 
-.match--front-end {
-  color: white;
-  background-color: tomato;
+.match--front-end,
+.area--front-end .area--title-container {
+  color: #000;
+  background-color: #F5A623;
+}
+
+.match--project {
+  color: #000;
+  background-color: #66C2E8;
+}
+
+.match--design,
+.area--design .area--title-container {
+  color: #fff;
+  background-color: #47AB8B;
 }
 
 .personal {
@@ -210,91 +375,108 @@ a {
 }
 
 .personal--img-container {
-  width: 9.375rem;
-  height: 9.375rem;
+  width: 6.875rem;
+  height: 6.875rem;
   display: inline-block;
+  overflow: hidden;
 }
 
 .personal--img {
   width: 100%;
-  height: 100%;
   background-color: #ededed;
   border: 0;
 }
 
 .personal--info {
   display: inline-block;
-  width: 8rem;
   margin-left: .4rem;
 }
 
 .personal--name {
-  font-size: 0.9375rem;
+  font-family: "Roboto", serif;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0;
+}
+
+.personal--name {
+  font-size: 1rem;
 }
 
 @media (min-width: 800px) {
   .personal--name {
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 }
 
 @media (min-width: 1000px) {
   .personal--name {
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 }
 
 @media (min-width: 1300px) {
   .personal--name {
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 }
 
 .personal--role {
-  font-size: 0.9375rem;
+  font-family: "Roboto", serif;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0;
+}
+
+.personal--role {
+  font-size: 1rem;
 }
 
 @media (min-width: 800px) {
   .personal--role {
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 }
 
 @media (min-width: 1000px) {
   .personal--role {
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 }
 
 @media (min-width: 1300px) {
   .personal--role {
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 }
 
 .personal--location {
   display: inline-block;
+  font-family: "Roboto", serif;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0;
 }
 
 .personal--location {
-  font-size: 0.9375rem;
+  font-size: 1rem;
 }
 
 @media (min-width: 800px) {
   .personal--location {
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 }
 
 @media (min-width: 1000px) {
   .personal--location {
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 }
 
 @media (min-width: 1300px) {
   .personal--location {
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 }
 
@@ -305,6 +487,15 @@ a {
   display: inline-block;
   margin-right: .3rem;
   background-color: #000;
+}
+
+.projects {
+  margin: 0;
+  padding: 0;
+}
+
+.projects li {
+  list-style-type: none;
 }
 
 .results--list {
@@ -332,6 +523,10 @@ a {
   display: inline-block;
   margin: 0 .8rem 1rem .8rem;
   list-style-type: none;
+}
+
+.see-more {
+  font-size: 10px;
 }
 
 .sub-category {

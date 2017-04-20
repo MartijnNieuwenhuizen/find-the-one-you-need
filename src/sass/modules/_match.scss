@@ -6,6 +6,20 @@
 }
 
 .match--front-end {
-  color: white;
-  background-color: tomato;
+  $background-color: map-get($front-end, 'dark');
+
+  color: get-text-color($background-color);
+  background-color: $background-color;
+}
+.match--project {
+  $background-color: map-get($project, 'dark');
+
+  color: get-text-color($background-color);
+  background-color: $background-color;
+}
+.match--design {
+  $background-color: map-get($design, 'dark');
+
+  color: get-text-color($background-color);
+  background-color: $background-color;
 }

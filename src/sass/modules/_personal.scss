@@ -7,31 +7,33 @@
   // border: 1px solid lime;
 
   &--img-container {
-    width: 9.375rem; height: 9.375rem;
+    width: 6.875rem; height: 6.875rem;
     display: inline-block;
+    overflow: hidden;
   }
   &--img {
     width: 100%;
-    height: 100%; // Purely dev purposes
     background-color: lighten($gray, 10%);
     border: 0;
   }
 
   &--info {
     display: inline-block;
-    width: 8rem;
     margin-left: .4rem;
   }
 
   &--name {
-    @include adjust($personal-font-size);
+    @include baseFont;
+    margin: 0;
   }
   &--role {
-    @include adjust($personal-font-size);
+    @include baseFont;
+    margin: 0;
   }
   &--location {
     display: inline-block;
-    @include adjust($personal-font-size);
+    @include baseFont;
+    margin: 0;
 
     &:before {
       content: "";
