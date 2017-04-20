@@ -1,6 +1,10 @@
 <div class="result--personal personal">
   <div class="personal--img-container">
-    <img class="personal--img" src="https://www.runscope.com/static/img/public/customer-portrait-human-api.png" alt="Een foto van [Joost]">
+    <%
+      let imgName = `${person.name.first}_${person.name.last}_${person.location}`;
+      imgName = imgName.toLowerCase();
+    %>
+    <img class="personal--img" src="./img/people/<%- imgName %>.jpg" alt="Een foto van <%- person.name.full %>">
   </div>
 
   <div class="personal--info">

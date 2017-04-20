@@ -12,6 +12,7 @@ class People {
       const matches = [];
       people.find({})
         .each((person, {close, pause, resume}) => {
+          console.log('person: ',person);
           const personNeeded = peopleIds.includes(String(person._id));
           if ( personNeeded ) {
             matches.push(person);
@@ -81,6 +82,10 @@ class People {
               }
             })
             .map(person => person.id);
+
+          if (topMatches.length === 0) {
+            console.log('nooooooooooooo');
+          }
 
           const matchedPeople = People.getPeopleData(topMatches, db);
           matchedPeople.then(people => {
