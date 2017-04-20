@@ -29,6 +29,26 @@ class People {
       const tags = db.get('tags');
       const hitToSmallerCase = hits.map(hit => hit.toLowerCase());
 
+      // 58f0da01875ac759ff31f2ca
+      // 58f0da01875ac759ff31f2cb
+      // 58f0da01875ac759ff31f2cc
+
+      // nodejs
+      // es6
+
+      // tags.insert([
+      //   {
+      //     name: 'xml',
+      //     fullName: 'XML',
+      //     type: 'knolage',
+      //     category: 'front-end',
+      //     subCategory: 'js',
+      //     people: [ '58f0da01875ac759ff31f2ca' ]
+      //   }
+      // ]);
+
+
+
       tags.find({})
         .each((tag, {close, pause, resume}) => {
           const match = hitToSmallerCase.includes(tag.name);

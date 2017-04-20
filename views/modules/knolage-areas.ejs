@@ -2,7 +2,7 @@
   <% if (person.knolage.length)  { %>
     <% person.knolage.forEach(area => { %>
       <li class="knolage-areas--item area area-<%- area.className %>">
-        <div class="area--title-container">
+        <div class="area--title-container match--<%- area.name %>">
           <h3 class="area--title"><%- area.name %></h3>
         </div>
 
@@ -22,7 +22,7 @@
 
   <% if (person.project.length)  { %>
     <li class="knolage-areas--item area area-project">
-      <div class="area--title-container">
+      <div class="area--title-container match--project">
         <h3 class="area--title">Projects</h3>
       </div>
 

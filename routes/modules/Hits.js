@@ -30,10 +30,14 @@ class Hits {
       });
 
       if (isHit) {
+        let type = 'front-end';
+        if (word === 'Nuon' || word === 'KLM') {
+          type = 'project';
+        }
         return {
           word,
           match: true,
-          type: 'front-end' // @TODO: make this dynamic
+          type: type // @TODO: make this dynamic
         };
       } else {
         return {

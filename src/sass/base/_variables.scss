@@ -1,31 +1,53 @@
 // Colors
-$black:       #000;
-$white:       #fff;
-$gray:        lightgray;
-$light-gray:  #F7F7F7;
+$black:           #000;
+$white:           #fff;
+$gray:            lightgray;
+$light-gray:      #F7F7F7;
 
-$text:        $black;
+$text:            $black;
+$input-bg:        $light-gray;
 
-$input-bg: $light-gray;
+$brand-primary:   #98C220;
+$front-end:       #98C220;
+
 
 // Fonts-sizes
 $base-font-size: (
   xs: 1rem,
-  sm: 1.1rem,
-  md: 1.125rem,
-  lg: 1.125rem   // 18px
+  sm: 1rem,
+  md: 1rem,
+  lg: 1rem   // 16px
 );
 
-$personal-font-size: (
-  xs: .9375rem,
-  sm: .9375rem,
-  md: .9375rem,
-  lg: .9375rem   // 15px
+$personal-font-size: $base-font-size;
+
+$subTitle: (
+  xs: 1rem,
+  sm: 1.1rem,
+  md: 1.2rem,
+  lg: 1.375rem   // 22px
 );
+
+$mainTitle: (
+  xs: 1.6rem,
+  sm: 1.8rem,
+  md: 2rem,
+  lg: 2rem   // 32px
+);
+
+
+
+
+
+
+
+
+
+
 
 // Fonts
 $serif: "Times", sans-serif;
-$sans-serif: "Helvetica", serif;
+$sans-serif: "Roboto", serif;
 
 $base-font: $sans-serif;
 
@@ -43,6 +65,8 @@ $double-gutter:  $gutter * 2; // 40px
 
   // cards
   $card-label-width: 2.6875rem;
+
+  $area-padding: .625rem;
 
 // Global used breakpoints
   // Layout

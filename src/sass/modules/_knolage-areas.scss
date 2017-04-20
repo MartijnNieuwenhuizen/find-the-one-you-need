@@ -3,7 +3,9 @@
   list-style-type: none;
 
   &--item {
+    min-height: 9rem;
+
     margin-bottom: .625rem;
-    padding: 1rem 1rem 1rem $card-label-width;
+    padding: 0 1rem 0 $card-label-width;
   }
 }
