@@ -99,3 +99,33 @@
     }
   }
 }
+
+// Add all the Area colors to the area according to the type
+@mixin set-type-color($map, $name) {
+  $background-color: map-get($map, "med");
+
+  .area--title-container {
+    @extend .match--#{$name};
+  }
+  .category--title {
+    color: get-text-color($background-color);
+
+    background-color: $background-color;
+    background: linear-gradient( 45deg, $background-color, lighten($background-color, 10%) );
+  }
+
+  .see-more {
+    color: get-text-color($background-color);
+  }
+  .see-more--color {
+    &:nth-of-type(1) {
+      background-color: map-get($map, "med");
+    }
+    &:nth-of-type(2) {
+      background-color: map-get($map, "light");
+    }
+    &:nth-of-type(3) {
+      background-color: map-get($map, "lighter");
+    }
+  }
+}

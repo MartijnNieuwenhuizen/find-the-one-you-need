@@ -13,7 +13,10 @@
               <%- include ./area/subArea.ejs %>
             <% }); %>
 
-            <a href="#" class="see-more">Bekijk alle <%- area.name %> Skills van <%- person.name.first %></a>
+            <a href="#" class="see-more">
+              <span class="see-more--color"></span><span class="see-more--color"></span><span class="see-more--color"></span>
+              <span class="see-more--text">Bekijk alle <%- area.name %> Skills van <%- person.name.first %></span>
+            </a>
           <div>
         <% } %>
       </li>
@@ -32,7 +35,10 @@
         <% }) %>
       </ul>
 
-      <a href="#" class="see-more">Bekijk alle projecten waar <%- person.name.first %> aan heeft gewerkt</a>
+      <a href="#" class="see-more">
+        <span class="see-more--color"></span><span class="see-more--color"></span><span class="see-more--color"></span>
+        <span class="see-more--text">Bekijk alle projecten waar <%- person.name.first %> aan heeft gewerkt</span>
+      </a>
     </li>
 
   <% } %>
