@@ -21,6 +21,13 @@
     overflow: hidden;
   }
 
+  &--hide {
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    background-color: rgba(black, .4);
+  }
+
   #layout:target {
     .category--item-container {
       height: auto;

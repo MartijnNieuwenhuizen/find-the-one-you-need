@@ -32,9 +32,48 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4 }], 2: [function (require, module, exports) {
     var areas = {
       openRelevant: function openRelevant(categories) {
-        // .area--subtitle --> hash
-        var relevantAreas = document.querySelectorAll('.area--subtitle');
-        console.log('relevantAreas: ', relevantAreas);
+
+        var tags = areas.getTags();
+        var tagsArray = tags.map(function (tag) {
+          return tag.innerHTML.toLowerCase();
+        });
+
+        var relevantAreas = tagsArray.map(function (tag) {
+          return Array.from(document.querySelectorAll("#" + tag));
+        }).reduce(function (a, b) {
+          return a.concat(b);
+        });
+
+        var allAreas = Array.from(document.querySelectorAll('.category--item'));
+        allAreas.forEach(function (area) {
+          area.classList.add('category--hide');
+        });
+
+        relevantAreas.forEach(function (area) {
+          area.classList.remove('category--hide');
+          area.classList.add('pannel-open');
+        });
+
+        var subCategories = Array.from(document.querySelectorAll('.sub-category'));
+        var subCategoriesNeedClose = subCategories.filter(function (subCategory) {
+          var checker = true;
+          var items = subCategory.querySelectorAll('.category--item');
+          items.forEach(function (item) {
+            if (!item.classList.contains('category--hide')) {
+              checker = false;
+            }
+          });
+          return checker;
+        });
+
+        subCategoriesNeedClose.forEach(function (subCategory) {
+          console.log('subCategory: ', subCategory);
+          subCategory.querySelector('.category--title').classList.add('category--hide');
+        });
+      },
+
+      getTags: function getTags() {
+        return Array.from(document.querySelectorAll('.buzzwords span'));
       }
     };
 
