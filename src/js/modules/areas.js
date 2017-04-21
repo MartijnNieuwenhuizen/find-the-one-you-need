@@ -1,50 +1,45 @@
-const areas = {
-  openRelevant: (categories) => {
+const areaPannels = {
 
-    const tags = areas.getTags();
-    const tagsArray = tags.map(tag => {
-      return tag.innerHTML.toLowerCase();
-    });
-
-    const relevantAreas = tagsArray
-      .map(tag => Array.from(document.querySelectorAll(`#${tag}`)))
-      .reduce((a, b) => a.concat(b) );
-
-
-    const allAreas = Array.from(document.querySelectorAll('.category--item'));
-    allAreas.forEach(area => {
-      area.classList.add('category--hide');
-    });
-
-    relevantAreas.forEach(area => {
-      area.classList.remove('category--hide');
-      area.classList.add('pannel-open');
-    });
-
-    const subCategories = Array.from(document.querySelectorAll('.sub-category'));
-    const subCategoriesNeedClose = subCategories.filter(subCategory => {
-      let checker = true;
-      const items = subCategory.querySelectorAll('.category--item');
-      items.forEach(item => {
-        if (!item.classList.contains('category--hide')) {
-          checker = false;
-        }
-      });
-      return checker;
-    });
-
-    subCategoriesNeedClose.forEach(subCategory => {
-      console.log('subCategory: ', subCategory);
-      subCategory.querySelector('.category--title').classList.add('category--hide');
-    });
-
-
-
+  openRelevant: () => {
+    const tags = areaPannels.getTags();
+    const areas = areaPannels.getAreasFromTags(tags);
+    areaPannels.showRelevant(areas);
   },
 
   getTags: () => {
     return Array.from(document.querySelectorAll('.buzzwords span'));
   },
+
+  getAreasFromTags: (tags) => {
+    const areas = tags.map(area => {
+      const classes = area.className.split(' ');
+      const areaClasse = classes.filter(className => className.indexOf('--') >= 0).join('');
+      const breakIndex = areaClasse.indexOf('--') + 2;
+      const areaName = areaClasse.slice(breakIndex);
+
+      return areaName;
+    });
+
+    return areas;
+  },
+
+  showRelevant: (areas) => {
+    areaPannels.hideAll();
+
+    areas.forEach(areaName => {
+      const htmlArea = Array.from(document.querySelectorAll(`.area--${areaName}`));
+      htmlArea.forEach(area => {
+        area.classList.remove('area--hide');
+      });
+    });
+  },
+
+  hideAll: () => {
+    const allAreas = Array.from(document.querySelectorAll('.area'));
+    allAreas.forEach(area => {
+      area.classList.add('area--hide');
+    });
+  }
 };
 
-module.exports = areas;
+module.exports = areaPannels;

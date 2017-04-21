@@ -4,9 +4,9 @@ if (document.querySelector('.category')) {
 }
 
 if (document.querySelector('.result')) {
-  const categoriePanels = require('./modules/categories');
   const areas = require('./modules/areas');
+  const categories = require('./modules/categories');
 
-  const categories = categoriePanels.openRelevant();
-  areas.openRelevant(categories);
+  areas.openRelevant();
+  categories.openRelevant();
 }

@@ -23,35 +23,83 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 
     if (document.querySelector('.result')) {
-      var categoriePanels = require('./modules/categories');
       var areas = require('./modules/areas');
+      var categories = require('./modules/categories');
 
-      var categories = categoriePanels.openRelevant();
-      areas.openRelevant(categories);
+      areas.openRelevant();
+      categories.openRelevant();
     }
   }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4 }], 2: [function (require, module, exports) {
-    var areas = {
-      openRelevant: function openRelevant(categories) {
+    var areaPannels = {
 
-        var tags = areas.getTags();
+      openRelevant: function openRelevant() {
+        var tags = areaPannels.getTags();
+        var areas = areaPannels.getAreasFromTags(tags);
+        areaPannels.showRelevant(areas);
+      },
+
+      getTags: function getTags() {
+        return Array.from(document.querySelectorAll('.buzzwords span'));
+      },
+
+      getAreasFromTags: function getAreasFromTags(tags) {
+        var areas = tags.map(function (area) {
+          var classes = area.className.split(' ');
+          var areaClasse = classes.filter(function (className) {
+            return className.indexOf('--') >= 0;
+          }).join('');
+          var breakIndex = areaClasse.indexOf('--') + 2;
+          var areaName = areaClasse.slice(breakIndex);
+
+          return areaName;
+        });
+
+        return areas;
+      },
+
+      showRelevant: function showRelevant(areas) {
+        areaPannels.hideAll();
+
+        areas.forEach(function (areaName) {
+          var htmlArea = Array.from(document.querySelectorAll(".area--" + areaName));
+          htmlArea.forEach(function (area) {
+            area.classList.remove('area--hide');
+          });
+        });
+      },
+
+      hideAll: function hideAll() {
+        var allAreas = Array.from(document.querySelectorAll('.area'));
+        allAreas.forEach(function (area) {
+          area.classList.add('area--hide');
+        });
+      }
+    };
+
+    module.exports = areaPannels;
+  }, {}], 3: [function (require, module, exports) {
+    var categories = {
+      openRelevant: function openRelevant() {
+
+        var tags = categories.getTags();
         var tagsArray = tags.map(function (tag) {
           return tag.innerHTML.toLowerCase();
         });
 
-        var relevantAreas = tagsArray.map(function (tag) {
+        var relevantCategories = tagsArray.map(function (tag) {
           return Array.from(document.querySelectorAll("#" + tag));
         }).reduce(function (a, b) {
           return a.concat(b);
         });
 
-        var allAreas = Array.from(document.querySelectorAll('.category--item'));
-        allAreas.forEach(function (area) {
-          area.classList.add('category--hide');
+        var allCategories = Array.from(document.querySelectorAll('.category--item'));
+        allCategories.forEach(function (category) {
+          category.classList.add('category--hide');
         });
 
-        relevantAreas.forEach(function (area) {
-          area.classList.remove('category--hide');
-          area.classList.add('pannel-open');
+        relevantCategories.forEach(function (category) {
+          category.classList.remove('category--hide');
+          category.classList.add('pannel-open');
         });
 
         var subCategories = Array.from(document.querySelectorAll('.sub-category'));
@@ -77,56 +125,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     };
 
-    module.exports = areas;
-  }, {}], 3: [function (require, module, exports) {
-    var categoriePanels = {
-
-      openRelevant: function openRelevant() {
-        var tags = categoriePanels.getTags();
-        var categories = categoriePanels.getCategoriesFromTags(tags);
-        categoriePanels.showRelevant(categories);
-        return categories;
-      },
-
-      getTags: function getTags() {
-        return Array.from(document.querySelectorAll('.buzzwords span'));
-      },
-
-      getCategoriesFromTags: function getCategoriesFromTags(tags) {
-        var categories = tags.map(function (categorie) {
-          var classes = categorie.className.split(' ');
-          var categorieClasse = classes.filter(function (className) {
-            return className.indexOf('--') >= 0;
-          }).join('');
-          var breakIndex = categorieClasse.indexOf('--') + 2;
-          var categorieName = categorieClasse.slice(breakIndex);
-
-          return categorieName;
-        });
-
-        return categories;
-      },
-
-      showRelevant: function showRelevant(categories) {
-        categoriePanels.hideAll();
-
-        categories.forEach(function (category) {
-          var htmlCaregory = Array.from(document.querySelectorAll(".area--" + category));
-          htmlCaregory.forEach(function (area) {
-            area.classList.remove('area--hide');
-          });
-        });
-      },
-
-      hideAll: function hideAll() {
-        var allAreas = Array.from(document.querySelectorAll('.area'));
-        allAreas.forEach(function (area) {
-          area.classList.add('area--hide');
-        });
-      }
-    };
-
-    module.exports = categoriePanels;
+    module.exports = categories;
   }, {}], 4: [function (require, module, exports) {
     var Pannels = function () {
       function Pannels() {
