@@ -1,5 +1,6 @@
 .category {
   @include reset-list;
+  position: relative;
 
   &--title {
     background-color: $gray;
@@ -22,10 +23,11 @@
   }
 
   &--hide {
-    height: 1px;
-    overflow: hidden;
-    padding: 0;
-    background-color: rgba(black, .4);
+    // height: 1px;
+    // overflow: hidden;
+    // padding: 0;
+    // background-color: rgba(black, .4);
+    display: none;
   }
 
   #layout:target {

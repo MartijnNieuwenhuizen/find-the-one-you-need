@@ -25,11 +25,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     if (document.querySelector('.result')) {
       var areas = require('./modules/areas');
       var categories = require('./modules/categories');
+      var more = require('./modules/see-more');
 
       areas.openRelevant();
       categories.openRelevant();
+      more.listen();
     }
-  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4 }], 2: [function (require, module, exports) {
+  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/see-more": 5 }], 2: [function (require, module, exports) {
     var areaPannels = {
 
       openRelevant: function openRelevant() {
@@ -233,4 +235,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     module.exports = Pannels;
+  }, {}], 5: [function (require, module, exports) {
+    var more = {
+      listen: function listen() {
+        var areas = Array.from(document.querySelectorAll('.area'));
+        var visibleAreas = areas.filter(function (area) {
+          return !area.classList.contains('area--hide');
+        });
+
+        visibleAreas.forEach(function (area) {
+          var seeMore = area.querySelector('.see-more');
+
+          seeMore.parentArea = area;
+          seeMore.addEventListener('click', more.showAll, false);
+        });
+      },
+
+      showAll: function showAll(e) {
+
+        var parentArea = this.parentArea;
+        var items = Array.from(parentArea.querySelectorAll('.category--hide'));
+
+        items.forEach(function (item) {
+          console.log(item);
+          item.classList.remove('category--hide');
+        });
+
+        e.preventDefault();
+      }
+    };
+
+    module.exports = more;
   }, {}] }, {}, [1]);

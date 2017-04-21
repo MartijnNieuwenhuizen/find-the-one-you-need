@@ -41,28 +41,15 @@
 
 
   &--front-end {
-    .area--title-container {
-      @extend .match--front-end;
-    }
-    .category--title {
-      $background-color: map-get($front-end, 'med');
-      color: get-text-color($background-color);
-
-      background-color: $background-color;
-      background: linear-gradient( 45deg, $background-color, lighten($background-color, 10%) );
-    }
+    @include set-type-color($front-end, "front-end");
   }
 
   &--design {
-    .area--title-container {
-      @extend .match--design;
-    }
-    .category--title {
-      $background-color: map-get($design, 'med');
-      color: get-text-color($background-color);
-
-      background-color: $background-color;
-      background: linear-gradient( 45deg, $background-color, lighten($background-color, 10%) );
-    }
+    @include set-type-color($design, "design");
   }
+
+  &--project {
+    @include set-type-color($project, "project");
+  }
+
 }
