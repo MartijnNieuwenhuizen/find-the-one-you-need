@@ -45,6 +45,10 @@ body {
   }
 }
 
+h4 {
+  margin: 0;
+}
+
 img {
   width: 100%;
 }
@@ -140,6 +144,10 @@ a {
   }
 }
 
+.area--hide {
+  display: none;
+}
+
 .area--front-end .category--title {
   color: #000;
   background-color: #F3B55B;
@@ -202,6 +210,13 @@ a {
 .category--item-container {
   height: 1px;
   overflow: hidden;
+}
+
+.category--hide {
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .category #layout:target .category--item-container {

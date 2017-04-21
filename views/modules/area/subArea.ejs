@@ -5,7 +5,7 @@
 
   <% subArea.points.forEach(point => { %>
     <dd class="category--item fed--tegniques" id="<%- point.hash %>">
-      <a href="#<%- point.hash %>" class="area--subtitle"><%- point.name %></a>
+      <h4><a href="#<%- point.hash %>" class="area--subtitle"><%- point.name %></a></h4>
       <div class="category--item-container">
 
         <% if (area.name === 'front-end') { %>

@@ -21,7 +21,133 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var Pannels = require('./modules/collapse');
       Pannels.launch();
     }
-  }, { "./modules/collapse": 2 }], 2: [function (require, module, exports) {
+
+    if (document.querySelector('.result')) {
+      var areas = require('./modules/areas');
+      var categories = require('./modules/categories');
+
+      areas.openRelevant();
+      categories.openRelevant();
+    }
+  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4 }], 2: [function (require, module, exports) {
+    var areaPannels = {
+
+      openRelevant: function openRelevant() {
+        var tags = areaPannels.getTags();
+        var areas = areaPannels.getAreasFromTags(tags);
+        areaPannels.showRelevant(areas);
+      },
+
+      getTags: function getTags() {
+        return Array.from(document.querySelectorAll('.buzzwords span'));
+      },
+
+      getAreasFromTags: function getAreasFromTags(tags) {
+        var areas = tags.map(function (area) {
+          var classes = area.className.split(' ');
+          var areaClasse = classes.filter(function (className) {
+            return className.indexOf('--') >= 0;
+          }).join('');
+          var breakIndex = areaClasse.indexOf('--') + 2;
+          var areaName = areaClasse.slice(breakIndex);
+
+          return areaName;
+        });
+
+        return areas;
+      },
+
+      showRelevant: function showRelevant(areas) {
+        areaPannels.hideAll();
+
+        areas.forEach(function (areaName) {
+          var htmlArea = Array.from(document.querySelectorAll(".area--" + areaName));
+          htmlArea.forEach(function (area) {
+            area.classList.remove('area--hide');
+          });
+        });
+      },
+
+      hideAll: function hideAll() {
+        var allAreas = Array.from(document.querySelectorAll('.area'));
+        allAreas.forEach(function (area) {
+          area.classList.add('area--hide');
+        });
+      }
+    };
+
+    module.exports = areaPannels;
+  }, {}], 3: [function (require, module, exports) {
+    var categories = {
+      openRelevant: function openRelevant() {
+        var tags = categories.getTags();
+        var relevantCategories = categories.getRelevantFromTags(tags);
+
+        categories.hideAll();
+        categories.showAllRelevant(relevantCategories);
+
+        var subCategories = categories.getSubCategories();
+        categories.closeUnrelevantSubCategories(subCategories);
+      },
+
+      getRelevantFromTags: function getRelevantFromTags(tags) {
+        var relevantCategories = tags.map(function (tag) {
+          return Array.from(document.querySelectorAll("#" + tag));
+        }).reduce(function (a, b) {
+          return a.concat(b);
+        });
+
+        return relevantCategories;
+      },
+
+      hideAll: function hideAll() {
+        var allCategories = Array.from(document.querySelectorAll('.category--item'));
+        allCategories.forEach(function (category) {
+          category.classList.add('category--hide');
+        });
+      },
+
+      showAllRelevant: function showAllRelevant(relevantCategories) {
+        relevantCategories.forEach(function (category) {
+          category.classList.remove('category--hide');
+          category.classList.add('pannel-open');
+        });
+      },
+
+      getSubCategories: function getSubCategories() {
+        var subCategories = Array.from(document.querySelectorAll('.sub-category'));
+        var subCategoriesNeedClose = subCategories.filter(function (subCategory) {
+          var checker = true;
+          var items = subCategory.querySelectorAll('.category--item');
+          items.forEach(function (item) {
+            if (!item.classList.contains('category--hide')) {
+              checker = false;
+            }
+          });
+          return checker;
+        });
+
+        return subCategoriesNeedClose;
+      },
+
+      closeUnrelevantSubCategories: function closeUnrelevantSubCategories(subCategoriesNeedClose) {
+        subCategoriesNeedClose.forEach(function (subCategory) {
+          console.log('subCategory: ', subCategory);
+          subCategory.querySelector('.category--title').classList.add('category--hide');
+        });
+      },
+
+      getTags: function getTags() {
+        var tags = Array.from(document.querySelectorAll('.buzzwords span'));
+        var tagsArray = tags.map(function (tag) {
+          return tag.innerHTML.toLowerCase();
+        });
+        return tagsArray;
+      }
+    };
+
+    module.exports = categories;
+  }, {}], 4: [function (require, module, exports) {
     var Pannels = function () {
       function Pannels() {
         _classCallCheck(this, Pannels);
