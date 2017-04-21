@@ -1,0 +1,22 @@
+.skill {
+  width: 4rem; height: 4rem;
+  margin: .5rem;
+  background-color: green;
+  border-radius: 50%;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &--name {
+    margin: 0;
+    padding: 0;
+  }
+  &--score {
+    margin: 0;
+    padding: 0;
+  }
+}
