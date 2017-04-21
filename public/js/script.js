@@ -21,7 +21,74 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var Pannels = require('./modules/collapse');
       Pannels.launch();
     }
-  }, { "./modules/collapse": 2 }], 2: [function (require, module, exports) {
+
+    if (document.querySelector('.result')) {
+      var categoriePanels = require('./modules/categories');
+      var areas = require('./modules/areas');
+
+      var categories = categoriePanels.openRelevant();
+      areas.openRelevant(categories);
+    }
+  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4 }], 2: [function (require, module, exports) {
+    var areas = {
+      openRelevant: function openRelevant(categories) {
+        // .area--subtitle --> hash
+        var relevantAreas = document.querySelectorAll('.area--subtitle');
+        console.log('relevantAreas: ', relevantAreas);
+      }
+    };
+
+    module.exports = areas;
+  }, {}], 3: [function (require, module, exports) {
+    var categoriePanels = {
+
+      openRelevant: function openRelevant() {
+        var tags = categoriePanels.getTags();
+        var categories = categoriePanels.getCategoriesFromTags(tags);
+        categoriePanels.showRelevant(categories);
+        return categories;
+      },
+
+      getTags: function getTags() {
+        return Array.from(document.querySelectorAll('.buzzwords span'));
+      },
+
+      getCategoriesFromTags: function getCategoriesFromTags(tags) {
+        var categories = tags.map(function (categorie) {
+          var classes = categorie.className.split(' ');
+          var categorieClasse = classes.filter(function (className) {
+            return className.indexOf('--') >= 0;
+          }).join('');
+          var breakIndex = categorieClasse.indexOf('--') + 2;
+          var categorieName = categorieClasse.slice(breakIndex);
+
+          return categorieName;
+        });
+
+        return categories;
+      },
+
+      showRelevant: function showRelevant(categories) {
+        categoriePanels.hideAll();
+
+        categories.forEach(function (category) {
+          var htmlCaregory = Array.from(document.querySelectorAll(".area--" + category));
+          htmlCaregory.forEach(function (area) {
+            area.classList.remove('area--hide');
+          });
+        });
+      },
+
+      hideAll: function hideAll() {
+        var allAreas = Array.from(document.querySelectorAll('.area'));
+        allAreas.forEach(function (area) {
+          area.classList.add('area--hide');
+        });
+      }
+    };
+
+    module.exports = categoriePanels;
+  }, {}], 4: [function (require, module, exports) {
     var Pannels = function () {
       function Pannels() {
         _classCallCheck(this, Pannels);

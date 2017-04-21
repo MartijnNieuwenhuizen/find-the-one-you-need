@@ -140,6 +140,10 @@ a {
   }
 }
 
+.area--hide {
+  display: none;
+}
+
 .area--front-end .category--title {
   color: #000;
   background-color: #F3B55B;
