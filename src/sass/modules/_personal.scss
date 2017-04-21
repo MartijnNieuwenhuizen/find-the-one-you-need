@@ -10,10 +10,13 @@
     width: 6.875rem; height: 6.875rem;
     display: inline-block;
     overflow: hidden;
+
+    background-position: 30% 50%;
+    background-size: cover;
   }
   &--img {
     width: 100%;
-    background-color: lighten($gray, 10%);
+    opacity: 0;
     border: 0;
   }
 

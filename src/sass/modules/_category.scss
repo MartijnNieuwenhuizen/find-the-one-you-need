@@ -1,5 +1,6 @@
 .category {
   @include reset-list;
+  position: relative;
 
   &--title {
     background-color: $gray;

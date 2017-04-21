@@ -1,9 +1,10 @@
 <div class="result--personal personal">
-  <div class="personal--img-container">
-    <%
-      let imgName = `${person.name.first}_${person.name.last}_${person.location}`;
-      imgName = imgName.toLowerCase();
-    %>
+  <%
+    let imgName = `${person.name.first}_${person.name.last}_${person.location}`;
+    imgName = imgName.toLowerCase();
+  %>
+
+  <div class="personal--img-container" style="background-image: url('./img/people/<%- imgName %>.jpg')">
     <img class="personal--img" src="./img/people/<%- imgName %>.jpg" alt="Een foto van <%- person.name.full %>">
   </div>
 
