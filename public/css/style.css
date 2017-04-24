@@ -735,14 +735,16 @@ a {
 .skill--name {
   margin: 0;
   padding: 0;
+  display: block;
 }
 
 .skill--score {
+  position: relative;
   width: 4rem;
   height: 4rem;
   margin: 0;
   padding: 0;
-  background-color: green;
+  display: block;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -753,6 +755,12 @@ a {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.skill--score canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .skills {

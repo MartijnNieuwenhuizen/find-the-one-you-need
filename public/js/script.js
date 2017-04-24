@@ -31,7 +31,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       categories.openRelevant();
       more.listen();
     }
-  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/see-more": 5 }], 2: [function (require, module, exports) {
+
+    if (document.querySelector('.skills')) {
+      var skills = require('./modules/skills');
+      skills.visualize('');
+    }
+  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/see-more": 5, "./modules/skills": 6 }], 2: [function (require, module, exports) {
     var areaPannels = {
 
       openRelevant: function openRelevant() {
@@ -266,4 +271,65 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = more;
+  }, {}], 6: [function (require, module, exports) {
+    var Skills = {
+      visualize: function visualize() {
+
+        var points = Array.from(document.querySelectorAll('.skill--score'));
+
+        points.forEach(function (point) {
+          var value = point.getAttribute('data-score');
+
+          function color() {
+            if (point.classList.contains('demo-fed')) {
+              return '#F3B55B';
+            } else if (point.classList.contains('demo-project')) {
+              return '#84CBE7';
+            }
+          }
+
+          var canvas = document.createElement('canvas');
+          var ctx = canvas.getContext('2d');
+
+          var size = 64;
+          var maxValue = 50;
+
+          var fakeValue = Math.floor(Math.random() * (maxValue - 5 + 1) + 5);
+
+          canvas.width = size;
+          canvas.height = size;
+
+          // let canvas rotate to 0%;
+          ctx.translate(size / 2, size / 2);
+          ctx.rotate(-90 * Math.PI / 180);
+          ctx.translate(-size / 2, -size / 2);
+
+          // of the arc calculations
+          var full = 2 * Math.PI; // the 100% of the circle
+          var one = full / 100; // 1% of the circle
+          var percentage = fakeValue / maxValue * 100; // percentage the circle needs to be drawn
+          var endPoint = percentage * one; // value out of the percentage
+
+          var x = 32;
+          var y = 32;
+          var r = 28;
+          var startAngle = 0;
+          var endAngle = endPoint;
+          var anticlockwise = false;
+
+          ctx.beginPath();
+          ctx.arc(x, y, r, startAngle, endAngle, anticlockwise);
+          ctx.strokeStyle = color();
+          ctx.lineCap = 'round';
+          ctx.lineWidth = 6;
+          ctx.stroke();
+
+          point.innerHTML = fakeValue;
+
+          point.appendChild(canvas);
+        });
+      }
+    };
+
+    module.exports = Skills;
   }, {}] }, {}, [1]);
