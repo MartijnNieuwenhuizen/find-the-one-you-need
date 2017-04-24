@@ -1,13 +1,27 @@
 <li class="project category--item" id="<%- project.name %>">
   <h4><a href="#<%- project.name %>" class="project--title area--subtitle"><%- project.name %></a></h4>
   <% if (project.role) { %> <p class="project--role">Role: <%- project.role %></p> <% } %>
-  <p>Hier komt informatie over het project <%- project.name %>, en wat <%- person.name.first %> hier precies voor heeft gedaan.</p>
+  <dl class="skills">
+    <div class="skills--item skill">
+      <dt class="skill--name">Blogs</dt>
+      <dd class="skill--score demo-project" data-score="4">4</dd>
+    </div>
+    <div class="skills--item skill">
+      <dt class="skill--name">Regels code</dt>
+      <dd class="skill--score demo-project" data-score="35">35</dd>
+    </div>
+    <div class="skills--item skill">
+      <dt class="skill--name">Talks</dt>
+      <dd class="skill--score demo-project" data-score="2">2</dd>
+    </div>
+    <div class="skills--item skill">
+      <dt class="skill--name">Gesprekken</dt>
+      <dd class="skill--score demo-project" data-score="36">36</dd>
+    </div>
+    <div class="skills--item skill">
+      <dt class="skill--name">Tweets</dt>
+      <dd class="skill--score demo-project" data-score="1">1</dd>
+    </div>
+  </dl>
 
-  <% if (project.assignments) { %>
-    <dl class="project--activities">
-      <% project.assignments.forEach(assignment => { %>
-        <dt class="project--activities-title"><%- assignment %></dt>
-      <% }); %>
-    </dl>
-  <% } %>
 </li>
