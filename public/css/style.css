@@ -715,11 +715,7 @@ a {
 }
 
 .skill {
-  width: 4rem;
-  height: 4rem;
   margin: .5rem;
-  background-color: green;
-  border-radius: 50%;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -742,8 +738,21 @@ a {
 }
 
 .skill--score {
+  width: 4rem;
+  height: 4rem;
   margin: 0;
   padding: 0;
+  background-color: green;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .skills {

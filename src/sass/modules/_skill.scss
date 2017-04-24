@@ -1,8 +1,7 @@
+$skill-width: 4rem;
+
 .skill {
-  width: 4rem; height: 4rem;
   margin: .5rem;
-  background-color: green;
-  border-radius: 50%;
 
   text-align: center;
 
@@ -16,7 +15,14 @@
     padding: 0;
   }
   &--score {
-    margin: 0;
-    padding: 0;
+    width: $skill-width; height: $skill-width;
+    margin: 0; padding: 0;
+
+    background-color: green;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
