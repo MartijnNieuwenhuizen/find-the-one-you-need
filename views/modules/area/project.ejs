@@ -1,27 +1,16 @@
 <li class="project category--item" id="<%- project.name %>">
-  <h4><a href="#<%- project.name %>" class="project--title area--subtitle"><%- project.name %></a></h4>
-  <% if (project.role) { %> <p class="project--role">Role: <%- project.role %></p> <% } %>
-  <dl class="skills">
-    <div class="skills--item skill">
-      <dt class="skill--name">Blogs</dt>
-      <dd class="skill--score demo-project" data-score="4">4</dd>
-    </div>
-    <div class="skills--item skill">
-      <dt class="skill--name">Regels code</dt>
-      <dd class="skill--score demo-project" data-score="35">35</dd>
-    </div>
-    <div class="skills--item skill">
-      <dt class="skill--name">Talks</dt>
-      <dd class="skill--score demo-project" data-score="2">2</dd>
-    </div>
-    <div class="skills--item skill">
-      <dt class="skill--name">Gesprekken</dt>
-      <dd class="skill--score demo-project" data-score="36">36</dd>
-    </div>
-    <div class="skills--item skill">
-      <dt class="skill--name">Tweets</dt>
-      <dd class="skill--score demo-project" data-score="1">1</dd>
-    </div>
+  <h4 class="project--name"><a href="#<%- project.name %>" class="project--title area--subtitle"><%- project.name %></a></h4>
+  <p class="project--hours"> <abbr title="Aantal uren gewerkt">430</abbr></p>
+
+  <dl class="project--activities activity">
+    <dt class="activity--title">Werkzaamheden</dt>
+    <dd class="activity--item">Search</dd>
+    <dd class="activity--item">Google Maps implementatie</dd>
   </dl>
+
+  <p class="project--last">Laatste activiteit: <span>3 maanden geleden</span></p>
+
+  <%# <dt>Laatste keer aan gewerkt</dt>
+  <dd>3 maanden geleden</dd>%>
 
 </li>

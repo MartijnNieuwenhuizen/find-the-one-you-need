@@ -1,3 +1,21 @@
 .project {
   @extend .category--item;
+
+  &--name {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  &--hours {
+    display: inline-block;
+    margin: 0;
+    float: right;
+
+    abbr {
+      @include icon-clock;
+    }
+  }
+
+  &--last {
+    padding-left: .5rem;
+  }
 }

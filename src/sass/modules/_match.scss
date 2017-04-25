@@ -1,25 +1,46 @@
 .match {
   border-radius: 10% / 50%;
-  padding: .3rem 1.6rem;
-  padding: .3rem .7rem;
-  // @TODO: fix the jumping bug
+  padding: .3rem .5rem .3rem .7rem;
+
+  &--word {
+    vertical-align: text-bottom;
+  }
+  &--remove {
+    padding: .3rem 0rem .3rem 0.4rem;
+
+    @include hocus {
+      cursor: pointer;
+    }
+  }
 }
 
 .match--front-end {
   $background-color: map-get($front-end, 'dark');
 
-  color: get-text-color($background-color);
+  color: $white;
   background-color: $background-color;
+
+  .match--remove {
+    border-left: 1px solid darken($background-color, 10%);
+  }
 }
 .match--project {
   $background-color: map-get($project, 'dark');
 
-  color: get-text-color($background-color);
+  color: $white;
   background-color: $background-color;
+
+  .match--remove {
+    border-left: 1px solid darken($background-color, 10%);
+  }
 }
 .match--design {
   $background-color: map-get($design, 'dark');
 
-  color: get-text-color($background-color);
+  color: $white;
   background-color: $background-color;
+
+  .match--remove {
+    border-left: 1px solid darken($background-color, 10%);
+  }
 }

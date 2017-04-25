@@ -115,10 +115,12 @@ class People {
             const personalId = peopleIds.indexOf(id);
 
             if ( personalId !== -1 ) {
+              console.log('tag: ', tag);
               switch (tag.type) {
                 case 'knolage':
                   const knolageItem = {};
                   if (tag.name) { knolageItem.name = tag.name; }
+                  if (tag.fullName) { knolageItem.fullName = tag.fullName; }
                   if (tag.type) { knolageItem.type = tag.type; }
                   if (tag.category) { knolageItem.category = tag.category; }
                   if (tag.subCategory) { knolageItem.subCategory = tag.subCategory; }
@@ -128,6 +130,7 @@ class People {
                 case 'project':
                   const projectItem = {};
                   if (tag.name) { projectItem.name = tag.name; }
+                  if (tag.fullName) { projectItem.fullName = tag.fullName; }
                   if (tag.type) { projectItem.type = tag.type; }
 
                   people[personalId].project.push(projectItem);
@@ -223,7 +226,7 @@ class People {
       }).join('');
 
       newKnolage[catagoryIndex].subArea[subCatagoryIndex].points.push({
-        name: knolagePoint.name,
+        name: knolagePoint.fullName ? knolagePoint.fullName : knolagePoint.name,
         hash: knolagePoint.name
       });
     });

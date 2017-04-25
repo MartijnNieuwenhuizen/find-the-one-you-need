@@ -56,7 +56,7 @@ const categories = {
   },
 
   getTags: () => {
-    const tags = Array.from(document.querySelectorAll('.buzzwords span'));
+    const tags = Array.from(document.querySelectorAll('.match--word'));
       const tagsArray = tags.map(tag => {
       return tag.innerHTML.toLowerCase();
     });

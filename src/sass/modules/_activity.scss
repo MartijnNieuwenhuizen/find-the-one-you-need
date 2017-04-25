@@ -1,0 +1,17 @@
+.activity {
+
+  &--title {
+    // // display: none;
+    // color: transparent;
+    // background-image: url('/img/icons/activity.png');
+    // background-repeat: no-repeat;
+    // background-size: contain;
+    font-weight: bold;
+  }
+  &--item {
+    margin-left: 1.2rem;
+    display: list-item;
+
+    list-style-type: disc;
+  }
+}

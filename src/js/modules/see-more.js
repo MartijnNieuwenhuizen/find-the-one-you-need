@@ -6,8 +6,10 @@ const more = {
     visibleAreas.forEach(area => {
       const seeMore = area.querySelector('.see-more');
 
-      seeMore.parentArea = area;
-      seeMore.addEventListener('click', more.showAll, false);
+      if (seeMore) {
+        seeMore.parentArea = area;
+        seeMore.addEventListener('click', more.showAll, false);
+      }
     })
   },
 

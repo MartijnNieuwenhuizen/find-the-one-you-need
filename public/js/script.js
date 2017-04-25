@@ -145,7 +145,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
 
       getTags: function getTags() {
-        var tags = Array.from(document.querySelectorAll('.buzzwords span'));
+        var tags = Array.from(document.querySelectorAll('.match--word'));
         var tagsArray = tags.map(function (tag) {
           return tag.innerHTML.toLowerCase();
         });
@@ -251,8 +251,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         visibleAreas.forEach(function (area) {
           var seeMore = area.querySelector('.see-more');
 
-          seeMore.parentArea = area;
-          seeMore.addEventListener('click', more.showAll, false);
+          if (seeMore) {
+            seeMore.parentArea = area;
+            seeMore.addEventListener('click', more.showAll, false);
+          }
         });
       },
 

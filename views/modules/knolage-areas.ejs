@@ -35,10 +35,12 @@
         <% }) %>
       </ul>
 
-      <a href="#" class="see-more">
-        <span class="see-more--color"></span><span class="see-more--color"></span><span class="see-more--color"></span>
-        <span class="see-more--text">Bekijk alle projecten waar <%- person.name.first %> aan heeft gewerkt</span>
-      </a>
+      <% if (person.project.length > 1) { %>
+        <a href="#" class="see-more">
+          <span class="see-more--color"></span><span class="see-more--color"></span><span class="see-more--color"></span>
+          <span class="see-more--text">Bekijk alle projecten waar <%- person.name.first %> aan heeft gewerkt</span>
+        </a>
+      <% } %>
     </li>
 
   <% } %>
