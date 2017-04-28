@@ -19,7 +19,6 @@ const more = {
     const items = Array.from(parentArea.querySelectorAll('.category--hide'));
 
     items.forEach(item => {
-      console.log(item);
       item.classList.remove('category--hide');
     });
 

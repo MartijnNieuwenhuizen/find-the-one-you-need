@@ -36,6 +36,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var skills = require('./modules/skills');
       skills.visualize('');
     }
+
+    if (document.querySelector('.result--see-all')) {
+      var seeFullProfile = function seeFullProfile(e) {
+
+        var parrent = this.parentElement;
+
+        var hiddenAreas = Array.from(parrent.querySelectorAll('.area--hide'));
+        hiddenAreas.forEach(function (area) {
+          area.classList.remove('area--hide');
+
+          var hiddenCategories = area.querySelectorAll('.category--hide');
+          hiddenCategories.forEach(function (category) {
+            category.classList.remove('category--hide');
+          });
+        });
+
+        e.preventDefault();
+      };
+
+      var seeFullProfileButton = Array.from(document.querySelectorAll('.result--see-all'));
+      seeFullProfileButton.forEach(function (button) {
+        button.addEventListener('click', seeFullProfile, false);
+      });
+    }
   }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/see-more": 5, "./modules/skills": 6 }], 2: [function (require, module, exports) {
     var areaPannels = {
 
@@ -139,7 +163,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       closeUnrelevantSubCategories: function closeUnrelevantSubCategories(subCategoriesNeedClose) {
         subCategoriesNeedClose.forEach(function (subCategory) {
-          console.log('subCategory: ', subCategory);
           subCategory.querySelector('.category--title').classList.add('category--hide');
         });
       },
@@ -264,7 +287,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var items = Array.from(parentArea.querySelectorAll('.category--hide'));
 
         items.forEach(function (item) {
-          console.log(item);
           item.classList.remove('category--hide');
         });
 

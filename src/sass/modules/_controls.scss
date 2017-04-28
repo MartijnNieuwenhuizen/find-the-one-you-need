@@ -1,0 +1,15 @@
+.controls {
+
+  &--submit {
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+
+    transition: .3s color;
+
+    @include hocus {
+      color: $brand-primary;
+      cursor: pointer;
+    }
+  }
+}

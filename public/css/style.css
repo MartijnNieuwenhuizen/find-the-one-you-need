@@ -351,6 +351,20 @@ a {
   height: auto;
 }
 
+.controls--submit {
+  border: none;
+  background-color: white;
+  font-size: 1rem;
+  -webkit-transition: .3s color;
+  transition: .3s color;
+}
+
+.controls--submit:hover,
+.controls--submit:focus {
+  color: #98C220;
+  cursor: pointer;
+}
+
 .form--container {
   border: 0;
 }
@@ -675,7 +689,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1493102695783");
+  background-image: url("/img/icons/clock.png?version=1493370447809");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -687,6 +701,10 @@ a {
   padding-left: .5rem;
 }
 
+.project--bold {
+  font-weight: 600;
+}
+
 .projects {
   margin: 0;
   padding: 0;
@@ -694,6 +712,22 @@ a {
 
 .projects li {
   list-style-type: none;
+}
+
+.result--see-all {
+  float: right;
+  text-align: right;
+  background-color: #98C220;
+  color: #fff;
+  padding: .3rem .7rem;
+  text-decoration: none;
+  -webkit-transition: .3s background-color;
+  transition: .3s background-color;
+}
+
+.result--see-all:hover,
+.result--see-all:focus {
+  background-color: #b3de37;
 }
 
 @-webkit-keyframes fade-in {
@@ -769,7 +803,7 @@ a {
 .results--item {
   width: 22rem;
   display: inline-block;
-  margin: 0 .8rem 1rem .8rem;
+  margin: 0 .8rem 4rem .8rem;
   list-style-type: none;
 }
 

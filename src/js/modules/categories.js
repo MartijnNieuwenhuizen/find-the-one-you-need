@@ -50,7 +50,6 @@ const categories = {
 
   closeUnrelevantSubCategories: (subCategoriesNeedClose) => {
     subCategoriesNeedClose.forEach(subCategory => {
-      console.log('subCategory: ', subCategory);
       subCategory.querySelector('.category--title').classList.add('category--hide');
     });
   },

@@ -17,3 +17,33 @@ if ( document.querySelector('.skills') ) {
   const skills = require('./modules/skills');
   skills.visualize('');
 }
+
+
+
+if ( document.querySelector('.result--see-all') ) {
+
+  function seeFullProfile(e) {
+
+    const parrent = this.parentElement;
+
+    const hiddenAreas = Array.from(parrent.querySelectorAll('.area--hide'));
+    hiddenAreas.forEach(area => {
+      area.classList.remove('area--hide');
+
+      const hiddenCategories = area.querySelectorAll('.category--hide');
+      hiddenCategories.forEach(category => {
+        category.classList.remove('category--hide');
+      })
+    })
+
+
+
+
+    e.preventDefault();
+  }
+
+  const seeFullProfileButton = Array.from(document.querySelectorAll('.result--see-all'));
+  seeFullProfileButton.forEach(button => {
+    button.addEventListener('click', seeFullProfile, false);
+  });
+}
