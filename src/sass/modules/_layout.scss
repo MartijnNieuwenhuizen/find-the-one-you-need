@@ -1,11 +1,24 @@
 .layout {
+  position: relative;
 
   &--header {
-    @include container;
+    position: fixed;
+    top: 0; left: 50%;
+    width: 100%;
+
+    transform: translate(-50%, 0);
+    @include container(56.5625rem);
     margin-bottom: 6.5rem;
+
+    .no-message & {
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      font-size: 1.34rem;
+    }
   }
 
   &--main {
-    margin: 0 $gutter;
+    margin: 10rem $gutter 0 $gutter;
   }
 }

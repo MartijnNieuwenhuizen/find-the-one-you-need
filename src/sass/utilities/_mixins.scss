@@ -39,19 +39,17 @@
 // Center this element on larger screens
 
 // You will need $container, $bp-container and $gutter variables
-@mixin container($include-padding: "true") {
-  max-width: $container;
+@mixin container($size: $container) {
+  max-width: $size;
   margin: 0 auto;
 
-  @if ($include-padding == "true") {
-    padding-left: $gutter;
-    padding-right: $gutter;
-    box-sizing: border-box;
+  padding-left: $gutter;
+  padding-right: $gutter;
+  box-sizing: border-box;
 
-    @include min-width($bp-container) {
-      padding-left: 0;
-      padding-right: 0;
-    }
+  @include min-width($bp-container) {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

@@ -4,6 +4,7 @@ $white:           #fff;
 $gray:            lightgray;
 $light-gray:      #F7F7F7;
 $lighter-gray:    #FBFBFB;
+$dark-gray:       #4A4A4A;
 
 $text:            $black;
 $input-bg:        $light-gray;
@@ -90,8 +91,8 @@ $double-gutter:  $gutter * 2; // 40px
   $border-radius: .7rem;
 
   // form
-  $input-padding: .65rem 1rem .6rem 1rem;
-  $input-padding-extended: .8rem 1.13rem .8rem 1.13rem;
+  $input-padding: .65rem 1rem 0 .4rem;
+  $input-padding-extended: .5rem 1.13rem 0 .4rem;
 
   // cards
   $card-label-width: 2.6875rem;

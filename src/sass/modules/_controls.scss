@@ -7,9 +7,56 @@
 
     transition: .3s color;
 
+    .no-message & {
+      display: none;
+    }
+
     @include hocus {
       color: $brand-primary;
       cursor: pointer;
+    }
+  }
+  &--submit-specific {
+    display: none;
+    margin-right: 1rem;
+
+    border: 0;
+    font-size: 1rem;
+    background-color: transparent;
+    transition: .3s color;
+
+    .no-message & {
+      display: inline-block;
+    }
+
+    @include hocus {
+      color: $brand-primary;
+      cursor: pointer;
+    }
+  }
+  &--submit-all {
+    display: none;
+    margin-left: 1rem;
+
+    border: 0;
+    font-size: 1rem;
+    background-color: transparent;
+    transition: .3s color;
+
+    .no-message & {
+      display: inline-block;
+    }
+
+    @include hocus {
+      color: $brand-primary;
+      cursor: pointer;
+    }
+  }
+
+  &--remove {
+    display: none;
+    .no-message & {
+
     }
   }
 }
