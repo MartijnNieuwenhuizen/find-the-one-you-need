@@ -100,7 +100,7 @@
 
 // Add all the Area colors to the area according to the type
 @mixin set-type-color($map, $name) {
-  $background-color: map-get($map, "med");
+  $background-color: map-get($map, "dark");
 
   .area--title-container {
     @extend .match--#{$name};
@@ -111,26 +111,18 @@
     background-color: $background-color;
     background: linear-gradient( 45deg, $background-color, lighten($background-color, 10%) );
   }
-  .category--item:not(:last-of-type) {
-    border-bottom: 1px solid $background-color;
+  .area--subtitle {
+    background-color: $background-color;
   }
 
   .see-more {
-    color: get-text-color($background-color);
+    &--small { background-color: lighten($background-color, 20%); }
+    &--large { background-color: lighten($background-color, 10%); }
 
-    @include hocus() {
-      .see-more--color {
-        &:nth-of-type(1) { background-color: map-get($map, "med"); }
-        &:nth-of-type(3) { background-color: map-get($map, "lighter"); }
-      }
+    @include hocus {
+      .see-more--small { background-color: lighten($background-color, 10%); }
+      .see-more--large { background-color: lighten($background-color, 5%); }
     }
-  }
-  .see-more--color {
-    &:nth-of-type(3) { background-color: map-get($map, "med"); }
-    &:nth-of-type(2) { background-color: map-get($map, "light"); }
-    &:nth-of-type(1) { background-color: map-get($map, "lighter"); }
-
-    transition: .3s background-color;
   }
 }
 

@@ -5,14 +5,19 @@
     position: fixed;
     top: 0; left: 50%;
     width: 100%;
+    z-index: 999;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+
+    background-color: white;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.18);
 
     transform: translate(-50%, 0);
-    @include container(56.5625rem);
-    margin-bottom: 6.5rem;
 
     .no-message & {
       top: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -150%);
+      box-shadow: none;
 
       font-size: 1.34rem;
     }

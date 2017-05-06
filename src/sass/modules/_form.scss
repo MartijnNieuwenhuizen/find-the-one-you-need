@@ -1,5 +1,6 @@
 .form {
-
+  @include container(56.5625rem);
+  
   &--container {
     border: 0;
   }

@@ -1,11 +1,27 @@
 <dl class="sub-category">
-  <dt class="category--title"><%- subArea.name %></dt>
 
+  <a class="see-more" href="#">
+    <%
+      let subAreaName = subArea.name;
+      if (subAreaName === 'js') {
+        subAreaName = 'JavaScript';
+      } else if (subAreaName === 'css') {
+        subAreaName = 'CSS';
+      } else if (subAreaName === 'html') {
+        subAreaName = 'HTML';
+      }
+    %>
+    <p class="see-more--title"><%- subAreaName %></p>
 
+    <div class="see-more">
+      <span class="see-more--small"></span>
+      <span class="see-more--large"></span>
+    </div>
+  </a>
 
   <% subArea.points.forEach(point => { %>
     <dd class="category--item fed--tegniques" id="<%- point.hash %>">
-      <h4><a href="#<%- point.hash %>" class="area--subtitle"><%- point.name %></a></h4>
+      <h4 class="area--subtitle"><a class="area--subtitle-link" href="#<%- point.hash %>"><%- point.name %></a></h4>
       <div class="category--item-container">
 
         <% if (area.name === 'front-end') { %>

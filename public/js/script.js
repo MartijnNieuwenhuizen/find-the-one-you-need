@@ -163,7 +163,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       closeUnrelevantSubCategories: function closeUnrelevantSubCategories(subCategoriesNeedClose) {
         subCategoriesNeedClose.forEach(function (subCategory) {
-          subCategory.querySelector('.category--title').classList.add('category--hide');
+          subCategory.querySelector('.see-more').classList.add('category--hide');
         });
       },
 
