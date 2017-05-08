@@ -21,10 +21,8 @@
 }
 @mixin area-subtitle {
   @include adjust($subTitle);
-  font-weight: 400;
+  font-weight: 600;
   text-transform: capitalize;
-  letter-spacing: .05rem;
-  font-family: "Roboto Condensed", sans-serif;
 }
 
 @mixin category-title {
