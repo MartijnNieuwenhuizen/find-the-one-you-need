@@ -30,6 +30,12 @@ const categories = {
       category.classList.remove('category--hide');
       category.classList.add('pannel-open');
     });
+
+    relevantCategories.forEach(item => {
+      const parrent = item.parentElement;
+      parrent.removeChild(item);
+      parrent.appendChild(item);
+    })
   },
 
   getSubCategories: () => {
@@ -50,7 +56,13 @@ const categories = {
 
   closeUnrelevantSubCategories: (subCategoriesNeedClose) => {
     subCategoriesNeedClose.forEach(subCategory => {
-      subCategory.querySelector('.see-more').classList.add('category--hide');
+      // subCategory.querySelector('.see-more').classList.add('category--hide');
+      subCategory.classList.add('sub-category--hide');
+
+      // remove item from flow
+      const parrent = subCategory.parentNode;
+      parrent.removeChild(subCategory);
+      parrent.appendChild(subCategory);
     });
   },
 

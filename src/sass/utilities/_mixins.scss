@@ -103,7 +103,7 @@
   $background-color: map-get($map, "dark");
 
   .area--title-container {
-    @extend .match--#{$name};
+    // @extend .match--#{$name};
   }
   .category--title {
     color: get-text-color($background-color);
@@ -116,12 +116,32 @@
   }
 
   .see-more {
-    &--small { background-color: lighten($background-color, 20%); }
-    &--large { background-color: lighten($background-color, 10%); }
+    &--title { color: $background-color; }
 
     @include hocus {
-      .see-more--small { background-color: lighten($background-color, 10%); }
-      .see-more--large { background-color: lighten($background-color, 5%); }
+      .see-more--title { color: darken($background-color, 10%); }
+
+      + .category--item {
+        &:nth-of-type(1).category--hide .area--subtitle {
+          background-color: darken($background-color, 13%);
+        }
+        &:nth-of-type(2).category--hide .area--subtitle {
+          background-color: darken($background-color, 8%);
+        }
+      }
+    }
+
+    &--number {
+      background-color: $background-color;
+    }
+  }
+
+  .category--item {
+    &:nth-of-type(1).category--hide .area--subtitle {
+      background-color: darken($background-color, 10%);
+    }
+    &:nth-of-type(2).category--hide .area--subtitle {
+      background-color: darken($background-color, 5%);
     }
   }
 }
