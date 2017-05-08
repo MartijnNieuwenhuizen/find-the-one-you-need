@@ -1,6 +1,6 @@
 .form {
   @include container(56.5625rem);
-  
+
   &--container {
     border: 0;
   }
@@ -51,7 +51,7 @@
   }
   // Default style is the style of the input because the buzzwords overlay the input
   &--buzzwords {
-    z-index: 0;
+    z-index: 1;
     margin: 0;
     padding: $input-padding-extended;
   }
