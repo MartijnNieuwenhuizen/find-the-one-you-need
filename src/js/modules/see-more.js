@@ -1,16 +1,18 @@
 const more = {
   listen: () => {
-    const areas = Array.from(document.querySelectorAll('.area'));
-    const visibleAreas = areas.filter(area => !area.classList.contains('area--hide'));
+    const areas = Array.from(document.querySelectorAll('.sub-category'));
+    // const visibleAreas = areas.filter(area => !area.classList.contains('area--hide'));
 
-    visibleAreas.forEach(area => {
-      const seeMore = area.querySelector('.see-more');
+    areas.forEach(area => {
+      const seeMore = area.querySelectorAll('.see-more');
 
       if (seeMore) {
-        seeMore.parentArea = area;
-        seeMore.addEventListener('click', more.showAll, false);
+        seeMore.forEach(button => {
+          button.parentArea = area;
+          button.addEventListener('click', more.showAll, false);
+        });
       }
-    })
+    });
   },
 
   showAll: function(e) {
@@ -21,6 +23,13 @@ const more = {
     items.forEach(item => {
       item.classList.remove('category--hide');
     });
+
+    this.classList.add('see-more--all');
+
+    const openPanels = parentArea.querySelectorAll('.pannel-open');
+    if (!openPanels.length) {
+      parentArea.querySelector('.category--item').classList.add('pannel-open');
+    }
 
     e.preventDefault();
   }

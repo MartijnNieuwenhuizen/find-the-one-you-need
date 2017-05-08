@@ -1,4 +1,4 @@
-<% if (people) { %>
+<% if (people.length) { %>
   <section class="results">
     <ul class="results--list">
       <% people.forEach(person => { %>
@@ -6,4 +6,11 @@
       <% }) %>
     </ul>
   </section>
+<% } else { %>
+  <% if (message.length) { %>
+    <section class="no-results">
+      <h2>helaas</h2>
+      <p class="no-results--message">Er zijn geen matches gevonden bij deze zoekopdracht</p>
+    </section>
+  <% } %>
 <% } %>

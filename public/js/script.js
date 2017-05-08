@@ -42,28 +42,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       match.launch('');
     }
 
-    if (document.querySelector('.result--see-all')) {
-      var seeFullProfile = function seeFullProfile(e) {
+    // Quick fix to make the sentance
+    if (document.querySelector('.buzzwords')) {
 
-        var parrent = this.parentElement;
-
-        var hiddenAreas = Array.from(parrent.querySelectorAll('.area--hide'));
-        hiddenAreas.forEach(function (area) {
-          area.classList.remove('area--hide');
-
-          var hiddenCategories = area.querySelectorAll('.category--hide');
-          hiddenCategories.forEach(function (category) {
-            category.classList.remove('category--hide');
-          });
-        });
-
-        e.preventDefault();
-      };
-
-      var seeFullProfileButton = Array.from(document.querySelectorAll('.result--see-all'));
-      seeFullProfileButton.forEach(function (button) {
-        button.addEventListener('click', seeFullProfile, false);
-      });
+      var buzzwordsSentance = document.querySelector('.buzzwords');
+      buzzwordsSentance.addEventListener('click', function (e) {
+        var input = document.querySelector('.form input');
+        input.focus();
+      }, true);
     }
   }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/see-more": 6, "./modules/skills": 7 }], 2: [function (require, module, exports) {
     var areaPannels = {
@@ -71,7 +57,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       openRelevant: function openRelevant() {
         var tags = areaPannels.getTags();
         var areas = areaPannels.getAreasFromTags(tags);
-        areaPannels.showRelevant(areas);
+        areaPannels.reorder(areas);
+
+        var triggers = document.querySelectorAll('.area--subtitle-link');
+        triggers.forEach(function (trigger) {
+          trigger.addEventListener('click', areaPannels.openSpesific, true);
+        });
       },
 
       getTags: function getTags() {
@@ -93,21 +84,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         return areas;
       },
 
-      showRelevant: function showRelevant(areas) {
-        areaPannels.hideAll();
+      openSpesific: function openSpesific(e) {
+        this.parentElement.parentElement.classList.toggle('pannel-open');
 
-        areas.forEach(function (areaName) {
-          var htmlArea = Array.from(document.querySelectorAll(".area--" + areaName));
-          htmlArea.forEach(function (area) {
-            area.classList.remove('area--hide');
-          });
-        });
+        e.preventDefault();
       },
 
-      hideAll: function hideAll() {
-        var allAreas = Array.from(document.querySelectorAll('.area'));
-        allAreas.forEach(function (area) {
-          area.classList.add('area--hide');
+      reorder: function reorder(areas) {
+        var areaItems = document.querySelectorAll('.knolage-areas--item');
+        areas.reverse();
+
+        areaItems.forEach(function (areaItem) {
+          var reorderNeeded = true;
+
+          areas.forEach(function (term) {
+            if (areaItem.classList.contains('area--' + term)) {
+              reorderNeeded = false;
+            }
+          });
+
+          if (reorderNeeded) {
+            var parrent = areaItem.parentNode;
+            parrent.removeChild(areaItem);
+            parrent.appendChild(areaItem);
+          }
         });
       }
     };
@@ -148,6 +148,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           category.classList.remove('category--hide');
           category.classList.add('pannel-open');
         });
+
+        relevantCategories.forEach(function (item) {
+          var parrent = item.parentElement;
+          parrent.removeChild(item);
+          parrent.appendChild(item);
+        });
       },
 
       getSubCategories: function getSubCategories() {
@@ -168,7 +174,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       closeUnrelevantSubCategories: function closeUnrelevantSubCategories(subCategoriesNeedClose) {
         subCategoriesNeedClose.forEach(function (subCategory) {
-          subCategory.querySelector('.see-more').classList.add('category--hide');
+          // subCategory.querySelector('.see-more').classList.add('category--hide');
+          subCategory.classList.add('sub-category--hide');
+
+          // remove item from flow
+          var parrent = subCategory.parentNode;
+          parrent.removeChild(subCategory);
+          parrent.appendChild(subCategory);
         });
       },
 
@@ -307,17 +319,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   }, {}], 6: [function (require, module, exports) {
     var more = {
       listen: function listen() {
-        var areas = Array.from(document.querySelectorAll('.area'));
-        var visibleAreas = areas.filter(function (area) {
-          return !area.classList.contains('area--hide');
-        });
+        var areas = Array.from(document.querySelectorAll('.sub-category'));
+        // const visibleAreas = areas.filter(area => !area.classList.contains('area--hide'));
 
-        visibleAreas.forEach(function (area) {
-          var seeMore = area.querySelector('.see-more');
+        areas.forEach(function (area) {
+          var seeMore = area.querySelectorAll('.see-more');
 
           if (seeMore) {
-            seeMore.parentArea = area;
-            seeMore.addEventListener('click', more.showAll, false);
+            seeMore.forEach(function (button) {
+              button.parentArea = area;
+              button.addEventListener('click', more.showAll, false);
+            });
           }
         });
       },
@@ -330,6 +342,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         items.forEach(function (item) {
           item.classList.remove('category--hide');
         });
+
+        this.classList.add('see-more--all');
+
+        var openPanels = parentArea.querySelectorAll('.pannel-open');
+        if (!openPanels.length) {
+          parentArea.querySelector('.category--item').classList.add('pannel-open');
+        }
 
         e.preventDefault();
       }

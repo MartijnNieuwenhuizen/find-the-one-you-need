@@ -1,19 +1,40 @@
 .see-more {
   text-decoration: none;
   display: block;
-  margin-bottom: -1px;
   overflow: hidden;
+
+  z-index: 999;
+  transform: translate(0);
 
   &--title {
     margin: 0;
-    padding: 0;
+    padding: 1.5rem 0 .5rem 0;
     text-align: center;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &--item {
     display: block;
-    height: .5rem;
+    height: .7rem;
     margin: 0 auto;
+  }
+
+  &--number {
+    display: inline-block;
+  }
+  &--number {
+    display: inline-block;
+    border-radius: 50%;
+    width: 1.7rem; height: 1.7rem;
+    max-width: 2rem; max-height: 2rem;
+    margin-left: .3rem;
+    color: $white;
+
+    transition: .3s max-width, .3s max-height;
+    transform-origin: center;
   }
 
   &--small {
@@ -31,10 +52,27 @@
 
   @include hocus {
     .see-more--small {
-      transform: scale(1.02);
+      transform: scale(1.01, 1.02);
     }
     .see-more--large {
-      transform: scale(1.01);
+      transform: scale(1.01, 1.01);
+    }
+  }
+
+  &--all {
+    .see-more {
+      &--title {
+        text-decoration: none;
+
+        @include hocus {
+          cursor: default;
+        };
+      }
+
+      &--number {
+        max-width: 0;
+        max-height: 0;
+      }
     }
   }
 }
