@@ -1,5 +1,3 @@
-// const fakeHitWords = ['nodeJS', 'javascript', 'Nuon', 'KLM', 'SASS', 'ES6'];
-
 class Hits {
   static getFromSentence(sentence, db) {
     return new Promise(function(resolve, reject) {

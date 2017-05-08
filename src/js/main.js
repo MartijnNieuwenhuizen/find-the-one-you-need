@@ -19,6 +19,12 @@ if ( document.querySelector('.skills') ) {
 }
 
 
+if ( document.querySelector('.match') ) {
+  const match = require('./modules/match');
+  match.launch('');
+}
+
+
 
 if ( document.querySelector('.result--see-all') ) {
 

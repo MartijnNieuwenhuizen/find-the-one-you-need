@@ -7,7 +7,7 @@ const areaPannels = {
   },
 
   getTags: () => {
-    return Array.from(document.querySelectorAll('.buzzwords span'));
+    return Array.from(document.querySelectorAll('.buzzwords button'));
   },
 
   getAreasFromTags: (tags) => {

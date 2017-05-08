@@ -37,6 +37,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       skills.visualize('');
     }
 
+    if (document.querySelector('.match')) {
+      var match = require('./modules/match');
+      match.launch('');
+    }
+
     if (document.querySelector('.result--see-all')) {
       var seeFullProfile = function seeFullProfile(e) {
 
@@ -60,7 +65,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         button.addEventListener('click', seeFullProfile, false);
       });
     }
-  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/see-more": 5, "./modules/skills": 6 }], 2: [function (require, module, exports) {
+  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/see-more": 6, "./modules/skills": 7 }], 2: [function (require, module, exports) {
     var areaPannels = {
 
       openRelevant: function openRelevant() {
@@ -70,7 +75,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
 
       getTags: function getTags() {
-        return Array.from(document.querySelectorAll('.buzzwords span'));
+        return Array.from(document.querySelectorAll('.buzzwords button'));
       },
 
       getAreasFromTags: function getAreasFromTags(tags) {
@@ -264,6 +269,42 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     module.exports = Pannels;
   }, {}], 5: [function (require, module, exports) {
+    var match = {
+      launch: function launch() {
+        var matches = Array.from(document.querySelectorAll('.match'));
+
+        matches.forEach(function (button) {
+          button.addEventListener('click', match.remove, true);
+          // panel.addEventListener('click', Pannels.toggle, true);
+        });
+      },
+
+      remove: function remove(e) {
+        var value = this.querySelector('.match--word').innerHTML;
+
+        this.parentNode.removeChild(this);
+        // console.log(this);
+
+        var form = document.querySelector('.form');
+        var input = form.querySelector('input');
+
+        var inputValue = input.value;
+        var inputWords = inputValue.split(' ');
+        var newInputValue = inputWords.map(function (word) {
+          if (word !== value) {
+            return word;
+          } else {
+            return '';
+          }
+        }).join(' ');
+
+        input.value = newInputValue;
+        form.submit();
+      }
+    };
+
+    module.exports = match;
+  }, {}], 6: [function (require, module, exports) {
     var more = {
       listen: function listen() {
         var areas = Array.from(document.querySelectorAll('.area'));
@@ -295,7 +336,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = more;
-  }, {}], 6: [function (require, module, exports) {
+  }, {}], 7: [function (require, module, exports) {
     var Skills = {
       visualize: function visualize() {
 
