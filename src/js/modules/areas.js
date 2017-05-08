@@ -3,7 +3,12 @@ const areaPannels = {
   openRelevant: () => {
     const tags = areaPannels.getTags();
     const areas = areaPannels.getAreasFromTags(tags);
-    areaPannels.showRelevant(areas);
+    areaPannels.reorder(areas);
+
+    const triggers = document.querySelectorAll('.area--subtitle-link');
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', areaPannels.openSpesific, true);
+    });
   },
 
   getTags: () => {
@@ -23,21 +28,30 @@ const areaPannels = {
     return areas;
   },
 
-  showRelevant: (areas) => {
-    areaPannels.hideAll();
+  openSpesific: function(e) {
+    this.parentElement.parentElement.classList.toggle('pannel-open');
 
-    areas.forEach(areaName => {
-      const htmlArea = Array.from(document.querySelectorAll(`.area--${areaName}`));
-      htmlArea.forEach(area => {
-        area.classList.remove('area--hide');
-      });
-    });
+    e.preventDefault();
   },
 
-  hideAll: () => {
-    const allAreas = Array.from(document.querySelectorAll('.area'));
-    allAreas.forEach(area => {
-      area.classList.add('area--hide');
+  reorder: function(areas) {
+    const areaItems = document.querySelectorAll('.knolage-areas--item');
+    areas.reverse();
+
+    areaItems.forEach(areaItem => {
+      let reorderNeeded = true;
+
+      areas.forEach(term => {
+        if ( areaItem.classList.contains('area--' + term) ) {
+          reorderNeeded = false;
+        }
+      });
+
+      if ( reorderNeeded ) {
+        const parrent = areaItem.parentNode;
+        parrent.removeChild(areaItem);
+        parrent.appendChild(areaItem);
+      }
     });
   }
 };

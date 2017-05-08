@@ -8,6 +8,8 @@
   transition: .3s color;
   background-color: transparent;
   font-weight: inherit;
+  z-index: 999;
+  transform: translate(0);
 
   &:after {
     content: "";

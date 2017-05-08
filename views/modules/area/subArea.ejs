@@ -11,12 +11,12 @@
         subAreaName = 'HTML';
       }
     %>
-    <p class="see-more--title"><%- subAreaName %></p>
+    <p class="see-more--title"><span class="see-more--text"><%- subAreaName %></span> <span class="see-more--number"><%- subArea.points.length %></span></p>
 
-    <div class="see-more">
+    <%# <div class="see-more">
       <span class="see-more--small"></span>
       <span class="see-more--large"></span>
-    </div>
+    </div>%>
   </a>
 
   <% subArea.points.forEach(point => { %>
