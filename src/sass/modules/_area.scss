@@ -1,35 +1,39 @@
 .area {
   position: relative;
 
-  &--title-container {
-    position: absolute;
-    top: 0; left: 0;
-    width: $card-label-width; height: 100%;
-
-    background-color: darken($gray, 10%);
-    border-top-left-radius: $border-radius;
-    border-bottom-left-radius: $border-radius;
-  }
-
-
-  &--title {
-    position: absolute;
-    top: 50%; left: 50%;
-    margin: 0; padding: 0;
-
-    white-space: nowrap;
-    @include area-title;
+  // &--title-container {
+  //   position: absolute;
+  //   top: 0; left: 0;
+  //   width: $card-label-width; height: 100%;
+  //
+  //   background-color: darken($gray, 10%);
+  //   border-top-left-radius: $border-radius;
+  //   border-bottom-left-radius: $border-radius;
+  // }
 
 
-    transform: rotate(-90deg) translate(-50%, -50%);
-    transform-origin: 0 0;
-  }
+  // &--title {
+  //   position: absolute;
+  //   top: 50%; left: 50%;
+  //   margin: 0; padding: 0;
+  //
+  //   white-space: nowrap;
+  //   @include area-title;
+  //
+  //
+  //   transform: rotate(-90deg) translate(-50%, -50%);
+  //   transform-origin: 0 0;
+  // }
 
   &--subtitle {
     margin: 0;
-
-    @include reset-link;
+    padding: .9375rem 1.5625rem 2.0625rem 1.5625rem;
     @include area-subtitle;
+    background-color: orange;
+    color: white;
+  }
+  &--subtitle-link {
+    @include reset-link;
   }
 
 

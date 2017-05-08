@@ -1,5 +1,6 @@
 .form {
-
+  @include container(56.5625rem);
+  
   &--container {
     border: 0;
   }
@@ -28,8 +29,8 @@
 
     background-color: transparent;
     color: transparent;
-    border: 2px solid $input-bg;
-    border-radius: 10px;
+    border: 0;
+    border-bottom: 2px solid $dark-gray;
 
     // Make the fonts the same as the overlaying styles
     font-family: inherit;
@@ -40,7 +41,6 @@
     &:focus {
       color: inherit;
       outline: 0;
-      background-color: $input-bg;
 
       // Remove the buzzwords if the input has foucs
       + .form--buzzwords {
@@ -54,9 +54,6 @@
     z-index: 0;
     margin: 0;
     padding: $input-padding-extended;
-
-    background-color: $input-bg;
-    border-radius: 10px;
   }
 
   &--controls {
@@ -64,5 +61,10 @@
     top: 0; right: 0;
     z-index: 2;
     padding: $input-padding;
+
+    .no-message & {
+      right: auto; left: 50%;
+      transform: translate(-50%, 200%);
+    }
   }
 }

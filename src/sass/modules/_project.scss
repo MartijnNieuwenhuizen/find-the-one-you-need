@@ -1,12 +1,13 @@
 .project {
   @extend .category--item;
+  position: relative;
 
   &--name {
-    display: inline-block;
-    margin-right: 1rem;
+    display: block;
   }
   &--hours {
-    display: inline-block;
+    position: absolute;
+    top: 1rem; right: 1rem;
     margin: 0;
     float: right;
 
@@ -17,5 +18,9 @@
 
   &--last {
     padding-left: .5rem;
+  }
+
+  &--bold {
+    font-weight: 600;
   }
 }

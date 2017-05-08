@@ -1,14 +1,50 @@
 <li class="project category--item" id="<%- project.name %>">
-  <h4 class="project--name"><a href="#<%- project.name %>" class="project--title area--subtitle"><%- project.name %></a></h4>
-  <p class="project--hours"> <abbr title="Aantal uren gewerkt">430</abbr></p>
+  <h4 class="project--name area--subtitle"><a href="#<%- project.name %>" class="project--title area--subtitle-link"><%- project.name %></a></h4>
+  <p class="project--hours"> <abbr title="Aantal uren gewerkt">
+    <% if (person.name.first == 'Sandy') { %>
+      30
+    <% } %>
+    <% if (person.name.first == 'Joost') { %>
+      120
+    <% } %>
+
+    <% if (person.name.first == 'Bjurn') { %>
+      34
+    <% } %>
+    <% if (person.name.first == 'Daisy') { %>
+      21
+    <% } %>
+    <% if (person.name.first == 'Leander') { %>
+      262
+    <% } %>
+  </abbr></p>
 
   <dl class="project--activities activity">
     <dt class="activity--title">Werkzaamheden</dt>
-    <dd class="activity--item">Search</dd>
-    <dd class="activity--item">Google Maps implementatie</dd>
+    <% if (person.name.first == 'Sandy') { %>
+      <dd class="activity--item">Search</dd>
+      <dd class="activity--item">Google Maps styling</dd>
+    <% } %>
+    <% if (person.name.first == 'Joost') { %>
+      <dd class="activity--item">Google Maps logica</dd>
+      <dd class="activity--item">Login</dd>
+    <% } %>
+
+    <% if (person.name.first == 'Bjurn') { %>
+      <dd class="activity--item">Footer redesign</dd>
+      <dd class="activity--item">Mei actie</dd>
+    <% } %>
+    <% if (person.name.first == 'Daisy') { %>
+      <dd class="activity--item">Navigatie</dd>
+    <% } %>
+    <% if (person.name.first == 'Leander') { %>
+      <dd class="activity--item">Personal page</dd>
+      <dd class="activity--item">Login</dd>
+      <dd class="activity--item">Actie madelief</dd>
+    <% } %>
   </dl>
 
-  <p class="project--last">Laatste activiteit: <span>3 maanden geleden</span></p>
+  <p class="project--last"><span class="project--bold">Laatste activiteit: </span><span>3 maanden geleden</span></p>
 
   <%# <dt>Laatste keer aan gewerkt</dt>
   <dd>3 maanden geleden</dd>%>
