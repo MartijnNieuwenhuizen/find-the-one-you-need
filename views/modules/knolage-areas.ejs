@@ -2,10 +2,6 @@
   <% if (person.knolage.length)  { %>
     <% person.knolage.forEach(area => { %>
       <li class="knolage-areas--item area area--<%- area.name %>">
-        <div class="area--title-container">
-          <h3 class="area--title"><%- area.name %></h3>
-        </div>
-
         <% if (area.subArea) { %>
           <div class="category">
 
@@ -13,10 +9,7 @@
               <%- include ./area/subArea.ejs %>
             <% }); %>
 
-            <a href="#" class="see-more">
-              <span class="see-more--color"></span><span class="see-more--color"></span><span class="see-more--color"></span>
-              <span class="see-more--text">Bekijk alle <%- area.name %> Skills van <%- person.name.first %></span>
-            </a>
+            <a href="#" class="see-all">Bekijk alle technische Skills van <%- person.name.first %></a>
           <div>
         <% } %>
       </li>
@@ -25,22 +18,21 @@
 
   <% if (person.project.length)  { %>
     <li class="knolage-areas--item area area--project">
-      <div class="area--title-container match--project">
-        <h3 class="area--title">Project</h3>
-      </div>
+      <% if (person.project.length > 1) { %>
+        <a class="see-more" href="#">
+          <p class="see-more--title">Projecten</p>
 
+          <div class="see-more">
+            <span class="see-more--small"></span>
+            <span class="see-more--large"></span>
+          </div>
+        </a>
+      <% } %>
       <ul class="projects">
         <% person.project.forEach(project => { %>
           <%- include ./area/project.ejs %>
         <% }) %>
       </ul>
-
-      <% if (person.project.length > 1) { %>
-        <a href="#" class="see-more">
-          <span class="see-more--color"></span><span class="see-more--color"></span><span class="see-more--color"></span>
-          <span class="see-more--text">Bekijk alle projecten waar <%- person.name.first %> aan heeft gewerkt</span>
-        </a>
-      <% } %>
     </li>
 
   <% } %>

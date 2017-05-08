@@ -1,3 +1,35 @@
+.result {
+
+
+  &--see-all {
+    // display: block;
+    float: right;
+    text-align: right;
+    background-color: $brand-primary;
+    color: $white;
+    padding: .3rem .7rem;
+    text-decoration: none;
+
+    transition: .3s background-color;
+
+    @include hocus {
+      background-color: lighten($brand-primary, 10%);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @keyframes fade-in {
   0% {
     opacity: 0;
