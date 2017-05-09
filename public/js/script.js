@@ -32,6 +32,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       more.listen();
     }
 
+    if (document.querySelector('.slider')) {
+      require('./modules/slider');
+    }
+
     if (document.querySelector('.skills')) {
       var skills = require('./modules/skills');
       skills.visualize('');
@@ -51,7 +55,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         input.focus();
       }, true);
     }
-  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/see-more": 6, "./modules/skills": 7 }], 2: [function (require, module, exports) {
+  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/see-more": 6, "./modules/skills": 7, "./modules/slider": 8 }], 2: [function (require, module, exports) {
     var areaPannels = {
 
       openRelevant: function openRelevant() {
@@ -416,4 +420,102 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = Skills;
+  }, {}], 8: [function (require, module, exports) {
+    var sliderList = document.querySelector('.slider--container');
+    var sliderItems = document.querySelectorAll('.slider--item');
+    var sliderContainer = document.querySelector('.slider');
+
+    // Get the total amount of slider
+    var totalAmountOfItems = sliderItems.length;
+
+    var itemWidth = void 0;
+    var marge = 16;
+
+    function calculateListWidth() {
+      // Get the with of one item in the list
+      itemWidth = sliderItems[0].offsetWidth;
+      // set the width of the list to the width of all the elements combined
+      sliderList.style.width = totalAmountOfItems * (itemWidth + marge) + 'px';
+    }
+    calculateListWidth();
+
+    var sliderShown = void 0;
+
+    function getAmountOfPeople() {
+      if (window.innerWidth < 960) {
+        sliderShown = 1;
+      }
+      if (window.innerWidth >= 960) {
+        sliderShown = 2;
+      }
+      if (window.innerWidth >= 1200) {
+        sliderShown = 3;
+      }
+    }
+    getAmountOfPeople();
+
+    function itemsWidth() {
+      sliderItems.forEach(function (item) {
+        item.style.width = itemWidth - marge + 'px';
+      });
+    }
+    itemsWidth();
+
+    window.onresize = function () {
+      getAmountOfPeople();
+      calculateListWidth();
+      itemsWidth();
+    };
+
+    // create buttons
+    var buttonLeft = document.querySelector('.slider--left');
+    var buttonRight = document.querySelector('.slider--right');
+
+    // add eventListeners to the buttons
+    buttonLeft.addEventListener('click', moveLeft);
+    buttonRight.addEventListener('click', moveRight);
+
+    // Disable the left button on default
+    buttonLeft.disabled = true;
+
+    // Move the slider functions
+    var pos = 0;
+    var counter = 0;
+
+    sliderList.style.transition = '.3s transform';
+
+    function moveLeft(e) {
+      pos += itemWidth;
+      var posPx = pos + 'px';
+      sliderList.style.transform = 'translateX(' + posPx + ')';
+
+      checkRightButton(this);
+    }
+    function moveRight(e) {
+      pos -= itemWidth;
+      var posPx = pos + 'px';
+      sliderList.style.transform = 'translateX(' + posPx + ')';
+
+      checkLeftButton(this);
+    }
+
+    // Check if abutton is disabled and needs to be enabled
+    function checkButtonsDisabled() {
+      if (buttonLeft.disabled === true && counter !== 0) {
+        buttonLeft.disabled = false;
+      }
+      if (buttonRight.disabled === true && counter < totalAmountOfItems - sliderShown) {
+        buttonRight.disabled = false;
+      }
+    }
+
+    function checkLeftButton(button) {
+      counter += 1;
+      totalAmountOfItems === sliderShown + counter ? button.disabled = true : checkButtonsDisabled();
+    }
+
+    function checkRightButton(button) {
+      counter -= 1;
+      counter === 0 ? button.disabled = true : checkButtonsDisabled();
+    }
   }, {}] }, {}, [1]);

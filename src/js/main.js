@@ -13,6 +13,10 @@ if ( document.querySelector('.result') ) {
   more.listen();
 }
 
+if ( document.querySelector('.slider') ) {
+  require('./modules/slider');
+}
+
 if ( document.querySelector('.skills') ) {
   const skills = require('./modules/skills');
   skills.visualize('');
