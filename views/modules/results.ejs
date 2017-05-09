@@ -1,10 +1,12 @@
 <% if (people.length) { %>
-  <section class="results">
-    <ul class="results--list">
+  <section class="results slider">
+    <ul class="results--list slider--container">
       <% people.forEach(person => { %>
         <%- include ./result.ejs %>
       <% }) %>
     </ul>
+    <button class="slider--button slider--left">Left</button>
+    <button class="slider--button slider--right">Right</button>
   </section>
 <% } else { %>
   <% if (message.length) { %>
