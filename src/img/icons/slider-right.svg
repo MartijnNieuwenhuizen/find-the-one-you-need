@@ -1,0 +1,6 @@
+<svg width="119" height="207" viewBox="0 0 119 207">
+  <g fill="none" fill-rule="evenodd" stroke="#4A4A4A" stroke-linecap="square" stroke-width="10" transform="translate(12 9)">
+    <path d="M0.5,0.5 L94.587725,94.587725"/>
+    <path d="M0.5,95.5 L94.587725,189.587725" transform="matrix(1 0 0 -1 0 285)"/>
+  </g>
+</svg>

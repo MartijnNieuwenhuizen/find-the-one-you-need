@@ -797,7 +797,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1494318467821");
+  background-image: url("/img/icons/clock.png?version=1494318526001");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -890,18 +890,6 @@ a {
 .results--list {
   margin: 0;
   padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
 }
 
 .results--list li {
@@ -1077,6 +1065,110 @@ a {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.slider {
+  position: relative;
+  max-width: 85vw;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider--container {
+  overflow: auto;
+}
+
+.slider--item {
+  float: left;
+}
+
+.slider--button {
+  position: fixed;
+  top: 50%;
+  height: 100%;
+  padding: 0 1rem;
+  border: 0;
+  color: transparent;
+}
+
+.slider--button:disabled:after {
+  opacity: .3;
+}
+
+.slider--button:disabled:hover,
+.slider--button:disabled:focus {
+  cursor: default;
+}
+
+.slider--button:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: .2s ease-in-out transform;
+  transition: .2s ease-in-out transform;
+}
+
+.slider--button:hover,
+.slider--button:focus {
+  cursor: pointer;
+}
+
+.slider--left {
+  left: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  background: -webkit-linear-gradient(left, lightgray, white);
+  background: linear-gradient(to right, lightgray, white);
+}
+
+.slider--left:after {
+  background-image: url("../img/../img/icons/slider-left.png?version=1494318526001");
+}
+
+.slider--left:hover,
+.slider--left:focus {
+  outline: none;
+}
+
+.slider--left:not(:disabled):after {
+  -webkit-transform: translate(-60%, -50%);
+  -ms-transform: translate(-60%, -50%);
+  transform: translate(-60%, -50%);
+}
+
+.slider--right {
+  right: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  background: -webkit-linear-gradient(right, lightgray, white);
+  background: linear-gradient(to left, lightgray, white);
+}
+
+.slider--right:after {
+  background-image: url("../img/../img/icons/slider-right.png?version=1494318526001");
+}
+
+.slider--right:hover,
+.slider--right:focus {
+  outline: none;
+}
+
+.slider--right:hover:not(:disabled):after,
+.slider--right:focus:not(:disabled):after {
+  -webkit-transform: translate(-40%, -50%);
+  -ms-transform: translate(-40%, -50%);
+  transform: translate(-40%, -50%);
 }
 
 .sub-category {

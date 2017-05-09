@@ -2,10 +2,10 @@
 
   &--list {
     @include reset-list;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
+    // display: flex;
+    // flex-wrap: wrap;
+    // flex-direction: row;
+    // justify-content: center;
   }
   &--item {
     width: 22rem;
