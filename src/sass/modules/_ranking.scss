@@ -11,6 +11,10 @@
 
   &--item {
     display: inline-block;
+
+    @include hocus {
+        
+    }
   }
   &--img {
 

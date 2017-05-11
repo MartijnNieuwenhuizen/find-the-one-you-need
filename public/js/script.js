@@ -77,7 +77,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         });
       });
     }
-  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/see-more": 6, "./modules/skills": 7, "./modules/slider": 8 }], 2: [function (require, module, exports) {
+
+    if (document.querySelector('.ranking')) {
+      var ranking = require('./modules/ranking');
+      ranking.launch();
+    }
+  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/ranking": 6, "./modules/see-more": 7, "./modules/skills": 8, "./modules/slider": 9 }], 2: [function (require, module, exports) {
     var areaPannels = {
 
       openRelevant: function openRelevant() {
@@ -153,14 +158,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
 
       getRelevantFromTags: function getRelevantFromTags(tags) {
-        console.log('tags: ', tags);
         var relevantCategories = tags.map(function (tag) {
           return Array.from(document.querySelectorAll("#" + tag));
         }).reduce(function (a, b) {
           return a.concat(b);
         });
 
-        console.log('relevantCategories: ', relevantCategories);
         return relevantCategories;
       },
 
@@ -319,11 +322,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
 
       remove: function remove(e) {
-        console.log('e');
-        console.dir(e);
-        console.log('clicked!');
         var value = this.querySelector('.match--word').innerHTML;
-        // console.log(this);
 
         var form = document.querySelector('.form');
         var input = form.querySelector('input');
@@ -339,11 +338,41 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         input.value = newInputValue;
         this.parentNode.removeChild(this);
         form.submit();
+
+        e.preventDefault();
       }
     };
 
     module.exports = match;
   }, {}], 6: [function (require, module, exports) {
+    var ranking = {
+      launch: function launch() {
+        var rankingList = Array.from(document.querySelectorAll('.ranking'));
+
+        rankingList.forEach(function (list) {
+          var rankingItems = list.querySelectorAll('.ranking--item');
+
+          rankingItems.forEach(function (item, i, arr) {
+            item.order = i;
+            item.arr = arr;
+            item.addEventListener('mouseover', ranking.hover, true);
+          });
+        });
+      },
+
+      hover: function hover(e) {
+        // this
+        console.log(this.order);
+        console.log(this.arr);
+
+        // for (var i = this.arr.length; i > this.arr.length; i--) {
+        //   console.log('bla');
+        // }
+      }
+    };
+
+    module.exports = ranking;
+  }, {}], 7: [function (require, module, exports) {
     var more = {
       listen: function listen() {
         var areas = Array.from(document.querySelectorAll('.sub-category'));
@@ -386,7 +415,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = more;
-  }, {}], 7: [function (require, module, exports) {
+  }, {}], 8: [function (require, module, exports) {
     var Skills = {
       visualize: function visualize() {
 
@@ -448,7 +477,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = Skills;
-  }, {}], 8: [function (require, module, exports) {
+  }, {}], 9: [function (require, module, exports) {
     var sliderList = document.querySelector('.slider--container');
     var sliderItems = document.querySelectorAll('.slider--item');
     var sliderContainer = document.querySelector('.slider');
