@@ -12,7 +12,6 @@ class People {
       const matches = [];
       people.find({})
         .each((person, {close, pause, resume}) => {
-          console.log('person: ',person);
           const personNeeded = peopleIds.includes(String(person._id));
           if ( personNeeded ) {
             matches.push(person);
@@ -84,7 +83,6 @@ class People {
             .map(person => person.id);
 
           if (topMatches.length === 0) {
-            console.log('nooooooooooooo');
           }
 
           const matchedPeople = People.getPeopleData(topMatches, db);
@@ -115,9 +113,14 @@ class People {
             const personalId = peopleIds.indexOf(id);
 
             if ( personalId !== -1 ) {
-              console.log('tag: ', tag);
               switch (tag.type) {
                 case 'knolage':
+                  const totalPeople = 13; // @TODO make this dynamic
+                  const unique = Math.round((tag.people.length / totalPeople) * 100);
+
+                  const fakeActivity = Math.floor(Math.random() * 50);
+                  const fakeRanking = Math.floor(Math.random() * 100);
+
                   const knolageItem = {};
                   if (tag.name) { knolageItem.name = tag.name; }
                   if (tag.fullName) { knolageItem.fullName = tag.fullName; }
@@ -125,13 +128,23 @@ class People {
                   if (tag.category) { knolageItem.category = tag.category; }
                   if (tag.subCategory) { knolageItem.subCategory = tag.subCategory; }
 
+                  knolageItem.unique = 100 - unique;
+                  knolageItem.lastActivity = fakeActivity;
+                  knolageItem.ranking = fakeRanking;
+                  // tag.rank = ;
+
                   people[personalId].knolage.push(knolageItem);
                 break;
                 case 'project':
+                  const fakeProjectActivity = Math.floor(Math.random() * 50);
+                  const fakeHours = Math.floor(Math.random() * 100);
+
                   const projectItem = {};
                   if (tag.name) { projectItem.name = tag.name; }
                   if (tag.fullName) { projectItem.fullName = tag.fullName; }
                   if (tag.type) { projectItem.type = tag.type; }
+                  projectItem.lastActivity = fakeProjectActivity;
+                  projectItem.hours = fakeHours;
 
                   people[personalId].project.push(projectItem);
                 break;
@@ -227,10 +240,12 @@ class People {
 
       newKnolage[catagoryIndex].subArea[subCatagoryIndex].points.push({
         name: knolagePoint.fullName ? knolagePoint.fullName : knolagePoint.name,
-        hash: knolagePoint.name
+        hash: knolagePoint.name,
+        unique: knolagePoint.unique,
+        lastActivity: knolagePoint.lastActivity,
+        ranking: knolagePoint.ranking
       });
     });
-
     return newKnolage;
   }
 

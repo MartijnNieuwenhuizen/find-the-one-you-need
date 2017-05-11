@@ -11,10 +11,12 @@ const categories = {
   },
 
   getRelevantFromTags: (tags) => {
+    console.log('tags: ', tags);
     const relevantCategories = tags
       .map(tag => Array.from(document.querySelectorAll(`#${tag}`)))
       .reduce((a, b) => a.concat(b) );
 
+    console.log('relevantCategories: ', relevantCategories);
     return relevantCategories;
   },
 

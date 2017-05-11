@@ -1,0 +1,26 @@
+.rank {
+  &--title {
+
+  }
+  &--definition {
+
+  }
+  &--number {
+    font-size: 2.3rem;
+  }
+  &--extr {
+    vertical-align: top;
+    margin-left: -.5rem;
+    font-size: .9rem;
+  }
+}
+
+.gold {
+  color: gold;
+}
+.silver {
+  color: silver;
+}
+.bronze {
+  color: #CD7F32;
+}

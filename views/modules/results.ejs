@@ -1,7 +1,7 @@
 <% if (people.length) { %>
   <section class="results slider">
     <ul class="results--list slider--container">
-      <% people.forEach(person => { %>
+      <% people.forEach((person, i) => { %>
         <%- include ./result.ejs %>
       <% }) %>
     </ul>

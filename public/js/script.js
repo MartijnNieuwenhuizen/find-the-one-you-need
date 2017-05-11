@@ -36,14 +36,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       require('./modules/slider');
     }
 
-    if (document.querySelector('.skills')) {
+    if (document.querySelector('.skill')) {
       var skills = require('./modules/skills');
-      skills.visualize('');
+      skills.visualize();
     }
 
     if (document.querySelector('.match')) {
       var match = require('./modules/match');
-      match.launch('');
+      match.launch();
     }
 
     // Quick fix to make the sentance
@@ -54,6 +54,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var input = document.querySelector('.form input');
         input.focus();
       }, true);
+    }
+
+    // if ( document.querySelector('.form--input') ) {
+    //   const typeAhead = require('./modules/type-ahead');
+    //   typeAhead.launch();
+    // }
+
+
+    if (document.querySelector('.remove')) {
+      var removeButtons = Array.from(document.querySelectorAll('.remove'));
+
+      removeButtons.forEach(function (button) {
+        button.addEventListener('click', function (e) {
+          this.parentElement.classList.add('fade-out');
+
+          e.preventDefault();
+
+          // setTimeout(() => {
+          //   this.parentElement.remove();
+          // }, 400);
+        });
+      });
     }
   }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/see-more": 6, "./modules/skills": 7, "./modules/slider": 8 }], 2: [function (require, module, exports) {
     var areaPannels = {
@@ -131,12 +153,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
 
       getRelevantFromTags: function getRelevantFromTags(tags) {
+        console.log('tags: ', tags);
         var relevantCategories = tags.map(function (tag) {
           return Array.from(document.querySelectorAll("#" + tag));
         }).reduce(function (a, b) {
           return a.concat(b);
         });
 
+        console.log('relevantCategories: ', relevantCategories);
         return relevantCategories;
       },
 
@@ -291,14 +315,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         matches.forEach(function (button) {
           button.addEventListener('click', match.remove, true);
-          // panel.addEventListener('click', Pannels.toggle, true);
         });
       },
 
       remove: function remove(e) {
+        console.log('e');
+        console.dir(e);
+        console.log('clicked!');
         var value = this.querySelector('.match--word').innerHTML;
-
-        this.parentNode.removeChild(this);
         // console.log(this);
 
         var form = document.querySelector('.form');
@@ -306,15 +330,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         var inputValue = input.value;
         var inputWords = inputValue.split(' ');
-        var newInputValue = inputWords.map(function (word) {
-          if (word !== value) {
+        var newInputValue = inputWords.filter(function (word) {
+          if (word !== value && word.length > 0) {
             return word;
-          } else {
-            return '';
           }
         }).join(' ');
 
         input.value = newInputValue;
+        this.parentNode.removeChild(this);
         form.submit();
       }
     };
@@ -324,15 +347,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var more = {
       listen: function listen() {
         var areas = Array.from(document.querySelectorAll('.sub-category'));
-        // const visibleAreas = areas.filter(area => !area.classList.contains('area--hide'));
 
         areas.forEach(function (area) {
           var seeMore = area.querySelectorAll('.see-more');
 
           if (seeMore) {
             seeMore.forEach(function (button) {
+              // const number = Number(button.querySelector('.see-more--number').innerHTML);
+              // if ( number <= 1 ) {
+              // button.classList.add('see-more--all');
+              // } else {
               button.parentArea = area;
               button.addEventListener('click', more.showAll, false);
+              // }
             });
           }
         });
@@ -380,9 +407,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var ctx = canvas.getContext('2d');
 
           var size = 64;
-          var maxValue = 50;
+          // const maxValue = 50;
+          var maxValue = 100;
 
-          var fakeValue = Math.floor(Math.random() * (maxValue - 5 + 1) + 5);
+          // const fakeValue = Math.floor(Math.random() * (maxValue - 5 + 1) + 5);
 
           canvas.width = size;
           canvas.height = size;
@@ -395,7 +423,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           // of the arc calculations
           var full = 2 * Math.PI; // the 100% of the circle
           var one = full / 100; // 1% of the circle
-          var percentage = fakeValue / maxValue * 100; // percentage the circle needs to be drawn
+          var percentage = value / maxValue * 100; // percentage the circle needs to be drawn
           var endPoint = percentage * one; // value out of the percentage
 
           var x = 32;
@@ -412,7 +440,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           ctx.lineWidth = 6;
           ctx.stroke();
 
-          point.innerHTML = fakeValue;
+          // point.innerHTML = value;
 
           point.appendChild(canvas);
         });
@@ -517,5 +545,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function checkRightButton(button) {
       counter -= 1;
       counter === 0 ? button.disabled = true : checkButtonsDisabled();
+    }
+
+    if (totalAmountOfItems <= sliderShown) {
+      buttonRight.remove();
+      buttonLeft.remove();
     }
   }, {}] }, {}, [1]);

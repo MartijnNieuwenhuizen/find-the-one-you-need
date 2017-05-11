@@ -19,9 +19,10 @@ const Skills = {
       const ctx = canvas.getContext('2d');
 
       const size = 64;
-      const maxValue = 50;
+      // const maxValue = 50;
+      const maxValue = 100;
 
-      const fakeValue = Math.floor(Math.random() * (maxValue - 5 + 1) + 5);
+      // const fakeValue = Math.floor(Math.random() * (maxValue - 5 + 1) + 5);
 
       canvas.width = size;
       canvas.height = size;
@@ -34,7 +35,7 @@ const Skills = {
       // of the arc calculations
       const full = 2 * Math.PI; // the 100% of the circle
       const one = full / 100; // 1% of the circle
-      const percentage = (fakeValue / maxValue) * 100; // percentage the circle needs to be drawn
+      const percentage = (value / maxValue) * 100; // percentage the circle needs to be drawn
       const endPoint = percentage * one; // value out of the percentage
 
       const x = 32;
@@ -51,7 +52,7 @@ const Skills = {
       ctx.lineWidth = 6;
       ctx.stroke();
 
-      point.innerHTML = fakeValue;
+      // point.innerHTML = value;
 
       point.appendChild(canvas);
     });

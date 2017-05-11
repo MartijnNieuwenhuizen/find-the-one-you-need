@@ -13,5 +13,9 @@
     display: list-item;
 
     list-style-type: disc;
+
+    .data--item & {
+      text-align: left;
+    }
   }
 }

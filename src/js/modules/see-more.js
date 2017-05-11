@@ -1,15 +1,19 @@
 const more = {
   listen: () => {
     const areas = Array.from(document.querySelectorAll('.sub-category'));
-    // const visibleAreas = areas.filter(area => !area.classList.contains('area--hide'));
 
     areas.forEach(area => {
       const seeMore = area.querySelectorAll('.see-more');
 
       if (seeMore) {
         seeMore.forEach(button => {
-          button.parentArea = area;
-          button.addEventListener('click', more.showAll, false);
+          // const number = Number(button.querySelector('.see-more--number').innerHTML);
+          // if ( number <= 1 ) {
+            // button.classList.add('see-more--all');
+          // } else {
+            button.parentArea = area;
+            button.addEventListener('click', more.showAll, false);
+          // }
         });
       }
     });
