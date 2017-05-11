@@ -12,6 +12,8 @@
   }
   &--subtitle-link {
     @include reset-link;
+    display: inline-block;
+    max-width: calc(100% - 4rem);
   }
 
   &--front-end {

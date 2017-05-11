@@ -8,6 +8,7 @@ router.get('/', (req, res, next) => {
   const db = req.db;
 
   const message = req.query.message || '';
+  console.log('message:', message);
   const hitsInSentance = Hits.getFromSentence(message, db); // Get all the hits from the message!
 
   const messageWithHits = hitsInSentance.then(hitss => Hits.reconstructSentance(message, hitss)); // Get the sentance with hits to render them

@@ -1,4 +1,4 @@
-<dl class="skills">
+<%# <dl class="skills">
   <div class="skills--item skill">
     <dt class="skill--name">Blogs</dt>
     <dd class="skill--score demo-fed" data-score="4">4</dd>
@@ -19,4 +19,45 @@
     <dt class="skill--name">Tweets</dt>
     <dd class="skill--score demo-fed" data-score="1">1</dd>
   </div>
+</dl>%>
+
+<%
+  let rank = '';
+  if (i === 0) {
+    rank = 'gold';
+  } else if ( i === 1 ) {
+    rank = 'silver';
+  } else if ( i === 2 ) {
+    rank = 'bronze';
+  }
+%>
+
+<dl class="data">
+  <div class="data--item rank">
+    <dt class="rank--title">Rank</dt>
+    <dd class="rank--definition <%- rank %>">
+      <span class="rank--number"><%- i + 1 %></span>
+      <span class="rank--extr">th</span>
+    </dd>
+  </div>
+
+  <div class="data--item skill">
+    <dt class="skill--name">Uniqueness</dt>
+    <dd class="skill--score demo-fed" data-score="<%- point.unique %>"><%- point.unique %>%</dd>
+  </div>
+
+  <div class="data--item last-activity">
+    <dt class="last-activity--title">Last known activity</dt>
+    <dd>
+      <span class="last-activity--number"><%- point.lastActivity %></span>
+      Day's ago
+    </dd>
+  </div>
+
+  <div class="data--item activity">
+    <dt class="activity--title">Activities</dt>
+    <dd class="activity--item">Search</dd>
+    <dd class="activity--item">Google Maps styling</dd>
+  </div>
+
 </dl>

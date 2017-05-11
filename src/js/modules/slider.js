@@ -97,3 +97,8 @@ function checkRightButton(button) {
   counter -= 1;
   counter === 0 ? button.disabled = true : checkButtonsDisabled();
 }
+
+if ( totalAmountOfItems <= sliderShown ) {
+  buttonRight.remove();
+  buttonLeft.remove();
+}

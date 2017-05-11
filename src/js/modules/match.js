@@ -4,14 +4,14 @@ const match = {
 
     matches.forEach(button => {
       button.addEventListener('click', match.remove, true);
-      // panel.addEventListener('click', Pannels.toggle, true);
     });
   },
 
   remove: function(e) {
+    console.log('e');
+    console.dir(e);
+    console.log('clicked!');
     const value = this.querySelector('.match--word').innerHTML;
-
-    this.parentNode.removeChild(this);
     // console.log(this);
 
     const form = document.querySelector('.form');
@@ -19,15 +19,14 @@ const match = {
 
     const inputValue = input.value;
     const inputWords = inputValue.split(' ');
-    const newInputValue = inputWords.map(word => {
-      if ( word !== value ) {
+    const newInputValue = inputWords.filter(word => {
+      if ( word !== value && word.length > 0 ) {
         return word;
-      } else {
-        return '';
       }
     }).join(' ');
 
     input.value = newInputValue;
+    this.parentNode.removeChild(this);
     form.submit();
   }
 };
