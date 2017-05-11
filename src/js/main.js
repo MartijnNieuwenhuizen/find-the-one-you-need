@@ -17,15 +17,15 @@ if ( document.querySelector('.slider') ) {
   require('./modules/slider');
 }
 
-if ( document.querySelector('.skills') ) {
+if ( document.querySelector('.skill') ) {
   const skills = require('./modules/skills');
-  skills.visualize('');
+  skills.visualize();
 }
 
 
 if ( document.querySelector('.match') ) {
   const match = require('./modules/match');
-  match.launch('');
+  match.launch();
 }
 
 // Quick fix to make the sentance
@@ -37,4 +37,26 @@ if (document.querySelector('.buzzwords')) {
     input.focus();
   }, true);
 
+}
+
+// if ( document.querySelector('.form--input') ) {
+//   const typeAhead = require('./modules/type-ahead');
+//   typeAhead.launch();
+// }
+
+
+if ( document.querySelector('.remove') ) {
+  const removeButtons = Array.from(document.querySelectorAll('.remove'));
+
+  removeButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      this.parentElement.classList.add('fade-out');
+
+      e.preventDefault();
+
+      // setTimeout(() => {
+      //   this.parentElement.remove();
+      // }, 400);
+    });
+  })
 }

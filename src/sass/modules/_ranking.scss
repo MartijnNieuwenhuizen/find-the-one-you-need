@@ -1,0 +1,18 @@
+.ranking {
+  @include reset-list;
+  display: inline-block;
+  max-width: 4rem;
+  margin: -.4rem -1rem 0 0;
+  float: right;
+
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &--item {
+    display: inline-block;
+  }
+  &--img {
+
+  }
+}

@@ -1,4 +1,4 @@
-<div class="result--personal personal">
+<div class="result--personal personal contact">
   <%
     let imgName = `${person.name.first}_${person.name.last}_${person.location}`;
     imgName = imgName.toLowerCase();
@@ -14,4 +14,12 @@
     <%# If person is on location, add the class to make the icon green %>
     <p class="personal--location on-location"><%- person.location %></p>
   </div>
+
+  <%# <ul class="contact--list">
+    <li class="contact--item"><a class="contact--link" href="#">T</a></li>
+    <li class="contact--item"><a class="contact--link" href="#">M</a></li>
+    <li class="contact--item"><a class="contact--link" href="#">Y</a></li>
+    <li class="contact--item"><a class="contact--link" href="#">S</a></li>
+    <li class="contact--item"><a class="contact--link" href="#">Remove</a></li>
+  </ul>%>
 </div>

@@ -1,0 +1,32 @@
+.remove {
+  max-width: 3.5rem;
+  margin-left: auto;
+
+  background-color: transparent;
+  border: 0;
+  float: right;
+  margin-right: 1rem;
+
+  @include hocus {
+    cursor: pointer;
+
+    #lit {
+      transform: rotate(6deg);
+    }
+  }
+
+  &--icon {
+    width: 100%;
+    transform: translate(0, -6rem);
+  }
+}
+
+#lit {
+  transition: .3s transform;
+  transform-origin: 100% 100%;
+}
+
+.fade-out {
+  transform: scale(0);
+  transition: .3s transform;
+}

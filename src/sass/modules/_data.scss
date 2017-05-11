@@ -1,0 +1,15 @@
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  &--item:not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
+
+  dd {
+    margin: 0;
+    text-align: center;
+  }
+}
