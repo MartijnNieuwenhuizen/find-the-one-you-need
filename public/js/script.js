@@ -355,19 +355,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           rankingItems.forEach(function (item, i, arr) {
             item.order = i;
             item.arr = arr;
-            item.addEventListener('mouseover', ranking.hover, true);
+            item.addEventListener('mouseenter', ranking.hover, true);
+            item.addEventListener('mouseleave', ranking.leave, true);
+            item.addEventListener('click', ranking.rank, true);
           });
         });
       },
 
       hover: function hover(e) {
         this.arr.forEach(function (item) {
-          item.firstChild.src = 'http://localhost:3001/img/icons/star-white-empty.svg';
+          item.firstChild.src = './img/icons/star-white-empty.svg';
         });
 
         for (var i = 0; i < this.order + 1; i++) {
-          this.arr[i].firstChild.src = 'http://localhost:3001/img/icons/star-white-full.svg';
+          this.arr[i].firstChild.src = './img/icons/star-white-full.svg';
         }
+      },
+
+      leave: function leave() {
+        this.arr.forEach(function (item) {
+          item.firstChild.src = "./img/icons/star-white-" + item.firstChild.dataset.original + ".svg";
+        });
+      },
+
+      rank: function rank() {
+        var _this = this;
+
+        var counter = 0;
+        // for (var i = 0; i < this.order; i++) {
+        //
+        // }
+        var animate = setInterval(function () {
+          if (counter <= _this.order) {
+            _this.arr[counter].classList.add('added');
+
+            counter++;
+          } else {
+            clearInterval(animate);
+
+            setTimeout(function () {
+              _this.arr.forEach(function (item) {
+                item.classList.remove('added');
+              });
+            }, 500);
+          }
+        }, 200);
       }
     };
 
