@@ -1,48 +1,23 @@
 .contact {
-  position: relative;
 
-  @include hocus {
-    .contact--list {
-      opacity: 1;
+  &--list {
+    @include reset-list;
+  }
+  &--item {
+    display: inline-block;
+  }
+  &--link {
+    padding: 0 .15rem;
 
-      transform: scaleX(1);
-
-      @include hocus {
-        transform: scaleX(1);
+    @include hocus {
+      .contact--img {
+        transform: rotate(2deg);
       }
     }
   }
+  &--img {
+    width: 1.5rem;
 
-  &--list {
-    position: absolute;
-    top: 0; left: 0;
-    opacity: 0;
-    padding: 1rem;
-
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: .3s transform, .3s opacity;
-    padding: 1rem;
-    border-radius: 50%;
-
-    left: 0;
-    left: 4%;
-    width: 9rem; height: 9rem;
-    text-align: left;
-    border-radius: 0;
-    background: transparent;
-    padding: 0.5rem;
-
-    &:hover {
-      transform: scaleX(1);
-    }
-  }
-  &--item {
-    display: block;
-    width: 100%;
-    text-align: left;
-  }
-  &--link {
-
+    transition: .2s transform;
   }
 }

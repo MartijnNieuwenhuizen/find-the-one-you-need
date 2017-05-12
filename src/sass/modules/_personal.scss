@@ -4,7 +4,11 @@
   flex-wrap: nowrap;
   padding-left: $card-label-width;
 
-  // border: 1px solid lime;
+  @include hocus {
+    .personal--contact {
+      transform: scaleX(1);
+    }
+  }
 
   &--img-container {
     width: 6.875rem; height: 6.875rem;
@@ -35,13 +39,11 @@
   &--role {
     @include baseFont;
     margin: 0;
-    margin-top: .5rem;
   }
   &--location {
     display: inline-block;
     @include baseFont;
     margin: 0;
-    margin-top: auto;
 
     &:before {
       content: "";
@@ -51,5 +53,13 @@
 
       background-color: $black;
     }
+  }
+  &--contact {
+    margin-top: auto;
+    transform: scaleX(0);
+
+    transition: .3s transform;
+    transform-origin: left;
+    overflow: hidden;
   }
 }
