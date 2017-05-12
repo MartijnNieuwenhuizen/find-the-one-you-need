@@ -591,7 +591,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1494586289368");
+  background-image: url("../img/../img/icons/share.png?version=1494586303696");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(100%, -0.5rem);
@@ -945,7 +945,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1494586289368");
+  background-image: url("/img/icons/clock.png?version=1494586303696");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1022,6 +1022,22 @@ a {
 
 .ranking--item {
   display: inline-block;
+}
+
+.ranking--item:hover,
+.ranking--item:focus {
+  cursor: pointer;
+}
+
+.ranking--item.added .ranking--img {
+  -webkit-transform: scale(1.05) rotate(360deg);
+  -ms-transform: scale(1.05) rotate(360deg);
+  transform: scale(1.05) rotate(360deg);
+}
+
+.ranking--img {
+  -webkit-transition: .2s transform;
+  transition: .2s transform;
 }
 
 .remove {
@@ -1385,7 +1401,7 @@ a {
 }
 
 .slider--left:after {
-  background-image: url("../img/../img/icons/slider-left.png?version=1494586289368");
+  background-image: url("../img/../img/icons/slider-left.png?version=1494586303696");
 }
 
 .slider--left:hover,
@@ -1409,7 +1425,7 @@ a {
 }
 
 .slider--right:after {
-  background-image: url("../img/../img/icons/slider-right.png?version=1494586289368");
+  background-image: url("../img/../img/icons/slider-right.png?version=1494586303696");
 }
 
 .slider--right:hover,
