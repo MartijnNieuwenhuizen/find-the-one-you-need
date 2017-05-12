@@ -912,7 +912,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1494483328183");
+  background-image: url("/img/icons/clock.png?version=1494581246908");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1351,7 +1351,7 @@ a {
 }
 
 .slider--left:after {
-  background-image: url("../img/../img/icons/slider-left.png?version=1494483328183");
+  background-image: url("../img/../img/icons/slider-left.png?version=1494581246908");
 }
 
 .slider--left:hover,
@@ -1375,7 +1375,7 @@ a {
 }
 
 .slider--right:after {
-  background-image: url("../img/../img/icons/slider-right.png?version=1494483328183");
+  background-image: url("../img/../img/icons/slider-right.png?version=1494581246908");
 }
 
 .slider--right:hover,
