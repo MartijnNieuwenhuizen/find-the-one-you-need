@@ -352,63 +352,34 @@ a {
   max-height: 0;
 }
 
-.contact {
-  position: relative;
-}
-
-.contact:hover .contact--list,
-.contact:focus .contact--list {
-  opacity: 1;
-  -webkit-transform: scaleX(1);
-  -ms-transform: scaleX(1);
-  transform: scaleX(1);
-}
-
-.contact:hover .contact--list:hover,
-.contact:hover .contact--list:focus,
-.contact:focus .contact--list:hover,
-.contact:focus .contact--list:focus {
-  -webkit-transform: scaleX(1);
-  -ms-transform: scaleX(1);
-  transform: scaleX(1);
-}
-
 .contact--list {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  padding: 1rem;
-  -webkit-transform: scaleX(0);
-  -ms-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transform-origin: right;
-  -ms-transform-origin: right;
-  transform-origin: right;
-  -webkit-transition: .3s transform, .3s opacity;
-  transition: .3s transform, .3s opacity;
-  padding: 1rem;
-  border-radius: 50%;
-  left: 0;
-  left: 4%;
-  width: 9rem;
-  height: 9rem;
-  text-align: left;
-  border-radius: 0;
-  background: transparent;
-  padding: 0.5rem;
+  margin: 0;
+  padding: 0;
 }
 
-.contact--list:hover {
-  -webkit-transform: scaleX(1);
-  -ms-transform: scaleX(1);
-  transform: scaleX(1);
+.contact--list li {
+  list-style-type: none;
 }
 
 .contact--item {
-  display: block;
-  width: 100%;
-  text-align: left;
+  display: inline-block;
+}
+
+.contact--link {
+  padding: 0 .15rem;
+}
+
+.contact--link:hover .contact--img,
+.contact--link:focus .contact--img {
+  -webkit-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  transform: rotate(2deg);
+}
+
+.contact--img {
+  width: 1.5rem;
+  -webkit-transition: .2s transform;
+  transition: .2s transform;
 }
 
 .controls--submit {
@@ -603,12 +574,12 @@ a {
   position: absolute;
   top: 0;
   right: -100%;
-  width: 100%;
+  width: 6rem;
   height: 3rem;
   display: block;
-  -webkit-transform: rotate(-3deg) translate(2.6rem, -1.7rem);
-  -ms-transform: rotate(-3deg) translate(2.6rem, -1.7rem);
-  transform: rotate(-3deg) translate(2.6rem, -1.7rem);
+  -webkit-transform: rotate(-3deg) translate(2.6rem, -1.3rem);
+  -ms-transform: rotate(-3deg) translate(2.6rem, -1.3rem);
+  transform: rotate(-3deg) translate(2.6rem, -1.3rem);
   color: #B7B7B7;
 }
 
@@ -620,7 +591,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1494581261173");
+  background-image: url("../img/../img/icons/share.png?version=1494582601112");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(100%, -0.5rem);
@@ -808,6 +779,13 @@ a {
   padding-left: 2.6875rem;
 }
 
+.personal:hover .personal--contact,
+.personal:focus .personal--contact {
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
 .personal--img-container {
   width: 6.875rem;
   height: 6.875rem;
@@ -869,7 +847,6 @@ a {
   line-height: 1.5;
   font-weight: 400;
   margin: 0;
-  margin-top: .5rem;
 }
 
 .personal--role {
@@ -900,7 +877,6 @@ a {
   line-height: 1.5;
   font-weight: 400;
   margin: 0;
-  margin-top: auto;
 }
 
 .personal--location {
@@ -934,6 +910,19 @@ a {
   background-color: #000;
 }
 
+.personal--contact {
+  margin-top: auto;
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: .3s transform;
+  transition: .3s transform;
+  -webkit-transform-origin: left;
+  -ms-transform-origin: left;
+  transform-origin: left;
+  overflow: hidden;
+}
+
 .project {
   position: relative;
 }
@@ -956,7 +945,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1494581261173");
+  background-image: url("/img/icons/clock.png?version=1494582601112");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1396,7 +1385,7 @@ a {
 }
 
 .slider--left:after {
-  background-image: url("../img/../img/icons/slider-left.png?version=1494581261173");
+  background-image: url("../img/../img/icons/slider-left.png?version=1494582601112");
 }
 
 .slider--left:hover,
@@ -1420,7 +1409,7 @@ a {
 }
 
 .slider--right:after {
-  background-image: url("../img/../img/icons/slider-right.png?version=1494581261173");
+  background-image: url("../img/../img/icons/slider-right.png?version=1494582601112");
 }
 
 .slider--right:hover,
