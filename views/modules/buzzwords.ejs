@@ -2,7 +2,7 @@
   <p class="form--buzzwords buzzwords">
   <% buzzwords.forEach(buzzword => { %>
     <% if (buzzword.match === true) { %>
-      <span class="match match--<%= buzzword.type %>">
+      <button class="match match--<%= buzzword.type %>" type="button">
         <span class="match--word"><%= buzzword.word %></span>
         <svg width="14" height="14" viewBox="0 0 14 14" class="match--remove">
           <g fill="none" fill-rule="evenodd" stroke="#F7F7F7" stroke-linecap="square" stroke-width="2">
@@ -10,7 +10,7 @@
             <path d="M1,0.208289554 L1,15.057532" transform="rotate(-45 3.319 .059)"/>
           </g>
         </svg>
-      </span>
+      </button>
     <% } else { %>
       <%= buzzword.word %>
     <% } %>

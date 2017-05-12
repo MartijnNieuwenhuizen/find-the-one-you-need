@@ -14,13 +14,13 @@ const ranking = {
   },
 
   hover: function(e) {
-    // this
-    console.log(this.order);
-    console.log(this.arr);
+    this.arr.forEach(item => {
+      item.firstChild.src = 'http://localhost:3001/img/icons/star-white-empty.svg';
+    });
 
-    // for (var i = this.arr.length; i > this.arr.length; i--) {
-    //   console.log('bla');
-    // }
+    for (var i = 0; i < this.order + 1; i++) {
+      this.arr[i].firstChild.src = 'http://localhost:3001/img/icons/star-white-full.svg';
+    }
   }
 };
 

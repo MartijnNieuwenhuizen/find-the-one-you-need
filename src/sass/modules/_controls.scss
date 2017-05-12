@@ -27,11 +27,16 @@
 
     .no-message & {
       display: inline-block;
+      padding: .6rem 1.5rem;
+
+      color: $white;
+      background-color: $brand-primary;
+      font-style: italic;
     }
 
     @include hocus {
-      color: $brand-primary;
       cursor: pointer;
+      background-color: rgba($brand-primary, .8);
     }
   }
   &--submit-all {
@@ -45,11 +50,15 @@
 
     .no-message & {
       display: inline-block;
+      padding: .6rem 1.5rem;
+
+      color: $white;
+      background-color: $brand-primary;
     }
 
     @include hocus {
-      color: $brand-primary;
       cursor: pointer;
+      background-color: rgba($brand-primary, .8);
     }
   }
 

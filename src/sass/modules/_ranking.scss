@@ -1,5 +1,6 @@
 .ranking {
   @include reset-list;
+  position: relative;
   display: inline-block;
   max-width: 4rem;
   margin: -.4rem -1rem 0 0;
@@ -12,9 +13,45 @@
   &--item {
     display: inline-block;
 
-    @include hocus {
-        
-    }
+    // &:before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0; left: 50%;
+    //   transform: translate(-50%, -100%);
+    //   width: 10rem; height: 3rem;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   display: none;
+    //   display: block;
+    //
+    //   background-color: green;
+    //   text-align: center;
+    // }
+    //
+    // &:nth-of-type(1) {
+    //   &:before {
+    //     content: "Junior";
+    //   }
+    // }
+    // &:nth-of-type(2) {
+    //   &:before {
+    //     content: "Medior";
+    //     display: none;
+    //   }
+    // }
+    // &:nth-of-type(3) {
+    //   &:before {
+    //     content: "Senior";
+    //     display: none;
+    //   }
+    // }
+    //
+    // @include hocus {
+    //   &:before {
+    //     display: block;
+    //   }
+    // }
   }
   &--img {
 
