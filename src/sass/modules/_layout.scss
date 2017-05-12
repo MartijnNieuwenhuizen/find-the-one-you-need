@@ -16,7 +16,7 @@
 
     .no-message & {
       top: 50%;
-      transform: translate(-50%, -150%);
+      transform: translate(-50%, calc(-50% - 10rem));
       box-shadow: none;
 
       font-size: 1.34rem;

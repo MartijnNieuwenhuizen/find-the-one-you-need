@@ -1,6 +1,9 @@
 <%- include ./base/head.ejs %>
 
   <header class="layout--header">
+    <% if (!locals.message) { %>
+      <img class="logo" src="./img/logo/logo.svg" alt="">
+    <% } %>
     <%- include ./modules/form.ejs %>
   </header>
 
