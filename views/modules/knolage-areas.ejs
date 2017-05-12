@@ -4,7 +4,6 @@
       <li class="knolage-areas--item area area--<%- area.name %>">
         <% if (area.subArea) { %>
           <div class="category">
-
             <% area.subArea.forEach(subArea => { %>
               <%- include ./area/subArea.ejs %>
             <% }); %>
@@ -15,15 +14,17 @@
   <% } %>
 
   <% if (person.project.length)  { %>
-    <li class="knolage-areas--item category sub-category area area--project">
-      <a class="see-more" href="#">
-        <p class="see-more--title"><span class="see-more--text">Projecten</span> <span class="see-more--number"><%- person.project.length %></span></p>
-      </a>
-      <ul class="projects">
-        <% person.project.forEach(project => { %>
-          <%- include ./area/project.ejs %>
-        <% }) %>
-      </ul>
+    <li class="knolage-areas--item sub-category area area--project">
+      <div class="category">
+        <a class="see-more" href="#">
+          <p class="see-more--title"><span class="see-more--text">Projecten</span> <span class="see-more--number"><%- person.project.length %></span></p>
+        </a>
+        <ul class="projects">
+          <% person.project.forEach(project => { %>
+            <%- include ./area/project.ejs %>
+          <% }) %>
+        </ul>
+      </div>
     </li>
 
   <% } %>

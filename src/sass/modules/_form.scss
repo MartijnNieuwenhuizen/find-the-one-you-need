@@ -58,10 +58,10 @@
     &:after {
       content: "filter by adding words";
       position: absolute;
-      top: 0; right: -100%;
+      top: 0; right: 0;
       width: 6rem; height: 3rem;
       display: block;
-      transform: rotate(-3deg) translate(2.6rem,-1.3rem);
+      transform: rotate(-3deg) translate(8.4rem, -.9rem);
 
       color: #B7B7B7;
     }
@@ -75,7 +75,7 @@
       background-image: url("../img/icons/share.png");
       background-size: contain;
       background-repeat: no-repeat;
-      transform: translate(100%, -.5rem);
+      transform: translate(2rem, -.5rem);
     }
   }
 

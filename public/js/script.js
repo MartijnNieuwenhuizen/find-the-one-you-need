@@ -397,9 +397,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               _this.arr.forEach(function (item) {
                 item.classList.remove('added');
               });
-            }, 500);
+            }, 300);
           }
-        }, 200);
+        }, 100);
       }
     };
 
@@ -512,7 +512,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   }, {}], 9: [function (require, module, exports) {
     var sliderList = document.querySelector('.slider--container');
     var sliderItems = document.querySelectorAll('.slider--item');
-    var sliderContainer = document.querySelector('.slider');
 
     // Get the total amount of slider
     var totalAmountOfItems = sliderItems.length;
