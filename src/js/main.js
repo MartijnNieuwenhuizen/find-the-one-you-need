@@ -60,3 +60,9 @@ if ( document.querySelector('.remove') ) {
     });
   })
 }
+
+
+if ( document.querySelector('.ranking') ) {
+  const ranking = require('./modules/ranking');
+  ranking.launch();
+}

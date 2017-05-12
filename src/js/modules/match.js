@@ -8,11 +8,7 @@ const match = {
   },
 
   remove: function(e) {
-    console.log('e');
-    console.dir(e);
-    console.log('clicked!');
     const value = this.querySelector('.match--word').innerHTML;
-    // console.log(this);
 
     const form = document.querySelector('.form');
     const input = form.querySelector('input');
@@ -28,6 +24,8 @@ const match = {
     input.value = newInputValue;
     this.parentNode.removeChild(this);
     form.submit();
+
+    e.preventDefault();
   }
 };
 
