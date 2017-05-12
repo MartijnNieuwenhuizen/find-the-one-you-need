@@ -20,10 +20,11 @@
     &.added {
       .ranking--img {
         transform: scale(1.05) rotate(360deg);
+        transition: .2s transform;
       }
     }
   }
   &--img {
-    transition: .2s transform;
+    transition: 0s transform;
   }
 }

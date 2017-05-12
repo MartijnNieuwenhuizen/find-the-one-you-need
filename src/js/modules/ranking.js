@@ -48,9 +48,9 @@ const ranking = {
           this.arr.forEach(item => {
             item.classList.remove('added');
           });
-        }, 500);
+        }, 300);
       }
-    }, 200);
+    }, 100);
   }
 };
 

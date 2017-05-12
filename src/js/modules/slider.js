@@ -1,6 +1,5 @@
 const sliderList = document.querySelector('.slider--container');
 const sliderItems = document.querySelectorAll('.slider--item');
-const sliderContainer = document.querySelector('.slider');
 
 // Get the total amount of slider
 const totalAmountOfItems = sliderItems.length;
