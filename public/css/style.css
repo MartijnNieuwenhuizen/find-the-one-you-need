@@ -14,7 +14,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Cn.otf?version=1494849652453") format("opentype");
+  src: url("../img/../fonts/Frutiger-Cn.otf?version=1494849680486") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1494849652453") format("opentype");
+  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1494849680486") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -30,14 +30,14 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Light.otf?version=1494849652453") format("opentype");
+  src: url("../img/../fonts/Frutiger-Light.otf?version=1494849680486") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1494849652453") format("opentype");
+  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1494849680486") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -45,42 +45,42 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Roman.otf?version=1494849652453") format("opentype");
+  src: url("../img/../fonts/Frutiger-Roman.otf?version=1494849680486") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1494849652453") format("opentype");
+  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1494849680486") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAB.ttf?version=1494849652453");
+  src: url("../img/../fonts/ANTQUAB.ttf?version=1494849680486");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAI.ttf?version=1494849652453");
+  src: url("../img/../fonts/ANTQUAI.ttf?version=1494849680486");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUABI.ttf?version=1494849652453");
+  src: url("../img/../fonts/ANTQUABI.ttf?version=1494849680486");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/BKANT.ttf?version=1494849652453");
+  src: url("../img/../fonts/BKANT.ttf?version=1494849680486");
   font-weight: normal;
   font-style: normal;
 }
@@ -430,6 +430,32 @@ a {
   color: #66C2E8;
 }
 
+.best-choice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #B7B7B7;
+  margin-left: 3.3rem;
+  padding-left: 3rem;
+  max-width: 12rem;
+}
+
+.best-choice:before {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 0;
+  left: .5rem;
+  margin: 0;
+  background-image: url("../img/../img/icons/share.png?version=1494849680486");
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-transform: translateY(1.5rem);
+  -ms-transform: translateY(1.5rem);
+  transform: translateY(1.5rem);
+}
+
 .category {
   margin: 0;
   padding: 0;
@@ -627,6 +653,7 @@ a {
   flex-direction: row;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  margin: 0;
   padding: 0;
 }
 
@@ -775,7 +802,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1494849652453");
+  background-image: url("../img/../img/icons/share.png?version=1494849680486");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(2rem, -0.5rem);
@@ -1133,7 +1160,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1494849652453");
+  background-image: url("/img/icons/clock.png?version=1494849680486");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1276,6 +1303,10 @@ a {
   transition: .3s transform;
 }
 
+.result {
+  position: relative;
+}
+
 .result--see-all {
   float: right;
   text-align: right;
@@ -1290,40 +1321,6 @@ a {
 .result--see-all:hover,
 .result--see-all:focus {
   background-color: #b3de37;
-}
-
-.result:first-of-type .result--personal {
-  position: relative;
-}
-
-.result:first-of-type .result--personal:after {
-  content: "We think she is your best choice";
-  position: absolute;
-  top: -2.5rem;
-  left: 6.5rem;
-  width: 9rem;
-  height: 3rem;
-  display: block;
-  color: #B7B7B7;
-  -webkit-transform: translate(0, -1rem);
-  -ms-transform: translate(0, -1rem);
-  transform: translate(0, -1rem);
-}
-
-.result:first-of-type .result--personal:before {
-  content: "";
-  position: absolute;
-  top: -2.5rem;
-  left: 5rem;
-  width: 2rem;
-  height: 2rem;
-  display: block;
-  background-image: url("../img/../img/icons/share.png?version=1494849652453");
-  background-size: contain;
-  background-repeat: no-repeat;
-  -webkit-transform: translate(-50%, -0.5rem);
-  -ms-transform: translate(-50%, -0.5rem);
-  transform: translate(-50%, -0.5rem);
 }
 
 @-webkit-keyframes fade-in {
@@ -1603,7 +1600,7 @@ a {
 }
 
 .slider--left:after {
-  background-image: url("../img/../img/icons/slider-left.png?version=1494849652453");
+  background-image: url("../img/../img/icons/slider-left.png?version=1494849680486");
 }
 
 .slider--left:hover,
@@ -1627,7 +1624,7 @@ a {
 }
 
 .slider--right:after {
-  background-image: url("../img/../img/icons/slider-right.png?version=1494849652453");
+  background-image: url("../img/../img/icons/slider-right.png?version=1494849680486");
 }
 
 .slider--right:hover,
