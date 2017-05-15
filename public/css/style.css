@@ -14,73 +14,73 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Cn.otf?version=1494848628557") format("opentype");
+  src: url("../img/../fonts/Frutiger-Cn.otf?version=1494848651971") format("opentype");
   font-weight: normal;
   font-style: normal;
-  font-stretch: condensed;
+  font-stretch: extra-condensed;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1494848628557") format("opentype");
+  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1494848651971") format("opentype");
   font-weight: 600;
   font-style: normal;
-  font-stretch: condensed;
+  font-stretch: extra-condensed;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Light.otf?version=1494848628557") format("opentype");
+  src: url("../img/../fonts/Frutiger-Light.otf?version=1494848651971") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1494848628557") format("opentype");
+  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1494848651971") format("opentype");
   font-weight: 300;
   font-style: normal;
-  font-stretch: condensed;
+  font-stretch: extra-condensed;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Roman.otf?version=1494848628557") format("opentype");
+  src: url("../img/../fonts/Frutiger-Roman.otf?version=1494848651971") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1494848628557") format("opentype");
+  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1494848651971") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAB.ttf?version=1494848628557");
+  src: url("../img/../fonts/ANTQUAB.ttf?version=1494848651971");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAI.ttf?version=1494848628557");
+  src: url("../img/../fonts/ANTQUAI.ttf?version=1494848651971");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUABI.ttf?version=1494848628557");
+  src: url("../img/../fonts/ANTQUABI.ttf?version=1494848651971");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/BKANT.ttf?version=1494848628557");
+  src: url("../img/../fonts/BKANT.ttf?version=1494848651971");
   font-weight: normal;
   font-style: normal;
 }
@@ -145,15 +145,17 @@ a {
   width: 100%;
 }
 
-.activity--title {
-  font-weight: bold;
-  font-stretch: condensed;
+.activity--list {
+  margin: 0;
+  padding: 0;
 }
 
 .activity--item {
-  margin-left: 1.2rem;
+  margin-left: 0;
+  margin-right: auto;
   display: list-item;
   list-style-type: disc;
+  color: #000;
 }
 
 .data--item .activity--item {
@@ -276,6 +278,10 @@ a {
   border-left: 1px solid #fbd79d;
 }
 
+.area--front-end .data--number {
+  color: #F5A623;
+}
+
 .area--design .category--title {
   color: #fff;
   background-color: #47AB8B;
@@ -346,6 +352,10 @@ a {
   border-left: 1px solid #9cd6c3;
 }
 
+.area--design .data--number {
+  color: #47AB8B;
+}
+
 .area--project .category--title {
   color: #000;
   background-color: #66C2E8;
@@ -414,6 +424,10 @@ a {
 .area--project .data--item:nth-of-type(4) {
   border-bottom: 1px solid #d5eef9;
   border-left: 1px solid #d5eef9;
+}
+
+.area--project .data--number {
+  color: #66C2E8;
 }
 
 .category {
@@ -620,7 +634,7 @@ a {
   width: 50%;
   text-align: center;
   padding: .8rem;
-  font-size: .9rem;
+  font-size: .95rem;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -638,6 +652,11 @@ a {
 
 .data dd {
   margin: 0;
+}
+
+.data--number {
+  font-size: 1.3rem;
+  font-weight: 300;
 }
 
 .form {
@@ -756,7 +775,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1494848628557");
+  background-image: url("../img/../img/icons/share.png?version=1494848651971");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(2rem, -0.5rem);
@@ -1114,7 +1133,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1494848628557");
+  background-image: url("/img/icons/clock.png?version=1494848651971");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1299,7 +1318,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1494848628557");
+  background-image: url("../img/../img/icons/share.png?version=1494848651971");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(-50%, -0.5rem);
@@ -1584,7 +1603,7 @@ a {
 }
 
 .slider--left:after {
-  background-image: url("../img/../img/icons/slider-left.png?version=1494848628557");
+  background-image: url("../img/../img/icons/slider-left.png?version=1494848651971");
 }
 
 .slider--left:hover,
@@ -1608,7 +1627,7 @@ a {
 }
 
 .slider--right:after {
-  background-image: url("../img/../img/icons/slider-right.png?version=1494848628557");
+  background-image: url("../img/../img/icons/slider-right.png?version=1494848651971");
 }
 
 .slider--right:hover,
