@@ -611,20 +611,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       buttonLeft.remove();
     }
   }, {}], 10: [function (require, module, exports) {
+    // Most of this code comes from the 30 days JavaScript cource by Wes Bos.
+    // https://javascript30.com/
+
     var typeAhead = {
 
       launch: function launch() {
         // fetch?!
-        fetch("/hits").then(function (blob) {
+        fetch('/hits').then(function (blob) {
           return blob.json();
         }).then(function (data) {
-          var names = data.map(function (item) {
-            return item.name;
-          });
-
-          // Add eventListener to the input
-
-          typeAhead.addEvents(names);
+          typeAhead.addEvents(data);
         }).catch(function (err) {
           console.log("no data, error: " + err);
         });
@@ -638,12 +635,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var matchArray = typeAhead.findMatches(lastWord, this.names);
 
           var html = matchArray.map(function (word) {
-            // word.inputValue = lastWord;
             var regex = new RegExp(lastWord, 'gi');
-            // const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
-            // const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
-            var possibleMatch = word.replace(regex, "<span class=\"suggestions--hl\">" + lastWord + "</span>");
-            return "\n          <li class=\"suggestions--item\">\n            <span>" + possibleMatch + "</span>\n          </li>\n        ";
+            var kind = word.category || word.type;
+            var possibleMatch = word.name.replace(regex, "<span class=\"suggestions--hl suggestions--" + kind + "\">" + lastWord + "</span>");
+            return "\n          <li class=\"suggestions--item\">" + possibleMatch + "</li>\n        ";
           }).join('');
           this.suggestions.innerHTML = html;
         }
@@ -653,7 +648,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         return cities.filter(function (word) {
           // here we need to figure out if the city or state matches what was searched
           var regex = new RegExp(wordToMatch, 'gi');
-          return word.match(regex);
+          return word.name.match(regex);
         });
       },
 

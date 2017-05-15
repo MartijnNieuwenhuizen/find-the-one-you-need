@@ -14,7 +14,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Cn.otf?version=1494839447122") format("opentype");
+  src: url("../img/../fonts/Frutiger-Cn.otf?version=1494843290405") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-stretch: condensed;
@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1494839447122") format("opentype");
+  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1494843290405") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-stretch: condensed;
@@ -30,14 +30,14 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Light.otf?version=1494839447122") format("opentype");
+  src: url("../img/../fonts/Frutiger-Light.otf?version=1494843290405") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1494839447122") format("opentype");
+  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1494843290405") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-stretch: condensed;
@@ -45,42 +45,42 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Roman.otf?version=1494839447122") format("opentype");
+  src: url("../img/../fonts/Frutiger-Roman.otf?version=1494843290405") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1494839447122") format("opentype");
+  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1494843290405") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAB.ttf?version=1494839447122");
+  src: url("../img/../fonts/ANTQUAB.ttf?version=1494843290405");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAI.ttf?version=1494839447122");
+  src: url("../img/../fonts/ANTQUAI.ttf?version=1494843290405");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUABI.ttf?version=1494839447122");
+  src: url("../img/../fonts/ANTQUABI.ttf?version=1494843290405");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/BKANT.ttf?version=1494839447122");
+  src: url("../img/../fonts/BKANT.ttf?version=1494843290405");
   font-weight: normal;
   font-style: normal;
 }
@@ -139,6 +139,10 @@ img {
 
 a {
   color: inherit;
+}
+
+.activity.data--item {
+  width: 100%;
 }
 
 .activity--title {
@@ -254,6 +258,24 @@ a {
   background-color: #f39c0b;
 }
 
+.area--front-end .data--item:nth-of-type(1) {
+  border-bottom: 1px solid #fbd79d;
+}
+
+.area--front-end .data--item:nth-of-type(2) {
+  border-bottom: 1px solid #fbd79d;
+  border-left: 1px solid #fbd79d;
+}
+
+.area--front-end .data--item:nth-of-type(3) {
+  border-bottom: 1px solid #fbd79d;
+}
+
+.area--front-end .data--item:nth-of-type(4) {
+  border-bottom: 1px solid #fbd79d;
+  border-left: 1px solid #fbd79d;
+}
+
 .area--design .category--title {
   color: #fff;
   background-color: #47AB8B;
@@ -306,6 +328,24 @@ a {
   background-color: #40997c;
 }
 
+.area--design .data--item:nth-of-type(1) {
+  border-bottom: 1px solid #9cd6c3;
+}
+
+.area--design .data--item:nth-of-type(2) {
+  border-bottom: 1px solid #9cd6c3;
+  border-left: 1px solid #9cd6c3;
+}
+
+.area--design .data--item:nth-of-type(3) {
+  border-bottom: 1px solid #9cd6c3;
+}
+
+.area--design .data--item:nth-of-type(4) {
+  border-bottom: 1px solid #9cd6c3;
+  border-left: 1px solid #9cd6c3;
+}
+
 .area--project .category--title {
   color: #000;
   background-color: #66C2E8;
@@ -356,6 +396,24 @@ a {
 .area--project .category--item:nth-of-type(2).category--hide .area--subtitle,
 .area--project .project:nth-of-type(2).category--hide .area--subtitle {
   background-color: #50b9e5;
+}
+
+.area--project .data--item:nth-of-type(1) {
+  border-bottom: 1px solid #d5eef9;
+}
+
+.area--project .data--item:nth-of-type(2) {
+  border-bottom: 1px solid #d5eef9;
+  border-left: 1px solid #d5eef9;
+}
+
+.area--project .data--item:nth-of-type(3) {
+  border-bottom: 1px solid #d5eef9;
+}
+
+.area--project .data--item:nth-of-type(4) {
+  border-bottom: 1px solid #d5eef9;
+  border-left: 1px solid #d5eef9;
 }
 
 .category {
@@ -546,28 +604,36 @@ a {
 }
 
 .data {
-  padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.data--item {
+  width: 50%;
+  text-align: center;
+  padding: .8rem;
+  font-size: .9rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.data--item:not(:last-of-type) {
-  margin-bottom: 2rem;
-}
-
-.data--item {
-  width: 100%;
-  text-align: center;
 }
 
 .data dd {
@@ -690,7 +756,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1494839447122");
+  background-image: url("../img/../img/icons/share.png?version=1494843290405");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(2rem, -0.5rem);
@@ -1048,7 +1114,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1494839447122");
+  background-image: url("/img/icons/clock.png?version=1494843290405");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1233,7 +1299,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1494839447122");
+  background-image: url("../img/../img/icons/share.png?version=1494843290405");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(-50%, -0.5rem);
@@ -1406,8 +1472,6 @@ a {
 }
 
 .skill {
-  margin: .5rem;
-  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1421,6 +1485,7 @@ a {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  text-align: center;
 }
 
 .skill--name {
@@ -1519,7 +1584,7 @@ a {
 }
 
 .slider--left:after {
-  background-image: url("../img/../img/icons/slider-left.png?version=1494839447122");
+  background-image: url("../img/../img/icons/slider-left.png?version=1494843290405");
 }
 
 .slider--left:hover,
@@ -1543,7 +1608,7 @@ a {
 }
 
 .slider--right:after {
-  background-image: url("../img/../img/icons/slider-right.png?version=1494839447122");
+  background-image: url("../img/../img/icons/slider-right.png?version=1494843290405");
 }
 
 .slider--right:hover,
@@ -1577,9 +1642,23 @@ a {
 
 .suggestions--item {
   padding: .2rem .3rem;
+  list-style-type: none;
 }
 
 .suggestions--hl {
-  background-color: #98C220;
+  padding: .3rem 0 .3rem .3rem;
+  color: #fff;
+}
+
+.suggestions--front-end {
+  background-color: #F5A623;
+}
+
+.suggestions--project {
+  background-color: #66C2E8;
+}
+
+.suggestions--design {
+  background-color: #47AB8B;
 }
 /*# sourceMappingURL=main.css.map */

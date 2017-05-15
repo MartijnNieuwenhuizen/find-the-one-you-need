@@ -1,15 +1,14 @@
+// Most of this code comes from the 30 days JavaScript cource by Wes Bos.
+// https://javascript30.com/
+
 const typeAhead = {
 
   launch: function() {
     // fetch?!
-    fetch(`/hits`)
+    fetch('/hits')
       .then(blob => blob.json())
       .then(data => {
-        const names = data.map(item => item.name);
-
-        // Add eventListener to the input
-
-        typeAhead.addEvents(names);
+        typeAhead.addEvents(data);
       })
       .catch(err => { console.log(`no data, error: ${err}`); });
   },
@@ -22,15 +21,11 @@ const typeAhead = {
       const matchArray = typeAhead.findMatches(lastWord, this.names);
 
       const html = matchArray.map(word => {
-        // word.inputValue = lastWord;
         const regex = new RegExp(lastWord, 'gi');
-        // const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
-        // const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
-        const possibleMatch = word.replace(regex, `<span class="suggestions--hl">${lastWord}</span>`);
+        const kind = word.category || word.type;
+        const possibleMatch = word.name.replace(regex, `<span class="suggestions--hl suggestions--${kind}">${lastWord}</span>`);
         return `
-          <li class="suggestions--item">
-            <span>${possibleMatch}</span>
-          </li>
+          <li class="suggestions--item">${possibleMatch}</li>
         `;
       }).join('');
     this.suggestions.innerHTML = html;
@@ -41,7 +36,7 @@ const typeAhead = {
     return cities.filter(word => {
       // here we need to figure out if the city or state matches what was searched
       const regex = new RegExp(wordToMatch, 'gi');
-      return word.match(regex);
+      return word.name.match(regex);
     });
   },
 
