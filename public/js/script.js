@@ -56,11 +56,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, true);
     }
 
-    // if ( document.querySelector('.form--input') ) {
-    //   const typeAhead = require('./modules/type-ahead');
-    //   typeAhead.launch();
-    // }
-
+    if (document.querySelector('.form--input')) {
+      var typeAhead = require('./modules/type-ahead');
+      typeAhead.launch();
+    }
 
     if (document.querySelector('.remove')) {
       var removeButtons = Array.from(document.querySelectorAll('.remove'));
@@ -82,7 +81,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var ranking = require('./modules/ranking');
       ranking.launch();
     }
-  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/ranking": 6, "./modules/see-more": 7, "./modules/skills": 8, "./modules/slider": 9 }], 2: [function (require, module, exports) {
+  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/ranking": 6, "./modules/see-more": 7, "./modules/skills": 8, "./modules/slider": 9, "./modules/type-ahead": 10 }], 2: [function (require, module, exports) {
     var areaPannels = {
 
       openRelevant: function openRelevant() {
@@ -611,4 +610,62 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       buttonRight.remove();
       buttonLeft.remove();
     }
+  }, {}], 10: [function (require, module, exports) {
+    var typeAhead = {
+
+      launch: function launch() {
+        // fetch?!
+        fetch("/hits").then(function (blob) {
+          return blob.json();
+        }).then(function (data) {
+          var names = data.map(function (item) {
+            return item.name;
+          });
+
+          // Add eventListener to the input
+
+          typeAhead.addEvents(names);
+        }).catch(function (err) {
+          console.log("no data, error: " + err);
+        });
+      },
+
+      displayMatches: function displayMatches() {
+        var content = this.value.split(' ');
+        var lastWord = content[content.length - 1];
+
+        if (lastWord.length > 2 && lastWord !== ' ') {
+          var matchArray = typeAhead.findMatches(lastWord, this.names);
+
+          var html = matchArray.map(function (word) {
+            // word.inputValue = lastWord;
+            var regex = new RegExp(lastWord, 'gi');
+            // const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+            // const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+            var possibleMatch = word.replace(regex, "<span class=\"suggestions--hl\">" + lastWord + "</span>");
+            return "\n          <li class=\"suggestions--item\">\n            <span>" + possibleMatch + "</span>\n          </li>\n        ";
+          }).join('');
+          this.suggestions.innerHTML = html;
+        }
+      },
+
+      findMatches: function findMatches(wordToMatch, cities) {
+        return cities.filter(function (word) {
+          // here we need to figure out if the city or state matches what was searched
+          var regex = new RegExp(wordToMatch, 'gi');
+          return word.match(regex);
+        });
+      },
+
+      addEvents: function addEvents(names) {
+        var input = document.querySelector('.form--input');
+        var suggestions = document.querySelector('.suggestions');
+        input.names = names;
+        input.suggestions = suggestions;
+        input.addEventListener('change', typeAhead.displayMatches);
+        input.addEventListener('keyup', typeAhead.displayMatches);
+      }
+    };
+
+    module.exports = typeAhead;
   }, {}] }, {}, [1]);

@@ -34,6 +34,10 @@
 
   &--name {
     @include baseFont;
+    font-stretch: condensed;
+    color: $brand-primary;
+    text-transform: uppercase;
+    font-weight: 600;
     margin: 0;
   }
   &--role {

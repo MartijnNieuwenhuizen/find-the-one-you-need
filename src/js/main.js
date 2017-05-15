@@ -39,10 +39,10 @@ if (document.querySelector('.buzzwords')) {
 
 }
 
-// if ( document.querySelector('.form--input') ) {
-//   const typeAhead = require('./modules/type-ahead');
-//   typeAhead.launch();
-// }
+if ( document.querySelector('.form--input') ) {
+  const typeAhead = require('./modules/type-ahead');
+  typeAhead.launch();
+}
 
 
 if ( document.querySelector('.remove') ) {

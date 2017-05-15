@@ -1,4 +1,5 @@
 .data {
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -7,9 +8,12 @@
   &--item:not(:last-of-type) {
     margin-bottom: 2rem;
   }
+  &--item {
+    width: 100%;
+    text-align: center;
+  }
 
   dd {
     margin: 0;
-    text-align: center;
   }
 }

@@ -1,0 +1,13 @@
+.suggestions {
+  margin: 0;
+  padding: 0;
+  transform: translateY(3rem);
+
+  &--item {
+    padding: .2rem .3rem;
+  }
+  &--hl {
+    background-color: $brand-primary;
+    // background color needs to be the color of the match
+  }
+}
