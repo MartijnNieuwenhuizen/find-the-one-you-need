@@ -37,8 +37,12 @@
 
     transition: .3s max-width, .3s max-height;
     transform-origin: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  
+
   @include hocus {
     + .category--item {
       &:nth-of-type(1).category--hide {
