@@ -1,0 +1,21 @@
+.best-choice {
+  position: absolute;
+  top: 0; left: 0;
+  color: #B7B7B7;
+  margin-left: 3.3rem;
+  padding-left: 3rem;
+  max-width: 12rem;
+
+  &:before {
+    content: "";
+    width: 2rem; height: 2rem;
+    position: absolute;
+    top: 0; left: .5rem;
+    margin: 0;
+
+    background-image: url("../img/icons/share.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translateY(1.5rem);
+  }
+}
