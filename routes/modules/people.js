@@ -128,7 +128,7 @@ class People {
                   if (tag.category) { knolageItem.category = tag.category; }
                   if (tag.subCategory) { knolageItem.subCategory = tag.subCategory; }
 
-                  knolageItem.unique = 100 - unique;
+                  knolageItem.unique = unique;
                   knolageItem.lastActivity = fakeActivity;
                   knolageItem.ranking = fakeRanking;
                   // tag.rank = ;

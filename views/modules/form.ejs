@@ -11,8 +11,9 @@
         if (locals.buzzWords) { placeholder = ''; }
         if (locals.message) { value = locals.message; }
       %>
-      <input class="form--input message--input" id="message"  type="text" name="message" value="<%- value %>" placeholder="<%- placeholder %>" <% if (!locals.message) { %>autofocus<% } %>>
+      <input class="form--input message--input" id="message"  type="text" name="message" autocomplete="off" value="<%- value %>" placeholder="<%- placeholder %>" <% if (!locals.message) { %>autofocus<% } %>>
       <%- include ./buzzwords.ejs %>
+      <ul class="suggestions"></ul>
       <div class="form--controls controls">
         <button class="controls--submit" type="submit">Zoek</button>
         <button class="controls--submit-specific" type="submit">Find the best options</button>

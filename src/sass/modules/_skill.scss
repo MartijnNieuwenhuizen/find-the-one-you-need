@@ -1,14 +1,12 @@
 $skill-width: 4rem;
 
 .skill {
-  margin: .5rem;
-
-  text-align: center;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  text-align: center;
 
   &--name {
     margin: 0; padding: 0;

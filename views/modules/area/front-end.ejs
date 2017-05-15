@@ -1,26 +1,3 @@
-<%# <dl class="skills">
-  <div class="skills--item skill">
-    <dt class="skill--name">Blogs</dt>
-    <dd class="skill--score demo-fed" data-score="4">4</dd>
-  </div>
-  <div class="skills--item skill">
-    <dt class="skill--name">Regels code</dt>
-    <dd class="skill--score demo-fed" data-score="35">35</dd>
-  </div>
-  <div class="skills--item skill">
-    <dt class="skill--name">Talks</dt>
-    <dd class="skill--score demo-fed" data-score="2">2</dd>
-  </div>
-  <div class="skills--item skill">
-    <dt class="skill--name">Gesprekken</dt>
-    <dd class="skill--score demo-fed" data-score="36">36</dd>
-  </div>
-  <div class="skills--item skill">
-    <dt class="skill--name">Tweets</dt>
-    <dd class="skill--score demo-fed" data-score="1">1</dd>
-  </div>
-</dl>%>
-
 <%
   let rank = '';
   if (i === 0) {
@@ -32,32 +9,37 @@
   }
 %>
 
-<dl class="data">
-  <div class="data--item rank">
-    <dt class="rank--title">Rank</dt>
-    <dd class="rank--definition <%- rank %>">
+<ul class="data">
+  <li class="data--item rank">
+    <div class="rank--definition <%- rank %>">
       <span class="rank--number"><%- i + 1 %></span>
       <span class="rank--extr">th</span>
-    </dd>
-  </div>
+    </div>
+    choice for <%- point.name %>
+  </li>
 
-  <div class="data--item skill">
-    <dt class="skill--name">Uniqueness</dt>
-    <dd class="skill--score demo-fed" data-score="<%- point.unique %>"><%- point.unique %>%</dd>
-  </div>
+  <li class="data--item skill">
+    <span class="skill--score demo-fed" data-score="<%- point.unique %>"><%- point.unique %>%</span>
+    of your colleagues have this skill
+  </li>
 
-  <div class="data--item last-activity">
-    <dt class="last-activity--title">Last known activity</dt>
-    <dd>
-      <span class="last-activity--number"><%- point.lastActivity %></span>
-      Day's ago
-    </dd>
-  </div>
+  <li class="data--item last-activity">
+    Last known activity
+    <span class="last-activity--number"><%- point.lastActivity %></span>
+    Day's ago
+  </li>
 
-  <div class="data--item activity">
-    <dt class="activity--title">Activities</dt>
-    <dd class="activity--item">Search</dd>
-    <dd class="activity--item">Google Maps styling</dd>
-  </div>
+  <li class="data--item last-activity">
+    Last known activity
+    <span class="last-activity--number"><%- point.lastActivity %></span>
+    Day's ago
+  </li>
 
-</dl>
+  <li class="data--item activity">
+    Activities
+    <ul>
+      <li class="activity--item">Search</li>
+      <li class="activity--item">Google Maps styling</li>
+    </ul>
+  </li>
+</ul>

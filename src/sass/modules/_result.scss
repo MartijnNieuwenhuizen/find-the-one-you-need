@@ -16,6 +16,34 @@
       background-color: lighten($brand-primary, 10%);
     }
   }
+
+  &:first-of-type {
+    .result--personal {
+      position: relative;
+      &:after {
+        content: "We think she is your best choice";
+        position: absolute;
+        top: -2.5rem; left: 6.5rem;
+        width: 9rem; height: 3rem;
+        display: block;
+        color: #B7B7B7;
+        transform: translate(0, -1rem);
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        top: -2.5rem; left: 5rem;
+        width: 2rem; height: 2rem;
+        display: block;
+
+        background-image: url("../img/icons/share.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: translate(-50%, -.5rem);
+      }
+    }
+
+  }
 }
 
 

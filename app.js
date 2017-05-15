@@ -30,9 +30,11 @@ app.use((req,res,next) => {
 
 
 const index = require('./routes/index');
+const hits = require('./routes/hits');
 const error = require('./routes/error');
 
 app.use('/', index);
+app.use('/hits', hits);
 app.use('/error', error);
 app.use('/404', error);
 

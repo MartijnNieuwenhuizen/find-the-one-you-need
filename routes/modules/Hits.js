@@ -11,6 +11,16 @@ class Hits {
     });
   }
 
+  static getAll(db) {
+    return new Promise(function(resolve, reject) {
+      const tags = db.get('tags');
+      tags.find({})
+        .then(matches => {
+          resolve(matches);
+        });
+    });
+  }
+
   static match(sentenceArray, db) {
     return new Promise(function(resolve, reject) {
       const tags = db.get('tags');
