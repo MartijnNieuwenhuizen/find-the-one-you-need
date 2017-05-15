@@ -1,7 +1,10 @@
 <li class="results--item result slider--item">
+  <% if (people.length > 1 && i === 0) { %>
+    <p class="best-choice">We think <%- person.name.first %> is your best choice</p>
+  <% } %>
 
   <%- include ./area/personal-info.ejs %>
 
   <%- include ./knolage-areas.ejs %>
-  
+
 </li>
