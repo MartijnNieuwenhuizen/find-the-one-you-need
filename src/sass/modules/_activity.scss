@@ -1,18 +1,22 @@
 .activity {
-  
+
   &.data--item {
     width: 100%;
   }
 
   &--title {
-    font-weight: bold;
-    font-stretch: condensed;
+
+  }
+  &--list {
+    margin: 0;
+    padding: 0;
   }
   &--item {
-    margin-left: 1.2rem;
+    margin-left: 0; margin-right: auto;
     display: list-item;
 
     list-style-type: disc;
+    color: $text;
 
     .data--item & {
       text-align: left;
