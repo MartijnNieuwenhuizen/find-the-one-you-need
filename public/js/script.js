@@ -554,6 +554,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       itemsWidth();
     };
 
+    function moveThrueKeys(e) {
+      if (e.keyCode === 37 && counter !== 0) {
+        moveLeft();
+      }
+      if (e.keyCode === 39 && counter < totalAmountOfItems - sliderShown) {
+        moveRight();
+      }
+    }
+
     // create buttons
     var buttonLeft = document.querySelector('.slider--left');
     var buttonRight = document.querySelector('.slider--right');
@@ -561,6 +570,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     // add eventListeners to the buttons
     buttonLeft.addEventListener('click', moveLeft);
     buttonRight.addEventListener('click', moveRight);
+
+    window.addEventListener('keyup', moveThrueKeys, false);
 
     // Disable the left button on default
     buttonLeft.disabled = true;
@@ -598,12 +609,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     function checkLeftButton(button) {
       counter += 1;
-      totalAmountOfItems === sliderShown + counter ? button.disabled = true : checkButtonsDisabled();
+      if (button) {
+        totalAmountOfItems === sliderShown + counter ? button.disabled = true : checkButtonsDisabled();
+      }
     }
 
     function checkRightButton(button) {
       counter -= 1;
-      counter === 0 ? button.disabled = true : checkButtonsDisabled();
+
+      if (button) {
+        counter === 0 ? button.disabled = true : checkButtonsDisabled();
+      }
     }
 
     if (totalAmountOfItems <= sliderShown) {
