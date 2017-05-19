@@ -14,7 +14,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Cn.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-Cn.otf?version=1495189203532") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1495189203532") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -30,14 +30,14 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Light.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-Light.otf?version=1495189203532") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1495189203532") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -45,42 +45,42 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Roman.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-Roman.otf?version=1495189203532") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1495189203532") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAB.ttf?version=1494849680486");
+  src: url("../img/../fonts/ANTQUAB.ttf?version=1495189203532");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAI.ttf?version=1494849680486");
+  src: url("../img/../fonts/ANTQUAI.ttf?version=1495189203532");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUABI.ttf?version=1494849680486");
+  src: url("../img/../fonts/ANTQUABI.ttf?version=1495189203532");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/BKANT.ttf?version=1494849680486");
+  src: url("../img/../fonts/BKANT.ttf?version=1495189203532");
   font-weight: normal;
   font-style: normal;
 }
@@ -159,7 +159,12 @@ a {
 }
 
 .data--item .activity--item {
+  max-width: 25rem;
+  margin-left: 1rem;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
   text-align: left;
+  white-space: nowrap;
 }
 
 .area {
@@ -448,7 +453,7 @@ a {
   top: 0;
   left: .5rem;
   margin: 0;
-  background-image: url("../img/../img/icons/share.png?version=1494849680486");
+  background-image: url("../img/../img/icons/share.png?version=1495189203532");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translateY(1.5rem);
@@ -555,10 +560,8 @@ a {
 
 .contact--item {
   display: inline-block;
-}
-
-.contact--link {
-  padding: 0 .15rem;
+  width: 1.125rem;
+  margin: 0 .17rem;
 }
 
 .contact--link:hover .contact--img,
@@ -569,7 +572,9 @@ a {
 }
 
 .contact--img {
-  width: 1.5rem;
+  width: 100%;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
   -webkit-transition: .2s transform;
   transition: .2s transform;
 }
@@ -802,7 +807,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1494849680486");
+  background-image: url("../img/../img/icons/share.png?version=1495189203532");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(2rem, -0.5rem);
@@ -1000,10 +1005,14 @@ a {
 .personal--img-container {
   width: 6.875rem;
   height: 6.875rem;
+  width: 7.0625rem;
+  height: 7.0625rem;
   display: inline-block;
   overflow: hidden;
   background-position: 30% 50%;
   background-size: cover;
+  -webkit-clip-path: polygon(0 0, 100% 0, 74% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 74% 100%, 0% 100%);
 }
 
 .personal--img {
@@ -1026,110 +1035,45 @@ a {
 
 .personal--name {
   font-family: "Frutiger", sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  font-stretch: condensed;
-  color: #98C220;
-  text-transform: uppercase;
   font-weight: 600;
-  margin: 0;
-}
-
-.personal--name {
-  font-size: 1rem;
-}
-
-@media (min-width: 800px) {
-  .personal--name {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1000px) {
-  .personal--name {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1300px) {
-  .personal--name {
-    font-size: 1rem;
-  }
+  font-stretch: condensed;
+  text-transform: none;
+  font-size: 1.18rem;
+  color: #4A4A4A;
+  margin: .2rem 0 0 0;
 }
 
 .personal--role {
   font-family: "Frutiger", sans-serif;
-  line-height: 1.5;
   font-weight: 400;
+  font-size: .9rem;
+  font-stretch: normal;
+  color: #4A4A4A;
   margin: 0;
 }
 
-.personal--role {
-  font-size: 1rem;
-}
-
-@media (min-width: 800px) {
-  .personal--role {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1000px) {
-  .personal--role {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1300px) {
-  .personal--role {
-    font-size: 1rem;
-  }
-}
-
 .personal--location {
+  font-family: "Frutiger", sans-serif;
+  font-weight: 400;
+  font-size: .9rem;
+  font-stretch: normal;
+  color: #4A4A4A;
   display: inline-block;
-  font-family: "Frutiger", sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
   margin: 0;
 }
 
-.personal--location {
-  font-size: 1rem;
-}
-
-@media (min-width: 800px) {
-  .personal--location {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1000px) {
-  .personal--location {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1300px) {
-  .personal--location {
-    font-size: 1rem;
-  }
-}
-
-.personal--location:before {
+.personal--location:after {
   content: "";
   width: .75rem;
   height: .75rem;
   display: inline-block;
-  margin-right: .3rem;
-  background-color: #000;
+  margin-left: .3rem;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .personal--contact {
-  margin-top: auto;
-  -webkit-transform: scaleX(0);
-  -ms-transform: scaleX(0);
-  transform: scaleX(0);
+  margin-top: 1rem;
+  margin-left: -1.5rem;
   -webkit-transition: .3s transform;
   transition: .3s transform;
   -webkit-transform-origin: left;
@@ -1160,7 +1104,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1494849680486");
+  background-image: url("/img/icons/clock.png?version=1495189203532");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1424,10 +1368,6 @@ a {
 
 .see-more--number {
   display: inline-block;
-}
-
-.see-more--number {
-  display: inline-block;
   border-radius: 50%;
   width: 1.7rem;
   height: 1.7rem;
@@ -1435,6 +1375,7 @@ a {
   max-height: 2rem;
   margin-left: .3rem;
   color: #fff;
+  text-decoration: none;
   -webkit-transition: .3s max-width, .3s max-height;
   transition: .3s max-width, .3s max-height;
   -webkit-transform-origin: center;
@@ -1600,7 +1541,7 @@ a {
 }
 
 .slider--left:after {
-  background-image: url("../img/../img/icons/slider-left.png?version=1494849680486");
+  background-image: url("../img/../img/icons/slider-left.png?version=1495189203532");
 }
 
 .slider--left:hover,
@@ -1624,7 +1565,7 @@ a {
 }
 
 .slider--right:after {
-  background-image: url("../img/../img/icons/slider-right.png?version=1494849680486");
+  background-image: url("../img/../img/icons/slider-right.png?version=1495189203532");
 }
 
 .slider--right:hover,

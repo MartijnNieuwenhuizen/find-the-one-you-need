@@ -12,11 +12,14 @@
 
   &--img-container {
     width: 6.875rem; height: 6.875rem;
+    width: 7.0625rem; height: 7.0625rem;
     display: inline-block;
     overflow: hidden;
 
     background-position: 30% 50%;
     background-size: cover;
+
+    clip-path: polygon(0 0, 100% 0, 74% 100%, 0% 100%);
   }
   &--img {
     width: 100%;
@@ -33,34 +36,32 @@
   }
 
   &--name {
-    @include baseFont;
-    font-stretch: condensed;
-    color: $brand-primary;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin: 0;
+    @include font-personal-title;
+    margin: .2rem 0 0 0;
+
   }
   &--role {
-    @include baseFont;
+    @include font-personal-item;
     margin: 0;
   }
   &--location {
+    @include font-personal-item;
     display: inline-block;
-    @include baseFont;
     margin: 0;
 
-    &:before {
+    &:after {
       content: "";
       width: .75rem; height: .75rem;
       display: inline-block;
-      margin-right: .3rem;
+      margin-left: .3rem;
 
-      background-color: $black;
+      background-color: rgba($black, .2);
     }
   }
   &--contact {
-    margin-top: auto;
-    transform: scaleX(0);
+    margin-top: 1rem;
+    margin-left: -1.5rem;
+    // transform: scaleX(0);
 
     transition: .3s transform;
     transform-origin: left;

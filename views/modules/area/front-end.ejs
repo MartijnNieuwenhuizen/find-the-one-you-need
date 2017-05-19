@@ -34,10 +34,19 @@
   </li>
 
   <li class="data--item activity">
-    <span class="data--number">Activities</span>
-    <ul class="activity--list">
-      <li class="activity--item">Search</li>
-      <li class="activity--item">Google Maps styling</li>
-    </ul>
+    <dt class="activity--title">Activities</dt>
+
+    <% if ( person.name.first == 'Sandy' ) { %>
+      <dd class="activity--item">Google Maps styling</dd>
+      <dd class="activity--item">Flower overview</dd>
+      <dd class="activity--item">Menu</dd>
+    <% } else if ( person.name.first == 'Joost' ) { %>
+      <dd class="activity--item">Google Maps implementatie</dd>
+      <dd class="activity--item">Google Maps markers</dd>
+      <dd class="activity--item">Add a Flower function</dd>
+    <% } else { %>
+      <dd class="activity--item">Search</dd>
+      <dd class="activity--item">Google Maps styling</dd>
+    <% } %>
   </li>
 </ul>

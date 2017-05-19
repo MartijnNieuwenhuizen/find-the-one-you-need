@@ -26,14 +26,12 @@
 
   &--number {
     display: inline-block;
-  }
-  &--number {
-    display: inline-block;
     border-radius: 50%;
     width: 1.7rem; height: 1.7rem;
     max-width: 2rem; max-height: 2rem;
     margin-left: .3rem;
     color: $white;
+    text-decoration: none;
 
     transition: .3s max-width, .3s max-height;
     transform-origin: center;

@@ -14,14 +14,23 @@
       </div>
 
       <div class="data--item last-activity">
-        Last known activity
         <span class="data--number">?</span>
       </div>
-
       <div class="data--item activity">
         <dt class="activity--title">Activities</dt>
-        <dd class="activity--item">Search</dd>
-        <dd class="activity--item">Google Maps styling</dd>
+
+        <% if ( person.name.first == 'Sandy' ) { %>
+          <dd class="activity--item">Google Maps styling</dd>
+          <dd class="activity--item">Flower overview</dd>
+          <dd class="activity--item">Menu</dd>
+        <% } else if ( person.name.first == 'Joost' ) { %>
+          <dd class="activity--item">Google Maps implementatie</dd>
+          <dd class="activity--item">Google Maps markers</dd>
+          <dd class="activity--item">Add a Flower function</dd>
+        <% } else { %>
+          <dd class="activity--item">Search</dd>
+          <dd class="activity--item">Google Maps styling</dd>
+        <% } %>
       </div>
     </dl>
   </div>
