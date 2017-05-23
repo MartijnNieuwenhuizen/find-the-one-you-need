@@ -53,9 +53,20 @@
       content: "";
       width: .75rem; height: .75rem;
       display: inline-block;
-      margin-left: .3rem;
+      margin-left: .1rem;
 
-      background-color: rgba($black, .2);
+      background-image: url("../img/icons/location.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      filter: grayscale(1);
+    }
+
+    &.on-location {
+      &:after {
+        filter: none;
+      }
     }
   }
   &--contact {

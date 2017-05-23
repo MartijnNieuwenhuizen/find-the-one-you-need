@@ -2,8 +2,8 @@
   @include reset-list;
   position: relative;
   display: inline-block;
-  max-width: 4rem;
-  margin: -.4rem -1rem 0 0;
+  max-width: 6rem;
+  margin: 0 -1rem 0 0;
   float: right;
 
   display: inline-flex;
@@ -12,19 +12,45 @@
 
   &--item {
     display: inline-block;
+    width: 1.4rem; height: 1.4rem;
+    margin-left: .1rem;
+    color: gold;
 
     @include hocus {
       cursor: pointer;
-    }
-
-    &.added {
-      .ranking--img {
-        transform: scale(1.05) rotate(360deg);
-        transition: .2s transform;
+      
+      .ranking--starred {
+        opacity: 1;
       }
     }
   }
-  &--img {
-    transition: 0s transform;
+  &--svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &--star {
+    // box-shadow: 0 0 0 3px black;
+    // display: block;
+    fill: none;
+    // stroke-width: 7px;
+    //
+    // stroke: $white;
+    // fill: $white;
+    //
+    // box-shadow: 0px 0px 0px 3px gold;
+  }
+  &--starred {
+    // stroke: gold;
+    stroke-width: 4px;
+    opacity: 0;
+
+    transition: .2s opacity;
+  }
+
+  &--full {
+    .ranking--star {
+      fill: $white;
+    }
   }
 }

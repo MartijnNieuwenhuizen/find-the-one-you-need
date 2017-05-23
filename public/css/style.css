@@ -14,7 +14,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Cn.otf?version=1495190570494") format("opentype");
+  src: url("../img/../fonts/Frutiger-Cn.otf?version=1495536791294") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1495190570494") format("opentype");
+  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1495536791294") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -30,14 +30,14 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Light.otf?version=1495190570494") format("opentype");
+  src: url("../img/../fonts/Frutiger-Light.otf?version=1495536791294") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1495190570494") format("opentype");
+  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1495536791294") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -45,42 +45,42 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Roman.otf?version=1495190570494") format("opentype");
+  src: url("../img/../fonts/Frutiger-Roman.otf?version=1495536791294") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1495190570494") format("opentype");
+  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1495536791294") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAB.ttf?version=1495190570494");
+  src: url("../img/../fonts/ANTQUAB.ttf?version=1495536791294");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAI.ttf?version=1495190570494");
+  src: url("../img/../fonts/ANTQUAI.ttf?version=1495536791294");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUABI.ttf?version=1495190570494");
+  src: url("../img/../fonts/ANTQUABI.ttf?version=1495536791294");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/BKANT.ttf?version=1495190570494");
+  src: url("../img/../fonts/BKANT.ttf?version=1495536791294");
   font-weight: normal;
   font-style: normal;
 }
@@ -437,41 +437,10 @@ a {
 
 .best-choice {
   position: absolute;
-  top: 0;
-  left: 0;
-  color: #B7B7B7;
-  background-color: #FBF4A2;
-  margin-left: 3.3rem;
-  padding: .2rem;
-  width: 8.375rem;
-  text-align: center;
-  font-family: "Frutiger", sans-serif;
-  font-weight: 600;
-  font-stretch: condensed;
-  text-transform: none;
-  font-size: 1.18rem;
-  color: #4A4A4A;
-  font-size: .9rem;
-  -webkit-clip-path: polygon(20% 0, 79% 0, 100% 100%, 0 100%);
-  clip-path: polygon(20% 0, 79% 0, 100% 100%, 0 100%);
-  -webkit-transform: rotate(-45deg) translate(-7.55rem, 4.2rem);
-  -ms-transform: rotate(-45deg) translate(-7.55rem, 4.2rem);
-  transform: rotate(-45deg) translate(-7.55rem, 4.2rem);
-  -webkit-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
-  transform-origin: 0 0;
+  top: 4.1312rem;
+  left: 2.16rem;
+  width: 6rem;
   z-index: 999;
-}
-
-.best-choice:before {
-  content: "";
-  position: absolute;
-  width: 3rem;
-  height: 3rem;
-  background-color: #D9D5A6;
-  -webkit-transform: translate(0.3rem) rotate(45deg);
-  -ms-transform: translate(0.3rem) rotate(45deg);
-  transform: translate(0.3rem) rotate(45deg);
 }
 
 .category {
@@ -820,7 +789,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1495190570494");
+  background-image: url("../img/../img/icons/share.png?version=1495536791294");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(2rem, -0.5rem);
@@ -1080,8 +1049,18 @@ a {
   width: .75rem;
   height: .75rem;
   display: inline-block;
-  margin-left: .3rem;
-  background-color: rgba(0, 0, 0, 0.2);
+  margin-left: .1rem;
+  background-image: url("../img/../img/icons/location.svg?version=1495536791294");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+
+.personal--location.on-location:after {
+  -webkit-filter: none;
+  filter: none;
 }
 
 .personal--contact {
@@ -1117,7 +1096,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1495190570494");
+  background-image: url("/img/icons/clock.png?version=1495536791294");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1173,8 +1152,8 @@ a {
   padding: 0;
   position: relative;
   display: inline-block;
-  max-width: 4rem;
-  margin: -.4rem -1rem 0 0;
+  max-width: 6rem;
+  margin: 0 -1rem 0 0;
   float: right;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1194,6 +1173,10 @@ a {
 
 .ranking--item {
   display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-left: .1rem;
+  color: gold;
 }
 
 .ranking--item:hover,
@@ -1201,19 +1184,29 @@ a {
   cursor: pointer;
 }
 
-.ranking--item.added .ranking--img {
-  -webkit-transform: scale(1.05) rotate(360deg);
-  -ms-transform: scale(1.05) rotate(360deg);
-  transform: scale(1.05) rotate(360deg);
-  -webkit-transition: .2s transform;
-  transition: .2s transform;
+.ranking--item:hover .ranking--starred,
+.ranking--item:focus .ranking--starred {
+  opacity: 1;
 }
 
-.ranking--img {
-  -webkit-transition: 0s -webkit-transform;
-  transition: 0s -webkit-transform;
-  transition: 0s transform;
-  transition: 0s transform, 0s -webkit-transform;
+.ranking--svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ranking--star {
+  fill: none;
+}
+
+.ranking--starred {
+  stroke-width: 4px;
+  opacity: 0;
+  -webkit-transition: .2s opacity;
+  transition: .2s opacity;
+}
+
+.ranking--full .ranking--star {
+  fill: #fff;
 }
 
 .remove {
@@ -1508,7 +1501,7 @@ a {
   position: fixed;
   top: 50%;
   height: 100%;
-  padding: 0 1rem;
+  padding: 0;
   border: 0;
   color: transparent;
 }
@@ -1539,6 +1532,23 @@ a {
   transition: .2s ease-in-out transform;
 }
 
+.slider--button:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 7rem;
+  height: 7rem;
+  background-color: lightgray;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 4rem;
+  -webkit-transition: .2s ease-in-out transform;
+  transition: .2s ease-in-out transform;
+}
+
 .slider--button:hover,
 .slider--button:focus {
   cursor: pointer;
@@ -1554,7 +1564,7 @@ a {
 }
 
 .slider--left:after {
-  background-image: url("../img/../img/icons/slider-left.png?version=1495190570494");
+  background-image: url("../img/../img/icons/slider-left.png?version=1495536791294");
 }
 
 .slider--left:hover,
@@ -1578,7 +1588,7 @@ a {
 }
 
 .slider--right:after {
-  background-image: url("../img/../img/icons/slider-right.png?version=1495190570494");
+  background-image: url("../img/../img/icons/slider-right.png?version=1495536791294");
 }
 
 .slider--right:hover,
