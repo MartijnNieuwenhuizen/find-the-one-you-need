@@ -10,6 +10,9 @@
 
     transition: .4s background-color;
   }
+  &--subtitle-inner {
+    display: inline-block;
+  }
   &--subtitle-link {
     @include reset-link;
     display: inline-block;

@@ -115,7 +115,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
 
       openSpesific: function openSpesific(e) {
-        this.parentElement.parentElement.classList.toggle('pannel-open');
+        this.parentElement.parentElement.parentElement.classList.toggle('pannel-open');
 
         e.preventDefault();
       },
