@@ -369,10 +369,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         var parentArea = this.parentArea;
         var items = Array.from(parentArea.querySelectorAll('.category--hide'));
-
         items.forEach(function (item) {
           item.classList.remove('category--hide');
         });
+        console.log(this.parentArea);
+        if (this.parentArea.classList.contains('sub-category--hide')) {
+          console.log('jaaaa');
+          this.parentArea.classList.remove('sub-category--hide');
+        }
+
+        // const subItems = Array.from(parentArea.querySelectorAll('.sub-category--hide'));
+        // subItems.forEach(subItem => {
+        //   subItem.classList.remove('sub-category--hide');
+        // });
+
 
         this.classList.add('see-more--all');
 
@@ -474,6 +484,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         item.style.marginRight = newItemMarge + 'px';
       });
     }
+
+    constructSlider();
 
     window.onresize = function () {
       constructSlider();

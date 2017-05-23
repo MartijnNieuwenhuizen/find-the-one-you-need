@@ -24,6 +24,8 @@ function constructSlider() {
   });
 }
 
+constructSlider();
+
 window.onresize = function() {
   constructSlider();
 };
