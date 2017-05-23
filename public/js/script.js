@@ -77,11 +77,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       });
     }
 
-    if (document.querySelector('.ranking')) {
-      var ranking = require('./modules/ranking');
-      ranking.launch();
-    }
-  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/ranking": 6, "./modules/see-more": 7, "./modules/skills": 8, "./modules/slider": 9, "./modules/type-ahead": 10 }], 2: [function (require, module, exports) {
+    // if ( document.querySelector('.ranking') ) {
+    //   const ranking = require('./modules/ranking');
+    //   ranking.launch();
+    // }
+  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/see-more": 6, "./modules/skills": 7, "./modules/slider": 8, "./modules/type-ahead": 9 }], 2: [function (require, module, exports) {
     var areaPannels = {
 
       openRelevant: function openRelevant() {
@@ -344,66 +344,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     module.exports = match;
   }, {}], 6: [function (require, module, exports) {
-    var ranking = {
-      launch: function launch() {
-        var rankingList = Array.from(document.querySelectorAll('.ranking'));
-
-        rankingList.forEach(function (list) {
-          var rankingItems = list.querySelectorAll('.ranking--item');
-
-          rankingItems.forEach(function (item, i, arr) {
-            item.order = i;
-            item.arr = arr;
-            item.addEventListener('mouseenter', ranking.hover, true);
-            item.addEventListener('mouseleave', ranking.leave, true);
-            item.addEventListener('click', ranking.rank, true);
-          });
-        });
-      },
-
-      hover: function hover(e) {
-        this.arr.forEach(function (item) {
-          item.firstChild.src = './img/icons/star-white-empty.svg';
-        });
-
-        for (var i = 0; i < this.order + 1; i++) {
-          this.arr[i].firstChild.src = './img/icons/star-white-full.svg';
-        }
-      },
-
-      leave: function leave() {
-        this.arr.forEach(function (item) {
-          item.firstChild.src = "./img/icons/star-white-" + item.firstChild.dataset.original + ".svg";
-        });
-      },
-
-      rank: function rank() {
-        var _this = this;
-
-        var counter = 0;
-        // for (var i = 0; i < this.order; i++) {
-        //
-        // }
-        var animate = setInterval(function () {
-          if (counter <= _this.order) {
-            _this.arr[counter].classList.add('added');
-
-            counter++;
-          } else {
-            clearInterval(animate);
-
-            setTimeout(function () {
-              _this.arr.forEach(function (item) {
-                item.classList.remove('added');
-              });
-            }, 300);
-          }
-        }, 100);
-      }
-    };
-
-    module.exports = ranking;
-  }, {}], 7: [function (require, module, exports) {
     var more = {
       listen: function listen() {
         var areas = Array.from(document.querySelectorAll('.sub-category'));
@@ -446,7 +386,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = more;
-  }, {}], 8: [function (require, module, exports) {
+  }, {}], 7: [function (require, module, exports) {
     var Skills = {
       visualize: function visualize() {
 
@@ -508,57 +448,42 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = Skills;
-  }, {}], 9: [function (require, module, exports) {
+  }, {}], 8: [function (require, module, exports) {
     var sliderList = document.querySelector('.slider--container');
     var sliderItems = document.querySelectorAll('.slider--item');
 
     // Get the total amount of slider
     var totalAmountOfItems = sliderItems.length;
-
-    var itemWidth = void 0;
     var marge = 16;
+    var itemWidth = sliderItems[0].clientWidth;
 
-    function calculateListWidth() {
-      // Get the with of one item in the list
-      itemWidth = sliderItems[0].offsetWidth;
-      // set the width of the list to the width of all the elements combined
-      sliderList.style.width = totalAmountOfItems * (itemWidth + marge) + 'px';
-    }
-    calculateListWidth();
+    var sliderContainerWidth = void 0;
+    var itemsInScreen = void 0;
+    var sliderItemWidth = void 0;
+    var newItemMarge = void 0;
 
-    var sliderShown = void 0;
+    function constructSlider() {
+      sliderContainerWidth = document.querySelector('.slider').clientWidth;
+      itemsInScreen = Math.floor(sliderContainerWidth / (itemWidth + marge));
+      sliderItemWidth = sliderContainerWidth / itemsInScreen;
+      newItemMarge = (sliderItemWidth - itemWidth) / 2;
+      sliderList.style.width = totalAmountOfItems * sliderItemWidth + 'px';
 
-    function getAmountOfPeople() {
-      if (window.innerWidth < 960) {
-        sliderShown = 1;
-      }
-      if (window.innerWidth >= 960) {
-        sliderShown = 2;
-      }
-      if (window.innerWidth >= 1200) {
-        sliderShown = 3;
-      }
-    }
-    getAmountOfPeople();
-
-    function itemsWidth() {
       sliderItems.forEach(function (item) {
-        item.style.width = itemWidth - marge + 'px';
+        item.style.marginLeft = newItemMarge + 'px';
+        item.style.marginRight = newItemMarge + 'px';
       });
     }
-    itemsWidth();
 
     window.onresize = function () {
-      getAmountOfPeople();
-      calculateListWidth();
-      itemsWidth();
+      constructSlider();
     };
 
     function moveThrueKeys(e) {
       if (e.keyCode === 37 && counter !== 0) {
         moveLeft();
       }
-      if (e.keyCode === 39 && counter < totalAmountOfItems - sliderShown) {
+      if (e.keyCode === 39 && counter < totalAmountOfItems - itemsInScreen) {
         moveRight();
       }
     }
@@ -583,14 +508,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     sliderList.style.transition = '.3s transform';
 
     function moveLeft(e) {
-      pos += itemWidth;
+      pos += sliderItemWidth;
       var posPx = pos + 'px';
       sliderList.style.transform = 'translateX(' + posPx + ')';
 
       checkRightButton(this);
     }
     function moveRight(e) {
-      pos -= itemWidth;
+      pos -= sliderItemWidth;
       var posPx = pos + 'px';
       sliderList.style.transform = 'translateX(' + posPx + ')';
 
@@ -602,7 +527,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       if (buttonLeft.disabled === true && counter !== 0) {
         buttonLeft.disabled = false;
       }
-      if (buttonRight.disabled === true && counter < totalAmountOfItems - sliderShown) {
+      if (buttonRight.disabled === true && counter < totalAmountOfItems - itemsInScreen) {
         buttonRight.disabled = false;
       }
     }
@@ -610,7 +535,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function checkLeftButton(button) {
       counter += 1;
       if (button) {
-        totalAmountOfItems === sliderShown + counter ? button.disabled = true : checkButtonsDisabled();
+        totalAmountOfItems === itemsInScreen + counter ? button.disabled = true : checkButtonsDisabled();
       }
     }
 
@@ -622,11 +547,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }
 
-    if (totalAmountOfItems <= sliderShown) {
+    if (totalAmountOfItems <= itemsInScreen) {
       buttonRight.remove();
       buttonLeft.remove();
     }
-  }, {}], 10: [function (require, module, exports) {
+  }, {}], 9: [function (require, module, exports) {
     // Most of this code comes from the 30 days JavaScript cource by Wes Bos.
     // https://javascript30.com/
 

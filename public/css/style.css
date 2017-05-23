@@ -14,7 +14,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Cn.otf?version=1495537226718") format("opentype");
+  src: url("../img/../fonts/Frutiger-Cn.otf?version=1495543342522") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1495537226718") format("opentype");
+  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1495543342522") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -30,14 +30,14 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Light.otf?version=1495537226718") format("opentype");
+  src: url("../img/../fonts/Frutiger-Light.otf?version=1495543342522") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1495537226718") format("opentype");
+  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1495543342522") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -45,42 +45,42 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Roman.otf?version=1495537226718") format("opentype");
+  src: url("../img/../fonts/Frutiger-Roman.otf?version=1495543342522") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1495537226718") format("opentype");
+  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1495543342522") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAB.ttf?version=1495537226718");
+  src: url("../img/../fonts/ANTQUAB.ttf?version=1495543342522");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAI.ttf?version=1495537226718");
+  src: url("../img/../fonts/ANTQUAI.ttf?version=1495543342522");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUABI.ttf?version=1495537226718");
+  src: url("../img/../fonts/ANTQUABI.ttf?version=1495543342522");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/BKANT.ttf?version=1495537226718");
+  src: url("../img/../fonts/BKANT.ttf?version=1495543342522");
   font-weight: normal;
   font-style: normal;
 }
@@ -213,8 +213,7 @@ a {
   display: block;
   text-decoration: none;
   color: inherit;
-  display: inline-block;
-  max-width: calc(100% - 4rem);
+  max-width: 10.4rem;
 }
 
 .area--front-end .category--title {
@@ -256,7 +255,15 @@ a {
 }
 
 .area--front-end .see-more--number {
-  background-color: #F5A623;
+  color: #F5A623;
+}
+
+.area--front-end .see-more .collapse--circle {
+  fill: #F5A623;
+}
+
+.area--front-end .see-more .collapse--inficator {
+  fill: #fff;
 }
 
 .area--front-end .category--item:nth-of-type(1).category--hide .area--subtitle,
@@ -289,6 +296,10 @@ a {
 
 .area--front-end .data--number {
   color: #F5A623;
+}
+
+.area--front-end .collapse--inficator {
+  fill: #F5A623;
 }
 
 .area--design .category--title {
@@ -330,7 +341,15 @@ a {
 }
 
 .area--design .see-more--number {
-  background-color: #47AB8B;
+  color: #47AB8B;
+}
+
+.area--design .see-more .collapse--circle {
+  fill: #47AB8B;
+}
+
+.area--design .see-more .collapse--inficator {
+  fill: #fff;
 }
 
 .area--design .category--item:nth-of-type(1).category--hide .area--subtitle,
@@ -363,6 +382,10 @@ a {
 
 .area--design .data--number {
   color: #47AB8B;
+}
+
+.area--design .collapse--inficator {
+  fill: #47AB8B;
 }
 
 .area--project .category--title {
@@ -404,7 +427,15 @@ a {
 }
 
 .area--project .see-more--number {
-  background-color: #66C2E8;
+  color: #66C2E8;
+}
+
+.area--project .see-more .collapse--circle {
+  fill: #66C2E8;
+}
+
+.area--project .see-more .collapse--inficator {
+  fill: #fff;
 }
 
 .area--project .category--item:nth-of-type(1).category--hide .area--subtitle,
@@ -437,6 +468,10 @@ a {
 
 .area--project .data--number {
   color: #66C2E8;
+}
+
+.area--project .collapse--inficator {
+  fill: #66C2E8;
 }
 
 .best-choice {
@@ -533,6 +568,24 @@ a {
 
 .sub-category--hide .category--hide:nth-of-type(2).category--hide {
   max-height: 0;
+}
+
+.collapse {
+  margin-left: .3rem;
+  vertical-align: middle;
+  -webkit-transition: .3s transform;
+  transition: .3s transform;
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+}
+
+.collapse--circle {
+  fill: #fff;
+}
+
+.collapse--inficator {
+  fill: #fff;
 }
 
 .contact--list {
@@ -793,7 +846,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1495537226718");
+  background-image: url("../img/../img/icons/share.png?version=1495543342522");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(2rem, -0.5rem);
@@ -968,6 +1021,12 @@ a {
   transform: translate(0);
 }
 
+.pannel-open .collapse {
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
 .personal {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1054,7 +1113,7 @@ a {
   height: .75rem;
   display: inline-block;
   margin-left: .1rem;
-  background-image: url("../img/../img/icons/location.svg?version=1495537226718");
+  background-image: url("../img/../img/icons/location.svg?version=1495543342522");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -1082,10 +1141,6 @@ a {
   position: relative;
 }
 
-.project--name {
-  display: block;
-}
-
 .project--hours {
   position: absolute;
   top: 1rem;
@@ -1100,7 +1155,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1495537226718");
+  background-image: url("/img/icons/clock.png?version=1495543342522");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1338,7 +1393,7 @@ a {
 .results--item {
   width: 22rem;
   display: inline-block;
-  margin: 0 .8rem 4rem .8rem;
+  margin: 0 1rem 4rem 1rem;
   padding-top: 5rem;
   list-style-type: none;
 }
@@ -1358,7 +1413,6 @@ a {
   margin: 0;
   padding: 1.5rem 0 .5rem 0;
   text-align: center;
-  text-decoration: underline;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1376,30 +1430,15 @@ a {
   margin: 0 auto;
 }
 
+.see-more--text {
+  text-decoration: underline;
+}
+
 .see-more--number {
-  display: inline-block;
-  border-radius: 50%;
-  width: 1.7rem;
-  height: 1.7rem;
-  max-width: 2rem;
-  max-height: 2rem;
-  margin-left: .3rem;
-  color: #fff;
-  text-decoration: none;
-  -webkit-transition: .3s max-width, .3s max-height;
-  transition: .3s max-width, .3s max-height;
-  -webkit-transform-origin: center;
-  -ms-transform-origin: center;
-  transform-origin: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  font-size: 80%;
+  -webkit-transform: translateY(-0.6rem);
+  -ms-transform: translateY(-0.6rem);
+  transform: translateY(-0.6rem);
 }
 
 .see-more:hover + .category--item:nth-of-type(1).category--hide,
@@ -1424,8 +1463,8 @@ a {
   transform: scaleX(0.95) translateY(-60%) !important;
 }
 
-.see-more--all .see-more--title {
-  text-decoration: none;
+.see-more--all {
+  padding-bottom: 0 !important;
 }
 
 .see-more--all .see-more--title:hover,
@@ -1433,9 +1472,12 @@ a {
   cursor: default;
 }
 
-.see-more--all .see-more--number {
-  max-width: 0;
-  max-height: 0;
+.see-more--all .see-more--text {
+  text-decoration: none;
+}
+
+.see-more--all .collapse {
+  display: none;
 }
 
 .skill {
@@ -1488,7 +1530,7 @@ a {
 
 .slider {
   position: relative;
-  max-width: 85vw;
+  max-width: 90vw;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -1568,7 +1610,7 @@ a {
 }
 
 .slider--left:after {
-  background-image: url("../img/../img/icons/slider-left.png?version=1495537226718");
+  background-image: url("../img/../img/icons/slider-left.png?version=1495543342522");
 }
 
 .slider--left:hover,
@@ -1592,7 +1634,7 @@ a {
 }
 
 .slider--right:after {
-  background-image: url("../img/../img/icons/slider-right.png?version=1495537226718");
+  background-image: url("../img/../img/icons/slider-right.png?version=1495543342522");
 }
 
 .slider--right:hover,

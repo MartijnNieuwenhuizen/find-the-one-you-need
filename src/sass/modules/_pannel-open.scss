@@ -1,4 +1,8 @@
 .pannel-open {
   z-index: 10;
   transform: translate(0);
+
+  .collapse {
+    transform: rotate(-180deg);
+  }
 }

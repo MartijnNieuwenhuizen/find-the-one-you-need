@@ -11,13 +11,14 @@
         subAreaName = 'HTML';
       }
     %>
-    <p class="see-more--title"><span class="see-more--text"><%- subAreaName %></span> <span class="see-more--number"><%- subArea.points.length %></span></p>
+    <p class="see-more--title"><span class="see-more--text"><%- subAreaName %></span> <span class="see-more--number"><%- subArea.points.length %></span> <%- include ../../components/collapse.ejs %> </p>
   </a>
 
   <% subArea.points.forEach(point => { %>
     <dd class="category--item fed--tegniques" id="<%- point.hash %>">
     <div class="area--subtitle">
-      <h4 class="area--subtitle-inner"><a class="area--subtitle-link" href="#<%- point.hash %>"><%- point.name %></a></h4>
+      <h4 class="area--subtitle-inner"><a class="area--subtitle-link" href="#<%- point.hash %>"><%- point.name %><%- include ../../components/collapse.ejs %></a></h4>
+
       <%
         let ranking = ['full', 'empty', 'empty'];
         if (point.ranking > 33) { ranking = ['full', 'full', 'empty'] }

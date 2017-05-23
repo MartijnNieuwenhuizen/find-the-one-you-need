@@ -136,7 +136,14 @@
     }
 
     &--number {
-      background-color: $background-color;
+      color: $background-color;
+    }
+
+    .collapse--circle {
+      fill: $background-color;
+    }
+    .collapse--inficator {
+      fill: $white;
     }
   }
 
@@ -166,6 +173,11 @@
   }
   .data--number {
     color: $background-color;
+  }
+  .collapse {
+    &--inficator {
+      fill: $background-color;
+    }
   }
 }
 
