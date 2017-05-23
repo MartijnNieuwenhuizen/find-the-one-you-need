@@ -18,11 +18,13 @@
 
     border: 0;
     border-radius: 50%;
-    background-color: $brand-primary;
+    background-color: rgba($brand-primary, .5);
     color: transparent;
 
+    transition: .2s background-color;
+
     &:disabled {
-      background-color: rgba($brand-primary, .5);
+      background-color: rgba($brand-primary, .2);
     }
 
     &:after {
