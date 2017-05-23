@@ -3,4 +3,15 @@
   top: 4.1312rem; left: 2.16rem;
   width: 6rem;
   z-index: 999;
+
+  &--banner {
+    fill: $brand-primary;
+  }
+  &--corner {
+    fill: rgba($brand-primary, .4);
+  }
+
+  &--text {
+    fill: white;
+  }
 }
