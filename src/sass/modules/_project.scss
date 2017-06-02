@@ -11,6 +11,8 @@
     margin: 0;
     float: right;
 
+    color: $white;
+
     abbr {
       @include icon-clock;
     }

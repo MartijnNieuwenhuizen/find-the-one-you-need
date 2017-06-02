@@ -48,6 +48,10 @@
   }
 
   @include hocus {
+    .collapse {
+      transform: scale(1.2);
+    }
+
     + .category--item {
       &:nth-of-type(1).category--hide {
         transform: scaleX(.85) translateY(-110%) !important;
