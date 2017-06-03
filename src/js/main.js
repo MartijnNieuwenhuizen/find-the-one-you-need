@@ -61,6 +61,10 @@ if ( document.querySelector('.remove') ) {
   })
 }
 
+if (document.querySelector('.chart')) {
+  require('./modules/barchart');
+}
+
 
 // if ( document.querySelector('.ranking') ) {
 //   const ranking = require('./modules/ranking');

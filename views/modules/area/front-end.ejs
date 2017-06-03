@@ -1,52 +1,15 @@
-<%
-  let rank = '';
-  if (i === 0) {
-    rank = 'gold';
-  } else if ( i === 1 ) {
-    rank = 'silver';
-  } else if ( i === 2 ) {
-    rank = 'bronze';
-  }
-%>
+<div class="">
+  <h1>Personal activity</h1>
 
-<ul class="data">
-  <li class="data--item rank">
-    <div class="rank--definition <%- rank %>">
-      <span class="rank--number data--number"><%- i + 1 %></span>
-      <span class="rank--extr">th</span>
-    </div>
-    choice for <%- point.name %>
-  </li>
-
-  <li class="data--item skill">
-    <span class="skill--score demo-fed data--number" data-score="<%- point.unique %>"><%- point.unique %>%</span>
-    of your colleagues have this skill
-  </li>
-
-  <li class="data--item last-activity">
-    Last known activity
-    <span class="last-activity--number data--number"><%- point.lastActivity %></span>
-    Day's ago
-  </li>
-
-  <li class="data--item last-activity">
-    <span class="data--number">?</span>
-  </li>
-
-  <li class="data--item activity">
-    <dt class="activity--title">Activities</dt>
-
-    <% if ( person.name.first == 'Sandy' ) { %>
-      <dd class="activity--item">Google Maps styling</dd>
-      <dd class="activity--item">Flower overview</dd>
-      <dd class="activity--item">Menu</dd>
-    <% } else if ( person.name.first == 'Joost' ) { %>
-      <dd class="activity--item">Google Maps implementatie</dd>
-      <dd class="activity--item">Google Maps markers</dd>
-      <dd class="activity--item">Add a Flower function</dd>
-    <% } else { %>
-      <dd class="activity--item">Search</dd>
-      <dd class="activity--item">Google Maps styling</dd>
+  <div class="chart">
+    <% for (var i = 0; i < 12; i++) { %>
+      <div class="bar <% if (point.activeMonths && point.activeMonths.includes(i + 1)) { %>bar--active<% } %>"></div>
     <% } %>
-  </li>
-</ul>
+
+    <div class="chart--total">
+      <% for (var i = 0; i < 12; i++) { %>
+        <div class="bar--total"></div>
+      <% } %>
+    </div>
+  </div>
+</div>

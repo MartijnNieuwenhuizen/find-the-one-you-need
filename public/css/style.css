@@ -14,7 +14,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Cn.otf?version=1496485959632") format("opentype");
+  src: url("../img/../fonts/Frutiger-Cn.otf?version=1496516371324") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1496485959632") format("opentype");
+  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1496516371324") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -30,14 +30,14 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Light.otf?version=1496485959632") format("opentype");
+  src: url("../img/../fonts/Frutiger-Light.otf?version=1496516371324") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1496485959632") format("opentype");
+  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1496516371324") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -45,42 +45,42 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Roman.otf?version=1496485959632") format("opentype");
+  src: url("../img/../fonts/Frutiger-Roman.otf?version=1496516371324") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1496485959632") format("opentype");
+  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1496516371324") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAB.ttf?version=1496485959632");
+  src: url("../img/../fonts/ANTQUAB.ttf?version=1496516371324");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAI.ttf?version=1496485959632");
+  src: url("../img/../fonts/ANTQUAI.ttf?version=1496516371324");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUABI.ttf?version=1496485959632");
+  src: url("../img/../fonts/ANTQUABI.ttf?version=1496516371324");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/BKANT.ttf?version=1496485959632");
+  src: url("../img/../fonts/BKANT.ttf?version=1496516371324");
   font-weight: normal;
   font-style: normal;
 }
@@ -474,6 +474,34 @@ a {
   fill: #66C2E8;
 }
 
+.bar {
+  height: 100%;
+  width: 8%;
+  margin: 0 .186rem;
+  background-color: rgba(255, 99, 71, 0.9);
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transition: .3s transform;
+  transition: .3s transform;
+  -webkit-transform-origin: bottom;
+  -ms-transform-origin: bottom;
+  transform-origin: bottom;
+}
+
+.bar--active {
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  transform: scaleY(1);
+}
+
+.bar--total {
+  height: 100%;
+  width: 8%;
+  margin: 0 .186rem;
+  background-color: rgba(152, 194, 32, 0.5);
+}
+
 .best-choice {
   position: absolute;
   top: 2.1312rem;
@@ -558,6 +586,7 @@ a {
   overflow: hidden;
   -webkit-transition: .6s max-height;
   transition: .6s max-height;
+  background-color: #fff;
 }
 
 .pannel-open {
@@ -580,6 +609,54 @@ a {
 
 .sub-category--hide .category--hide:nth-of-type(2).category--hide {
   max-height: 0;
+}
+
+.chart {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 7.875rem;
+  height: 5.875rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.chart--total {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
 }
 
 .collapse {
@@ -891,7 +968,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1496485959632");
+  background-image: url("../img/../img/icons/share.png?version=1496516371324");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(2rem, -0.5rem);
@@ -1156,7 +1233,7 @@ a {
   height: .75rem;
   display: inline-block;
   margin-left: .1rem;
-  background-image: url("../img/../img/icons/location.svg?version=1496485959632");
+  background-image: url("../img/../img/icons/location.svg?version=1496516371324");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -1198,7 +1275,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock-white.png?version=1496485959632");
+  background-image: url("/img/icons/clock-white.png?version=1496516371324");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1642,7 +1719,7 @@ a {
   -webkit-transform: translate(-10%, -50%);
   -ms-transform: translate(-10%, -50%);
   transform: translate(-10%, -50%);
-  background-image: url("../img/../img/icons/slider-left-white.svg?version=1496485959632");
+  background-image: url("../img/../img/icons/slider-left-white.svg?version=1496516371324");
 }
 
 .slider--left:hover:not(:disabled):after,
@@ -1664,7 +1741,7 @@ a {
   -webkit-transform: translate(10%, -50%);
   -ms-transform: translate(10%, -50%);
   transform: translate(10%, -50%);
-  background-image: url("../img/../img/icons/slider-right-white.svg?version=1496485959632");
+  background-image: url("../img/../img/icons/slider-right-white.svg?version=1496516371324");
 }
 
 .slider--right:hover:not(:disabled):after,

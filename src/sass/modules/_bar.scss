@@ -1,0 +1,21 @@
+.bar {
+  height: 100%;
+  width: 8%;
+  margin: 0 .186rem;
+  background-color: rgba(tomato, .9);
+
+  transform: scaleY(0);
+  transition: .3s transform;
+  transform-origin: bottom;
+
+  &--active {
+    transform: scaleY(1);
+  }
+
+  &--total {
+    height: 100%;
+    width: 8%;
+    margin: 0 .186rem;
+    background-color: rgba($brand-primary, .5);
+  }
+}

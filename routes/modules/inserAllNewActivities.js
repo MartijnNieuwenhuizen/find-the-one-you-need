@@ -21,13 +21,13 @@ allPeople.find({})
             activity: []
           };
 
-          const randomFor = Math.floor(Math.random() * 34);
+          const randomFor = Math.floor(Math.random() * 8) + 10;
           for (var i = 0; i < randomFor; i++) {
             const newActivity = {};
 
             const randomSource = sources[Math.floor(Math.random() * sources.length)];
             newActivity.source = randomSource;
-            const randomDate = new Date(2017, Math.floor(Math.random() * 6), Math.floor(Math.random() * 27));
+            const randomDate = new Date(2017, Math.floor(Math.random() * 10), Math.floor(Math.random() * 27));
             newActivity.date = randomDate;
 
             if ( randomSource === 'Bitbucket' ) {

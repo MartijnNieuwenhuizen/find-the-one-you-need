@@ -77,11 +77,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       });
     }
 
+    if (document.querySelector('.chart')) {
+      require('./modules/barchart');
+    }
+
     // if ( document.querySelector('.ranking') ) {
     //   const ranking = require('./modules/ranking');
     //   ranking.launch();
     // }
-  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/see-more": 6, "./modules/skills": 7, "./modules/slider": 8, "./modules/type-ahead": 9 }], 2: [function (require, module, exports) {
+  }, { "./modules/areas": 2, "./modules/barchart": 3, "./modules/categories": 4, "./modules/collapse": 5, "./modules/match": 6, "./modules/see-more": 7, "./modules/skills": 8, "./modules/slider": 9, "./modules/type-ahead": 10 }], 2: [function (require, module, exports) {
     var areaPannels = {
 
       openRelevant: function openRelevant() {
@@ -144,6 +148,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     module.exports = areaPannels;
   }, {}], 3: [function (require, module, exports) {
+    console.log('Hurray');
+  }, {}], 4: [function (require, module, exports) {
     var categories = {
       openRelevant: function openRelevant() {
         var tags = categories.getTags();
@@ -224,7 +230,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = categories;
-  }, {}], 4: [function (require, module, exports) {
+  }, {}], 5: [function (require, module, exports) {
     var Pannels = function () {
       function Pannels() {
         _classCallCheck(this, Pannels);
@@ -310,7 +316,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     module.exports = Pannels;
-  }, {}], 5: [function (require, module, exports) {
+  }, {}], 6: [function (require, module, exports) {
     var match = {
       launch: function launch() {
         var matches = Array.from(document.querySelectorAll('.match'));
@@ -343,7 +349,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = match;
-  }, {}], 6: [function (require, module, exports) {
+  }, {}], 7: [function (require, module, exports) {
     var more = {
       listen: function listen() {
         var areas = Array.from(document.querySelectorAll('.sub-category'));
@@ -396,7 +402,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = more;
-  }, {}], 7: [function (require, module, exports) {
+  }, {}], 8: [function (require, module, exports) {
     var Skills = {
       visualize: function visualize() {
 
@@ -458,7 +464,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = Skills;
-  }, {}], 8: [function (require, module, exports) {
+  }, {}], 9: [function (require, module, exports) {
     var sliderList = document.querySelector('.slider--container');
     var sliderItems = document.querySelectorAll('.slider--item');
 
@@ -563,7 +569,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       buttonRight.remove();
       buttonLeft.remove();
     }
-  }, {}], 9: [function (require, module, exports) {
+  }, {}], 10: [function (require, module, exports) {
     // Most of this code comes from the 30 days JavaScript cource by Wes Bos.
     // https://javascript30.com/
 
