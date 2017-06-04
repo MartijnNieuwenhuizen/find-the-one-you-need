@@ -6,16 +6,18 @@ $light-gray:      #F7F7F7;
 $lighter-gray:    #FBFBFB;
 $dark-gray:       #4A4A4A;
 
+$skill-gray: #9B9B9B;
+
 $text:            $black;
 $input-bg:        $light-gray;
 
 $brand-primary:   #98C220;
 
 $front-end: (
-  dark:    #F5A623,
-  med:     #F3B55B,
-  light:   #EFC27F,
-  lighter: #F3D8B2
+  dark:    #86AC79,
+  med:     #90C37E,
+  light:   #A5D593,
+  lighter: #D8EDD0
 );
 
 $project: (
@@ -42,6 +44,13 @@ $back-end: (
 $base-font: "Frutiger Light";
 
 // Fonts-sizes
+$skill-annotaion: (
+  xs: .9rem,
+  sm: .9rem,
+  md: .9rem,
+  lg: .9rem   // 16px
+);
+
 $base-font-size: (
   xs: 1rem,
   sm: 1rem,

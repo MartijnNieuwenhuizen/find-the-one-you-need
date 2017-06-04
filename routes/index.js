@@ -19,8 +19,6 @@ router.get('/', (req, res, next) => {
 
   const peopleWithActivity = people.then(peopleWithoutAcitivity => Activity.add(peopleWithoutAcitivity, db));
 
-  
-
   Promise.all([peopleWithActivity, messageWithHits])
     .then(([peopleRender, buzzwordMessage]) => {
       res.render('index', { people: peopleRender, message, buzzwords: buzzwordMessage });

@@ -1,32 +1,58 @@
-$skill-width: 4rem;
-
 .skill {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-top: .8125rem;
 
-  text-align: center;
 
-  &--name {
-    margin: 0; padding: 0;
-    display: block;
-  }
-  &--score {
-    position: relative;
-    width: $skill-width; height: $skill-width;
-    margin: 0; padding: 0;
-    display: block;
+  &--title {
+    margin: 0 auto;
+    margin-bottom: 5.375rem;
+    
+    font-size: 1.25rem;
+    font-weight: 300;
 
-    border-radius: 50%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    canvas {
-      position: absolute;
-      top: 0; left: 0;
-    }
+    text-align: center;
+    text-transform: lowercase;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+// $skill-width: 4rem;
+//
+// .skill {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//
+//   text-align: center;
+//
+//   &--name {
+//     margin: 0; padding: 0;
+//     display: block;
+//   }
+//   &--score {
+//     position: relative;
+//     width: $skill-width; height: $skill-width;
+//     margin: 0; padding: 0;
+//     display: block;
+//
+//     border-radius: 50%;
+//
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//
+//     canvas {
+//       position: absolute;
+//       top: 0; left: 0;
+//     }
+//   }
+// }

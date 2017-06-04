@@ -100,7 +100,7 @@
 
 // Add all the Area colors to the area according to the type
 @mixin set-type-color($map, $name) {
-  $background-color: map-get($map, "dark");
+  $background-color: map-get($map, "light");
 
   .area--title-container {
     // @extend .match--#{$name};
@@ -123,14 +123,14 @@
     &--title { color: $background-color; }
 
     @include hocus {
-      .see-more--title { color: darken($background-color, 10%); }
+      .see-more--title { color: map-get($map, "dark"); }
 
       + .category--item {
         &:nth-of-type(1).category--hide .area--subtitle {
-          background-color: darken($background-color, 13%);
+          background-color: map-get($map, "med");
         }
         &:nth-of-type(2).category--hide .area--subtitle {
-          background-color: darken($background-color, 8%);
+          background-color: map-get($map, "dark");
         }
       }
     }
