@@ -1,56 +1,71 @@
 const ranking = {
   launch: function() {
     const rankingList = Array.from(document.querySelectorAll('.ranking'));
+    console.log(rankingList);
 
     rankingList.forEach(list => {
       const rankingItems = list.querySelectorAll('.ranking--item');
+      ranking.setPersonal(list);
 
       rankingItems.forEach((item, i, arr) => {
         item.order = i;
         item.arr = arr;
         item.addEventListener('mouseenter', ranking.hover, true);
         item.addEventListener('mouseleave', ranking.leave, true);
-        item.addEventListener('click', ranking.rank, true);
+        item.addEventListener('click', ranking.conform, true);
       });
     });
   },
 
-  hover: function(e) {
+  hover: function() {
     this.arr.forEach(item => {
-      item.firstChild.src = './img/icons/star-white-empty.svg';
+      item.classList.remove('show-star');
     });
-
     for (var i = 0; i < this.order + 1; i++) {
-      this.arr[i].firstChild.src = './img/icons/star-white-full.svg';
+      this.arr[i].classList.add('show-star');
     }
   },
 
   leave: function() {
     this.arr.forEach(item => {
-      item.firstChild.src = `./img/icons/star-white-${item.firstChild.dataset.original}.svg`;
+      item.classList.remove('show-star');
     });
   },
 
-  rank: function() {
-    let counter = 0;
-    // for (var i = 0; i < this.order; i++) {
-    //
-    // }
-    const animate = setInterval(() => {
-      if (counter <= this.order) {
-        this.arr[counter].classList.add('added');
+  conform: function(e) {
+    const givenRanking = this.order + 1;
+    const list = this.parentElement;
+    const key = list.dataset.name;
 
-        counter++;
-      } else {
-        clearInterval(animate);
+    const storage = window.localStorage;
+    // if ( !storage.ranking ) { storage.ranking = []; }
+    storage.setItem(key, givenRanking);
 
-        setTimeout(() => {
-          this.arr.forEach(item => {
-            item.classList.remove('added');
-          });
-        }, 300);
+    this.arr.forEach(item => {
+      item.classList.remove('personal-ranking');
+    });
+    console.log(givenRanking);
+    for (var i = 0; i < givenRanking; i++) {
+      this.arr[i].classList.add('personal-ranking');
+    }
+
+    e.preventDefault();
+  },
+
+  setPersonal(item) {
+    const name = item.dataset.name;
+    const storage = window.localStorage;
+
+    if ( storage.getItem(name) ) {
+      const personalRanking = storage.getItem(name);
+      console.log(personalRanking);
+
+      const stars = item.children;
+
+      for (var i = 0; i < personalRanking; i++) {
+        stars[i].classList.add('personal-ranking');
       }
-    }, 100);
+    }
   }
 };
 

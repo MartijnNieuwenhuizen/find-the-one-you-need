@@ -81,11 +81,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       require('./modules/barchart');
     }
 
-    // if ( document.querySelector('.ranking') ) {
-    //   const ranking = require('./modules/ranking');
-    //   ranking.launch();
-    // }
-  }, { "./modules/areas": 2, "./modules/barchart": 3, "./modules/categories": 4, "./modules/collapse": 5, "./modules/match": 6, "./modules/see-more": 7, "./modules/skills": 8, "./modules/slider": 9, "./modules/type-ahead": 10 }], 2: [function (require, module, exports) {
+    if (document.querySelector('.ranking')) {
+      var ranking = require('./modules/ranking');
+      ranking.launch();
+    }
+  }, { "./modules/areas": 2, "./modules/barchart": 3, "./modules/categories": 4, "./modules/collapse": 5, "./modules/match": 6, "./modules/ranking": 7, "./modules/see-more": 8, "./modules/skills": 9, "./modules/slider": 10, "./modules/type-ahead": 11 }], 2: [function (require, module, exports) {
     var areaPannels = {
 
       openRelevant: function openRelevant() {
@@ -350,6 +350,79 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     module.exports = match;
   }, {}], 7: [function (require, module, exports) {
+    var ranking = {
+      launch: function launch() {
+        var rankingList = Array.from(document.querySelectorAll('.ranking'));
+        console.log(rankingList);
+
+        rankingList.forEach(function (list) {
+          var rankingItems = list.querySelectorAll('.ranking--item');
+          ranking.setPersonal(list);
+
+          rankingItems.forEach(function (item, i, arr) {
+            item.order = i;
+            item.arr = arr;
+            item.addEventListener('mouseenter', ranking.hover, true);
+            item.addEventListener('mouseleave', ranking.leave, true);
+            item.addEventListener('click', ranking.conform, true);
+          });
+        });
+      },
+
+      hover: function hover() {
+        this.arr.forEach(function (item) {
+          item.classList.remove('show-star');
+        });
+        for (var i = 0; i < this.order + 1; i++) {
+          this.arr[i].classList.add('show-star');
+        }
+      },
+
+      leave: function leave() {
+        this.arr.forEach(function (item) {
+          item.classList.remove('show-star');
+        });
+      },
+
+      conform: function conform(e) {
+        var givenRanking = this.order + 1;
+        var list = this.parentElement;
+        var key = list.dataset.name;
+
+        var storage = window.localStorage;
+        // if ( !storage.ranking ) { storage.ranking = []; }
+        storage.setItem(key, givenRanking);
+
+        this.arr.forEach(function (item) {
+          item.classList.remove('personal-ranking');
+        });
+        console.log(givenRanking);
+        for (var i = 0; i < givenRanking; i++) {
+          this.arr[i].classList.add('personal-ranking');
+        }
+
+        e.preventDefault();
+      },
+
+      setPersonal: function setPersonal(item) {
+        var name = item.dataset.name;
+        var storage = window.localStorage;
+
+        if (storage.getItem(name)) {
+          var personalRanking = storage.getItem(name);
+          console.log(personalRanking);
+
+          var stars = item.children;
+
+          for (var i = 0; i < personalRanking; i++) {
+            stars[i].classList.add('personal-ranking');
+          }
+        }
+      }
+    };
+
+    module.exports = ranking;
+  }, {}], 8: [function (require, module, exports) {
     var more = {
       listen: function listen() {
         var areas = Array.from(document.querySelectorAll('.sub-category'));
@@ -402,7 +475,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = more;
-  }, {}], 8: [function (require, module, exports) {
+  }, {}], 9: [function (require, module, exports) {
     var Skills = {
       visualize: function visualize() {
 
@@ -464,7 +537,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = Skills;
-  }, {}], 9: [function (require, module, exports) {
+  }, {}], 10: [function (require, module, exports) {
     var sliderList = document.querySelector('.slider--container');
     var sliderItems = document.querySelectorAll('.slider--item');
 
@@ -569,7 +642,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       buttonRight.remove();
       buttonLeft.remove();
     }
-  }, {}], 10: [function (require, module, exports) {
+  }, {}], 11: [function (require, module, exports) {
     // Most of this code comes from the 30 days JavaScript cource by Wes Bos.
     // https://javascript30.com/
 

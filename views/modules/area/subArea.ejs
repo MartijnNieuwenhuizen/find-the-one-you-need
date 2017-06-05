@@ -24,7 +24,7 @@
         if (point.ranking > 33) { ranking = ['full', 'full', 'empty'] }
         if (point.ranking > 66) { ranking = ['full', 'full', 'full'] }
       %>
-      <ul class="ranking">
+      <ul class="ranking" data-name="<%- person.name.first.toLowerCase() %>-<%- point.hash %>">
         <li class="ranking--item">
           <svg class="ranking--svg ranking--<%- ranking[1] %>" width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

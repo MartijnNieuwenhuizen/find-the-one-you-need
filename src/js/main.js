@@ -66,7 +66,7 @@ if (document.querySelector('.chart')) {
 }
 
 
-// if ( document.querySelector('.ranking') ) {
-//   const ranking = require('./modules/ranking');
-//   ranking.launch();
-// }
+if ( document.querySelector('.ranking') ) {
+  const ranking = require('./modules/ranking');
+  ranking.launch();
+}

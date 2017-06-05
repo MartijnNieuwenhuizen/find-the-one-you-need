@@ -18,4 +18,19 @@
       <% } %>
     </div>
   </div>
+
+  <div class="related-projects">
+    <ul class="related-projects--list">
+      <% point.relatedProjects.forEach(project => { %>
+        <li class="related-project">
+          <a class="related-project--link" href="#<%- person.name.first.toLowerCase() %>-<%- project %>"><%- project %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <div class="unique">
+    <div class="unique--persentage" style="transform: scaleY(.<%- point.unique %>);">
+    </div>
+  </div>
 </div>
