@@ -1,7 +1,7 @@
 'use strict';
 
-class Hits {
-  static getFromSentence(sentence, db) {
+const Hits = {
+  getFromSentence: function(sentence, db) {
     return new Promise(function(resolve, reject) {
       const sentenceArray = sentence.split(' ');
       const lowerCaseSentance = sentenceArray.map(word => word.toLowerCase());
@@ -11,9 +11,9 @@ class Hits {
         resolve(result);
       });
     });
-  }
+  },
 
-  static getAll(db) {
+  getAll: function(db) {
     return new Promise(function(resolve, reject) {
       const tags = db.get('tags');
       tags.find({})
@@ -21,9 +21,9 @@ class Hits {
           resolve(matches);
         });
     });
-  }
+  },
 
-  static match(sentenceArray, db) {
+  match: function(sentenceArray, db) {
     return new Promise(function(resolve, reject) {
       const tags = db.get('tags');
       const matches = [];
@@ -44,9 +44,9 @@ class Hits {
           resolve(matches);
         });
     });
-  }
+  },
 
-  static reconstructSentance(sentence, hits) {
+  reconstructSentance: function(sentence, hits) {
     const sentenceArray = sentence.split(' ');
 
     const sentenceWithHits = sentenceArray.map(word => {
@@ -74,6 +74,6 @@ class Hits {
     });
     return sentenceWithHits;
   }
-}
+};
 
 module.exports = Hits;

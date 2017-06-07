@@ -1,14 +1,14 @@
 'use strict';
 
-class People {
-  static getUnique(results) {
+const People =  {
+  getUnique: function(results) {
     const filterUnique = (tag, i, arr) => arr.indexOf(tag) === i;
     const result = results.filter(filterUnique);
 
     return result;
-  }
+  },
 
-  static getPeopleData(peopleIds, db) {
+  getPeopleData: function(peopleIds, db) {
     return new Promise(function(resolve, reject) {
       const people = db.get('people');
       const matches = [];
@@ -23,10 +23,10 @@ class People {
           resolve(matches);
         });
     });
-  }
+  },
 
   // Get all possible matches
-  static getAllMatched(hits, db) {
+  getAllMatched: function(hits, db) {
     return new Promise(function(resolve, reject) {
       const peopleIds = [];
       const tags = db.get('tags');
@@ -48,16 +48,15 @@ class People {
           });
         });
     });
-  }
+  },
 
   // Get all people who match all the tags
-  static getMatched(hits, db) {
+  getMatched: function(hits, db) {
     return new Promise(function(resolve, reject) {
       const peopleIds = [];
       const tags = db.get('tags');
       const hitToSmallerCase = hits.map(hit => hit.name.toLowerCase());
 
-      const begin = [];
       tags.find({})
         .each((tag, {close, pause, resume}) => {
           const match = hitToSmallerCase.includes(tag.name);
@@ -93,9 +92,9 @@ class People {
           });
         });
     });
-  }
+  },
 
-  static getAllData(peopleData, db) {
+  getAllData: function(peopleData, db) {
     return new Promise(function(resolve, reject) {
       const tags = db.get('tags');
       const people = peopleData;
@@ -167,9 +166,9 @@ class People {
           resolve(people);
         });
     });
-  }
+  },
 
-  static attachKnolage(knolage) {
+  attachKnolage: function(knolage) {
     const _knolage = knolage;
     const filterUnique = (tag, i, arr) => arr.indexOf(tag) === i;
 
@@ -191,8 +190,8 @@ class People {
       newKnolage.push({
         name: category,
         subArea: []
-      })
-    })
+      });
+    });
 
     // Create all sub categories for a person
     subCategories.forEach(subCategory => {
@@ -241,6 +240,6 @@ class People {
     });
     return newKnolage;
   }
-}
+};
 
 module.exports = People;
