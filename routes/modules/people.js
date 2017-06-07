@@ -61,7 +61,6 @@ const People =  {
           const match = hitToSmallerCase.includes(tag.name);
           if (match) {
             peopleIds.push(...tag.people);
-            resume();
           }
         })
         .then(() => {
