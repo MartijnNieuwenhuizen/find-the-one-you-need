@@ -1,3 +1,5 @@
+'use strict';
+
 if ( document.querySelector('.category') ) {
   const Pannels = require('./modules/collapse');
   Pannels.launch();
@@ -55,7 +57,7 @@ if ( document.querySelector('.remove') ) {
 
       e.preventDefault();
     });
-  })
+  });
 }
 
 if (document.querySelector('.chart')) {

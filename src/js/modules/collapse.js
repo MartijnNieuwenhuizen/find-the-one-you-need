@@ -1,3 +1,5 @@
+'use strict';
+
 class Pannels {
   static launch() {
     const pannelLinks = Pannels.getLinks();

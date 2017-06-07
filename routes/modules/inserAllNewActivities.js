@@ -1,3 +1,5 @@
+'use strict';
+
 const allPeople = db.get('people');
 const allTags = db.get('tags');
 const allActivities = db.get('activities');

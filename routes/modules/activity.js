@@ -1,5 +1,7 @@
-class Activity {
-  static add(people, db) {
+'use strict';
+
+const Activity =  {
+  add: function(people, db) {
     return new Promise(function(resolve, reject) {
 
       const today = new Date(2017, 10, 7);
@@ -34,9 +36,9 @@ class Activity {
           resolve(people);
         });
     });
-  }
+  },
 
-  static findAll(personalActivity, skill, today) {
+  findAll:function(personalActivity, skill, today) {
     const skillActivity = personalActivity.activities.filter( activity => String(activity.tagId) === String(skill.tagId) );
     // const amountOfActivity = skillActivity[0].activity.length;
     const getUnique = (tag, i, arr) => arr.indexOf(tag) === i;
@@ -82,6 +84,6 @@ class Activity {
 
     return {months, lastActivity, uniqueProjects, overall};
   }
-}
+};
 
 module.exports = Activity;

@@ -1,3 +1,5 @@
+'use strict';
+
 const match = {
   launch: () => {
     const matches = Array.from(document.querySelectorAll('.match'));
