@@ -11,24 +11,52 @@
         subAreaName = 'HTML';
       }
     %>
-    <p class="see-more--title"><span class="see-more--text"><%- subAreaName %></span> <span class="see-more--number"><%- subArea.points.length %></span></p>
+    <p class="see-more--title"><span class="see-more--text"><%- subAreaName %></span> <span class="see-more--number"><%- subArea.points.length %></span> <%- include ../../components/collapse.ejs %> </p>
   </a>
 
   <% subArea.points.forEach(point => { %>
     <dd class="category--item fed--tegniques" id="<%- point.hash %>">
-      <h4 class="area--subtitle">
-        <a class="area--subtitle-link" href="#<%- point.hash %>"><%- point.name %></a>
-        <%
-          let ranking = ['full', 'empty', 'empty'];
-          if (point.ranking > 33) { ranking = ['full', 'full', 'empty'] }
-          if (point.ranking > 66) { ranking = ['full', 'full', 'full'] }
-        %>
-        <ul class="ranking">
-          <li class="ranking--item"><img class="ranking--img" data-original="<%- ranking[0] %>" src="./img/icons/star-white-<%- ranking[0] %>.svg" alt=""></li>
-          <li class="ranking--item"><img class="ranking--img" data-original="<%- ranking[1] %>" src="./img/icons/star-white-<%- ranking[1] %>.svg" alt=""></li>
-          <li class="ranking--item"><img class="ranking--img" data-original="<%- ranking[2] %>" src="./img/icons/star-white-<%- ranking[2] %>.svg" alt=""></li>
-        </ul>
-      </h4>
+    <div class="area--subtitle">
+      <h4 class="area--subtitle-inner"><a class="area--subtitle-link" href="#<%- point.hash %>"><%- point.name %><%- include ../../components/collapse.ejs %></a></h4>
+
+      <%
+        let ranking = ['full', 'empty', 'empty'];
+        if (point.ranking > 33) { ranking = ['full', 'full', 'empty'] }
+        if (point.ranking > 66) { ranking = ['full', 'full', 'full'] }
+      %>
+      <ul class="ranking" data-name="<%- person.name.first.toLowerCase() %>-<%- point.hash %>">
+        <li class="ranking--item">
+          <svg class="ranking--svg ranking--<%- ranking[1] %>" width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="ranking" fill-rule="nonzero">
+                      <polygon class="ranking--starred" stroke="#FFD700" stroke-width="3" points="14.0787402 4 17.2283465 10.557377 24 10.557377 19.1181102 15.4754098 21.480315 24 14.0787402 19.2459016 6.51968504 24 8.88188976 15.4754098 4 10.557377 10.9291339 10.557377"></polygon>
+                      <polygon class="ranking--star" stroke="#FFFFFF" stroke-width="2" fill="#FFFFFF" points="14.0629921 6 16.5826772 11.2459016 22 11.2459016 18.0944882 15.1803279 19.984252 22 14.0629921 18.1967213 8.01574803 22 9.90551181 15.1803279 6 11.2459016 11.5433071 11.2459016"></polygon>
+                  </g>
+              </g>
+          </svg>
+        </li>
+        <li class="ranking--item">
+          <svg class="ranking--svg ranking--<%- ranking[2] %>" width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="ranking" fill-rule="nonzero">
+                      <polygon class="ranking--starred" stroke="#FFD700" stroke-width="3" points="14.0787402 4 17.2283465 10.557377 24 10.557377 19.1181102 15.4754098 21.480315 24 14.0787402 19.2459016 6.51968504 24 8.88188976 15.4754098 4 10.557377 10.9291339 10.557377"></polygon>
+                      <polygon class="ranking--star" stroke="#FFFFFF" stroke-width="2" fill="#FFFFFF" points="14.0629921 6 16.5826772 11.2459016 22 11.2459016 18.0944882 15.1803279 19.984252 22 14.0629921 18.1967213 8.01574803 22 9.90551181 15.1803279 6 11.2459016 11.5433071 11.2459016"></polygon>
+                  </g>
+              </g>
+          </svg>
+        </li>
+        <li class="ranking--item">
+          <svg class="ranking--svg ranking--<%- ranking[3] %>" width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="ranking" fill-rule="nonzero">
+                      <polygon class="ranking--starred" stroke="#FFD700" stroke-width="3" points="14.0787402 4 17.2283465 10.557377 24 10.557377 19.1181102 15.4754098 21.480315 24 14.0787402 19.2459016 6.51968504 24 8.88188976 15.4754098 4 10.557377 10.9291339 10.557377"></polygon>
+                      <polygon class="ranking--star" stroke="#FFFFFF" stroke-width="2" fill="#FFFFFF" points="14.0629921 6 16.5826772 11.2459016 22 11.2459016 18.0944882 15.1803279 19.984252 22 14.0629921 18.1967213 8.01574803 22 9.90551181 15.1803279 6 11.2459016 11.5433071 11.2459016"></polygon>
+                  </g>
+              </g>
+          </svg>
+        </li>
+      </ul>
+      </div>
       <div class="category--item-container">
 
         <% if (area.name === 'front-end') { %>

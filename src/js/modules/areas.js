@@ -29,7 +29,7 @@ const areaPannels = {
   },
 
   openSpesific: function(e) {
-    this.parentElement.parentElement.classList.toggle('pannel-open');
+    this.parentElement.parentElement.parentElement.classList.toggle('pannel-open');
 
     e.preventDefault();
   },

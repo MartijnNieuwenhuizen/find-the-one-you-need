@@ -1,28 +1,31 @@
 <li class="project category--item" id="<%- project.name %>">
-  <h4 class="project--name area--subtitle"><a href="#<%- project.name %>" class="project--title area--subtitle-link"><%- project.name %></a></h4>
-  <div class="category--item-container">
+  <div class="area--subtitle">
+    <h4 class="project--name area--subtitle-inner"><a href="#<%- project.name %>" class="project--title area--subtitle-link"><%- project.name %></a></h4>
+    <%- include ../../components/collapse.ejs %>
+  </div>
 
+  <div class="category--item-container">
     <p class="project--hours"> <abbr class="project--abbr" title="Aantal uren gewerkt"><%- project.hours %></abbr></p>
 
-    <dl class="data">
-      <div class="data--item last-activity">
-        <dt class="last-activity--title">Last known activity</dt>
-        <dd>
-          <span class="last-activity--number"><%- project.lastActivity %></span>
-          Day's ago
-        </dd>
-      </div>
+    <div class="skill">
+      <h1 class="skill--title">Personal activity</h1>
 
-      <div class="data--item last-activity">
-        Last known activity
-        <span class="data--number">?</span>
-      </div>
+      <div class="chart--container">
+        <button class="chart--prev">2017</button>
 
-      <div class="data--item activity">
-        <dt class="activity--title">Activities</dt>
-        <dd class="activity--item">Search</dd>
-        <dd class="activity--item">Google Maps styling</dd>
+        <div class="chart">
+          <% for (var i = 0; i < 12; i++) { %>
+            <div class="bar">
+              <% if (project.activeMonths && project.activeMonths.includes(i + 1)) { %>
+                <div class="bar--active">
+                  <% if (project.activeMonths[0] === (i + 1)) { %>
+                    <p class="bar--activity"><%- project.lastActivity %> days ago</p>
+                  <% } %>
+                </div>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
       </div>
-    </dl>
   </div>
 </li>

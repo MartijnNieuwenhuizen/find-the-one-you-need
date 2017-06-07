@@ -1,6 +1,6 @@
 .slider {
   position: relative;
-  max-width: 85vw;
+  max-width: 90vw;
   margin: 0 auto;
   overflow: hidden;
 
@@ -14,73 +14,69 @@
   &--button {
     position: fixed;
     top: 50%;
-    height: 100%;
-    padding: 0 1rem;
+    width: 7rem; height: 7rem;
+
     border: 0;
+    border-radius: 50%;
+    background-color: rgba($brand-primary, .5);
     color: transparent;
 
+    transition: .2s background-color;
+
     &:disabled {
-      // opacity: .5rem;
-      &:after {
-        opacity: .3;
-      }
-      @include hocus {
-        cursor: default;
-      }
+      background-color: rgba($brand-primary, .2);
     }
 
     &:after {
       content: "";
       position: absolute;
-      top: 50%; left: 50%;
+      top: 50%;
       width: 3rem; height: 3rem;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
-      transform: translate(-50%, -50%);
 
       transition: .2s ease-in-out transform;
     }
 
     @include hocus {
       cursor: pointer;
-    };
+      outline: none;
+    }
   }
+
   &--left {
     left: 0;
-    transform: translate(0, -50%);
-    background: linear-gradient(to right, $gray, lighten($gray, 20%));
+    transform: translate(-50%, -50%);
 
     &:after {
-      background-image: url('../img/icons/slider-left.png');
+      left: 50%;
+      transform: translate(-10%, -50%);
+
+      background-image: url('../img/icons/slider-left-white.svg');
     }
 
     @include hocus {
-      outline: none;
-    }
-
-    &:not(:disabled) {
-      &:after {
-        transform: translate(-60%, -50%);
+      &:not(:disabled):after {
+        transform: translate(-20%, -50%);
       }
     }
   }
+
   &--right {
     right: 0;
-    transform: translate(0, -50%);
-    background: linear-gradient(to left, $gray, lighten($gray, 20%));
+    transform: translate(50%, -50%);
 
     &:after {
-      background-image: url('../img/icons/slider-right.png');
+      right: 50%;
+      transform: translate(10%, -50%);
+
+      background-image: url('../img/icons/slider-right-white.svg');
     }
 
     @include hocus {
-      outline: none;
-
-      &:not(:disabled) {
-        &:after {
-          transform: translate(-40%, -50%);
-        }
+      &:not(:disabled):after {
+        transform: translate(20%, -50%);
       }
     }
   }

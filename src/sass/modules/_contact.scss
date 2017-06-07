@@ -5,9 +5,10 @@
   }
   &--item {
     display: inline-block;
+    width: 1.125rem;
+    margin: 0 .17rem;
   }
   &--link {
-    padding: 0 .15rem;
 
     @include hocus {
       .contact--img {
@@ -16,8 +17,9 @@
     }
   }
   &--img {
-    width: 1.5rem;
+    width: 100%;
 
+    filter: grayscale(1);
     transition: .2s transform;
   }
 }

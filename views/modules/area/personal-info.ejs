@@ -12,7 +12,7 @@
     <h2 class="personal--name"><%- person.name.full %></h2>
     <p class="personal--role"><%- person.role %></p>
     <%# If person is on location, add the class to make the icon green %>
-    <p class="personal--location on-location"><%- person.location %></p>
+    <p class="personal--location <% if (person.location === person.currentLocation) { %>on-location<% } %>"><%- person.location %></p>
     <ul class="personal--contact contact--list">
       <li class="contact--item">
         <a class="contact--link" href="#"><img class="contact--img" src="./img/contact/phone.png" alt="Phone icon"></a>
@@ -30,5 +30,10 @@
         <a class="contact--link" href="#"><img class="contact--img" src="./img/contact/slack.png" alt="Slack icon"></a>
       </li>
     </ul>
+
+    <%# remove%>
+    <a class="personal--remove remove" href="#">
+      <img src="./img/icons/remove.svg" alt="Remove button">
+    </a>
   </div>
 </div>

@@ -1,43 +1,36 @@
-<%
-  let rank = '';
-  if (i === 0) {
-    rank = 'gold';
-  } else if ( i === 1 ) {
-    rank = 'silver';
-  } else if ( i === 2 ) {
-    rank = 'bronze';
-  }
-%>
+<div class="skill">
+  <h1 class="skill--title">Personal activity</h1>
 
-<ul class="data">
-  <li class="data--item rank">
-    <div class="rank--definition <%- rank %>">
-      <span class="rank--number data--number"><%- i + 1 %></span>
-      <span class="rank--extr">th</span>
+  <div class="chart--container">
+    <button class="chart--prev">2017</button>
+
+    <div class="chart">
+      <% for (var i = 0; i < 12; i++) { %>
+        <div class="bar">
+          <% if (point.activeMonths && point.activeMonths.includes(i + 1)) { %>
+            <div class="bar--active">
+              <% if (point.activeMonths[0] === (i + 1)) { %>
+                <p class="bar--activity"><%- point.lastActivity %> days ago</p>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
+      <% } %>
     </div>
-    choice for <%- point.name %>
-  </li>
+  </div>
 
-  <li class="data--item skill">
-    <span class="skill--score demo-fed data--number" data-score="<%- point.unique %>"><%- point.unique %>%</span>
-    of your colleagues have this skill
-  </li>
-
-  <li class="data--item last-activity">
-    Last known activity
-    <span class="last-activity--number data--number"><%- point.lastActivity %></span>
-    Day's ago
-  </li>
-
-  <li class="data--item last-activity">
-    <span class="data--number">?</span>
-  </li>
-
-  <li class="data--item activity">
-    <span class="data--number">Activities</span>
-    <ul class="activity--list">
-      <li class="activity--item">Search</li>
-      <li class="activity--item">Google Maps styling</li>
+  <div class="related-projects">
+    <ul class="related-projects--list">
+      <% point.relatedProjects.forEach(project => { %>
+        <li class="related-project">
+          <a class="related-project--link" href="#<%- person.name.first.toLowerCase() %>-<%- project %>"><%- project %></a>
+        </li>
+      <% }); %>
     </ul>
-  </li>
-</ul>
+  </div>
+
+  <div class="unique">
+    <div class="unique--persentage" style="transform: scaleY(.<%- point.unique %>);">
+    </div>
+  </div>
+</div>

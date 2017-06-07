@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Hits = require('./modules/hits');
 const People = require('./modules/people');
+const Activity = require('./modules/activity');
 
 router.get('/', (req, res, next) => {
   const db = req.db;
@@ -16,14 +17,12 @@ router.get('/', (req, res, next) => {
 
   const people = matchedPeople.then(peopleData => People.getAllData(peopleData, db));
 
-  Promise.all([people, messageWithHits])
+  const peopleWithActivity = people.then(peopleWithoutAcitivity => Activity.add(peopleWithoutAcitivity, db));
+
+  Promise.all([peopleWithActivity, messageWithHits])
     .then(([peopleRender, buzzwordMessage]) => {
       res.render('index', { people: peopleRender, message, buzzwords: buzzwordMessage });
     });
-
-  // Relevant for the rendering
-    // Get the entire sentence with the matched words
-    // Get the area's that need to be collapsed
 
 });
 module.exports = router;

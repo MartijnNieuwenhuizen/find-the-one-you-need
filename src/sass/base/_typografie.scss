@@ -1,3 +1,27 @@
+@mixin font-personal-title {
+  font-family: "Frutiger", sans-serif;
+  font-weight: 600;
+  font-stretch: condensed;
+  text-transform: none;
+  font-size: 1.18rem;
+  color: #4A4A4A;
+}
+@mixin font-personal-item {
+  font-family: "Frutiger", sans-serif;
+  font-weight: 400;
+  font-size: .9rem;
+  font-stretch: normal;
+  color: #4A4A4A;
+}
+
+
+
+
+
+
+
+
+
 @mixin baseFont {
   @include adjust($base-font-size);
   font-family: "Frutiger", sans-serif;
@@ -34,6 +58,7 @@
 
 body {
   @include baseFont;
+  // -webkit-font-smoothing: subpixel-antialiased;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
