@@ -8,6 +8,9 @@ const People = require('./modules/people');
 const Activity = require('./modules/activity');
 
 router.get('/', (req, res, next) => {
+
+  require('./utilities/polyfill');
+
   const db = req.db;
 
   const message = req.query.message || '';
