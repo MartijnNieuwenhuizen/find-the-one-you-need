@@ -13,7 +13,7 @@ const People =  {
       const people = db.get('people');
       const matches = [];
       people.find({})
-        .each((person, {close, pause, resume}) => {
+        .each(person => {
           const personNeeded = peopleIds.includes(String(person._id));
           if ( personNeeded ) {
             matches.push(person);
@@ -33,11 +33,10 @@ const People =  {
       const hitToSmallerCase = hits.map(hit => hit.name.toLowerCase());
 
       tags.find({})
-        .each((tag, {close, pause, resume}) => {
+        .each(tag => {
           const match = hitToSmallerCase.includes(tag.name);
           if (match) {
             peopleIds.push(...tag.people);
-            resume();
           }
         })
         .then(() => {
@@ -58,7 +57,7 @@ const People =  {
       const hitToSmallerCase = hits.map(hit => hit.name.toLowerCase());
 
       tags.find({})
-        .each((tag, {close, pause, resume}) => {
+        .each(tag => {
           const match = hitToSmallerCase.includes(tag.name);
           if (match) {
             peopleIds.push(...tag.people);
@@ -106,7 +105,7 @@ const People =  {
       });
 
       tags.find({})
-        .each((tag, {close, pause, resume}) => {
+        .each(tag => {
 
           const tagPeopleIds = tag.people;
           tagPeopleIds.forEach(id => {

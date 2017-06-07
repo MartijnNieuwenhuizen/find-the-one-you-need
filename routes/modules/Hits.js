@@ -29,7 +29,7 @@ const Hits = {
       const matches = [];
 
       tags.find({})
-        .each((tag, {close, pause, resume}) => {
+        .each(tag => {
           const match = sentenceArray.includes(tag.name);
           if (match) {
             const type = tag.category ? tag.category : tag.type;
