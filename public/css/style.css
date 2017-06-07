@@ -14,7 +14,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Cn.otf?version=1496864592539") format("opentype");
+  src: url("../img/../fonts/Frutiger-Cn.otf?version=1496866977097") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1496864592539") format("opentype");
+  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1496866977097") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -30,14 +30,14 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Light.otf?version=1496864592539") format("opentype");
+  src: url("../img/../fonts/Frutiger-Light.otf?version=1496866977097") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1496864592539") format("opentype");
+  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1496866977097") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -45,42 +45,42 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Roman.otf?version=1496864592539") format("opentype");
+  src: url("../img/../fonts/Frutiger-Roman.otf?version=1496866977097") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1496864592539") format("opentype");
+  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1496866977097") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAB.ttf?version=1496864592539");
+  src: url("../img/../fonts/ANTQUAB.ttf?version=1496866977097");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAI.ttf?version=1496864592539");
+  src: url("../img/../fonts/ANTQUAI.ttf?version=1496866977097");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUABI.ttf?version=1496864592539");
+  src: url("../img/../fonts/ANTQUABI.ttf?version=1496866977097");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/BKANT.ttf?version=1496864592539");
+  src: url("../img/../fonts/BKANT.ttf?version=1496866977097");
   font-weight: normal;
   font-style: normal;
 }
@@ -894,7 +894,7 @@ a {
   left: -.4375rem;
   width: 1rem;
   height: .75rem;
-  background-image: url("../img/../img/icons/slider-left.png?version=1496864592539");
+  background-image: url("../img/../img/icons/slider-left.png?version=1496866977097");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translate(0, 0.22rem);
@@ -1248,7 +1248,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1496864592539");
+  background-image: url("../img/../img/icons/share.png?version=1496866977097");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(2rem, -0.5rem);
@@ -1518,7 +1518,7 @@ a {
   height: .75rem;
   display: inline-block;
   margin-left: .1rem;
-  background-image: url("../img/../img/icons/location.svg?version=1496864592539");
+  background-image: url("../img/../img/icons/location.svg?version=1496866977097");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -1560,7 +1560,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock-white.png?version=1496864592539");
+  background-image: url("/img/icons/clock-white.png?version=1496866977097");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1999,7 +1999,7 @@ a {
   -webkit-transform: translate(-10%, -50%);
   -ms-transform: translate(-10%, -50%);
   transform: translate(-10%, -50%);
-  background-image: url("../img/../img/icons/slider-left-white.svg?version=1496864592539");
+  background-image: url("../img/../img/icons/slider-left-white.svg?version=1496866977097");
 }
 
 .slider--left:hover:not(:disabled):after,
@@ -2021,7 +2021,7 @@ a {
   -webkit-transform: translate(10%, -50%);
   -ms-transform: translate(10%, -50%);
   transform: translate(10%, -50%);
-  background-image: url("../img/../img/icons/slider-right-white.svg?version=1496864592539");
+  background-image: url("../img/../img/icons/slider-right-white.svg?version=1496866977097");
 }
 
 .slider--right:hover:not(:disabled):after,
@@ -2163,5 +2163,88 @@ a {
 
 .area--project .unique--persentage {
   background-color: #B7C7DA;
+}
+
+.user-feedback {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  padding: .7rem 1.5rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  background-color: #98C220;
+  color: #fff;
+  opacity: 0;
+  z-index: -1;
+  -webkit-transform: translate(-3rem, 0);
+  -ms-transform: translate(-3rem, 0);
+  transform: translate(-3rem, 0);
+  -webkit-transition: .6s opacity, .5s transform, .4s .4s z-index;
+  transition: .6s opacity, .5s transform, .4s .4s z-index;
+}
+
+.user-feedback--message {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-stretch: condensed;
+}
+
+.user-feedback--message {
+  font-size: 1rem;
+}
+
+@media (min-width: 800px) {
+  .user-feedback--message {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .user-feedback--message {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .user-feedback--message {
+    font-size: 1.375rem;
+  }
+}
+
+.user-feedback--revert {
+  float: right;
+  margin-top: .3rem;
+}
+
+.user-feedback--revert {
+  font-size: 1rem;
+}
+
+@media (min-width: 800px) {
+  .user-feedback--revert {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .user-feedback--revert {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .user-feedback--revert {
+    font-size: 1rem;
+  }
+}
+
+.user-feedback.show {
+  opacity: 1;
+  z-index: 1;
+  -webkit-transform: translate(0rem, 0);
+  -ms-transform: translate(0rem, 0);
+  transform: translate(0rem, 0);
+  -webkit-transition: .2s opacity, .3s transform, 0s z-index;
+  transition: .2s opacity, .3s transform, 0s z-index;
 }
 /*# sourceMappingURL=main.css.map */

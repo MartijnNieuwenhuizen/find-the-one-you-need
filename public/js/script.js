@@ -360,7 +360,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var ranking = {
       launch: function launch() {
         var rankingList = Array.from(document.querySelectorAll('.ranking'));
-        console.log(rankingList);
 
         rankingList.forEach(function (list) {
           var rankingItems = list.querySelectorAll('.ranking--item');
@@ -403,10 +402,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.arr.forEach(function (item) {
           item.classList.remove('personal-ranking');
         });
-        console.log(givenRanking);
+
         for (var i = 0; i < givenRanking; i++) {
           this.arr[i].classList.add('personal-ranking');
         }
+
+        ranking.sendFeedback(this, givenRanking);
 
         e.preventDefault();
       },
@@ -417,7 +418,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         if (storage.getItem(name)) {
           var personalRanking = storage.getItem(name);
-          console.log(personalRanking);
 
           var stars = item.children;
 
@@ -425,6 +425,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             stars[i].classList.add('personal-ranking');
           }
         }
+      },
+
+
+      sendFeedback: function sendFeedback(item, givenRanking) {
+        var _item = item;
+        var _givenRanking = givenRanking;
+        var name = 'Peter';
+
+        var feedback = document.querySelector('.user-feedback');
+        var feedbackMessage = feedback.children[0];
+
+        feedbackMessage.innerHTML = "Je hebt " + name + " beoordeld met " + _givenRanking + " sterren";
+
+        feedback.classList.add('show');
+
+        setTimeout(function () {
+          feedback.classList.remove('show');
+          console.log('gone');
+        }, 3000);
       }
     };
 
