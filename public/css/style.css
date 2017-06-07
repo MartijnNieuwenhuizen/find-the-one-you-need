@@ -14,7 +14,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Cn.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-Cn.otf?version=1496864351590") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-ExtraBlackCn.otf?version=1496864351590") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -30,14 +30,14 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Light.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-Light.otf?version=1496864351590") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-LightCn.otf?version=1496864351590") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-stretch: extra-condensed;
@@ -45,42 +45,42 @@ body {
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-Roman.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-Roman.otf?version=1496864351590") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Frutiger";
-  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1494849680486") format("opentype");
+  src: url("../img/../fonts/Frutiger-UltraBlack.otf?version=1496864351590") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAB.ttf?version=1494849680486");
+  src: url("../img/../fonts/ANTQUAB.ttf?version=1496864351590");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUAI.ttf?version=1494849680486");
+  src: url("../img/../fonts/ANTQUAI.ttf?version=1496864351590");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/ANTQUABI.ttf?version=1494849680486");
+  src: url("../img/../fonts/ANTQUABI.ttf?version=1496864351590");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Antiqua";
-  src: url("../img/../fonts/BKANT.ttf?version=1494849680486");
+  src: url("../img/../fonts/BKANT.ttf?version=1496864351590");
   font-weight: normal;
   font-style: normal;
 }
@@ -448,7 +448,7 @@ a {
   top: 0;
   left: .5rem;
   margin: 0;
-  background-image: url("../img/../img/icons/share.png?version=1494849680486");
+  background-image: url("../img/../img/icons/share.png?version=1496864351590");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translateY(1.5rem);
@@ -802,7 +802,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: block;
-  background-image: url("../img/../img/icons/share.png?version=1494849680486");
+  background-image: url("../img/../img/icons/share.png?version=1496864351590");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(2rem, -0.5rem);
@@ -1160,7 +1160,7 @@ a {
   width: 1.1rem;
   height: 1.1rem;
   margin-right: .3rem;
-  background-image: url("/img/icons/clock.png?version=1494849680486");
+  background-image: url("/img/icons/clock.png?version=1496864351590");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translateY(0.2rem);
@@ -1600,7 +1600,7 @@ a {
 }
 
 .slider--left:after {
-  background-image: url("../img/../img/icons/slider-left.png?version=1494849680486");
+  background-image: url("../img/../img/icons/slider-left.png?version=1496864351590");
 }
 
 .slider--left:hover,
@@ -1624,7 +1624,7 @@ a {
 }
 
 .slider--right:after {
-  background-image: url("../img/../img/icons/slider-right.png?version=1494849680486");
+  background-image: url("../img/../img/icons/slider-right.png?version=1496864351590");
 }
 
 .slider--right:hover,
