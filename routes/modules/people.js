@@ -1,3 +1,5 @@
+'use strict';
+
 class People {
   static getUnique(results) {
     const filterUnique = (tag, i, arr) => arr.indexOf(tag) === i;

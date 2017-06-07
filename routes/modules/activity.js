@@ -1,3 +1,5 @@
+'use strict';
+
 class Activity {
   static add(people, db) {
     return new Promise(function(resolve, reject) {

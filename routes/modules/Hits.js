@@ -1,3 +1,5 @@
+'use strict';
+
 class Hits {
   static getFromSentence(sentence, db) {
     return new Promise(function(resolve, reject) {
