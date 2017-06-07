@@ -1,0 +1,18 @@
+<% if (people.length) { %>
+  <section class="results slider">
+    <ul class="results--list slider--container">
+      <% people.forEach((person, i) => { %>
+        <%- include ./result.ejs %>
+      <% }) %>
+    </ul>
+    <button class="slider--button slider--left">Left</button>
+    <button class="slider--button slider--right">Right</button>
+  </section>
+<% } else { %>
+  <% if (message.length) { %>
+    <section class="no-results">
+      <h2>helaas</h2>
+      <p class="no-results--message">Er zijn geen matches gevonden bij deze zoekopdracht</p>
+    </section>
+  <% } %>
+<% } %>

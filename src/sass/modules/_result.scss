@@ -1,0 +1,63 @@
+.result {
+  position: relative;
+
+  &--see-all {
+    // display: block;
+    float: right;
+    text-align: right;
+    background-color: $brand-primary;
+    color: $white;
+    padding: .3rem .7rem;
+    text-decoration: none;
+
+    transition: .3s background-color;
+
+    @include hocus {
+      background-color: lighten($brand-primary, 10%);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.result {
+  opacity: 0;
+
+  $ani-dur: .3s;
+  $ani-ease: cubic-bezier(.8,.3,0,1);
+
+  &:nth-of-type(1) {
+    animation: fade-in $ani-dur $ani-ease .2s forwards;
+  }
+  &:nth-of-type(2) {
+    animation: fade-in $ani-dur $ani-ease .4s forwards;
+  }
+  &:nth-of-type(3) {
+    animation: fade-in $ani-dur $ani-ease .6s forwards;
+  }
+  &:nth-of-type(4) {
+    animation: fade-in $ani-dur $ani-ease .8s forwards;
+  }
+  &:nth-of-type(n+5) {
+    animation: fade-in $ani-dur $ani-ease 1s forwards;
+  }
+}

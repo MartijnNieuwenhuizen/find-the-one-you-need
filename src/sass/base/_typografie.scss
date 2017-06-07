@@ -1,0 +1,56 @@
+@mixin baseFont {
+  @include adjust($base-font-size);
+  font-family: "Frutiger", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+@mixin main-title {
+  @include adjust($mainTitle);
+  font-family: "Frutiger", sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 1;
+}
+
+@mixin area-title {
+  @include adjust($subTitle);
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: .05rem;
+}
+@mixin area-subtitle {
+  @include adjust($subTitle);
+  font-weight: 600;
+  text-transform: capitalize;
+  font-stretch: condensed;
+}
+
+@mixin category-title {
+  @include adjust($base-font-size);
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+body {
+  @include baseFont;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" on;
+}
+
+button {
+  font-family: "Frutiger", sans-serif;
+}
+
+h2 {
+  font-stretch: condensed;
+  color: $brand-primary;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+h4 {
+  margin: 0;
+}

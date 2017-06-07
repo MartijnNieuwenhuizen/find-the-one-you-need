@@ -1,0 +1,28 @@
+<li class="project category--item" id="<%- project.name %>">
+  <h4 class="project--name area--subtitle"><a href="#<%- project.name %>" class="project--title area--subtitle-link"><%- project.name %></a></h4>
+  <div class="category--item-container">
+
+    <p class="project--hours"> <abbr class="project--abbr" title="Aantal uren gewerkt"><%- project.hours %></abbr></p>
+
+    <dl class="data">
+      <div class="data--item last-activity">
+        <dt class="last-activity--title">Last known activity</dt>
+        <dd>
+          <span class="last-activity--number"><%- project.lastActivity %></span>
+          Day's ago
+        </dd>
+      </div>
+
+      <div class="data--item last-activity">
+        Last known activity
+        <span class="data--number">?</span>
+      </div>
+
+      <div class="data--item activity">
+        <dt class="activity--title">Activities</dt>
+        <dd class="activity--item">Search</dd>
+        <dd class="activity--item">Google Maps styling</dd>
+      </div>
+    </dl>
+  </div>
+</li>

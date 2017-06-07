@@ -1,0 +1,184 @@
+// Style a hover and a focus
+@mixin hocus {
+  &:hover, &:focus {
+    @content;
+  }
+}
+
+// Outline all elements
+@mixin outline {
+  * {
+    outline: 1px solid lime;
+  }
+}
+
+// Min width breakpoint
+@mixin min-width($width) {
+  @media(min-width: $width) { @content; }
+}
+
+// Reset the default values of a link
+@mixin reset-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+// Reset the default values of a list
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+// Add a max width to an element
+// Take care of paddings on small screens
+// Center this element on larger screens
+
+// You will need $container, $bp-container and $gutter variables
+@mixin container($size: $container) {
+  max-width: $size;
+  margin: 0 auto;
+
+  padding-left: $gutter;
+  padding-right: $gutter;
+  box-sizing: border-box;
+
+  @include min-width($bp-container) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+//  Cross-resolution style setting
+@mixin adjust($map, $property: "font-size") {
+  @each $item, $i in $map {
+    & {
+      @if( $item == "xs") {
+        #{$property}: $i;
+      }
+      @if( $item == "sm") {
+        @include min-width($adjust-sm) {
+          #{$property}: $i;
+        }
+      }
+      @if( $item == "md") {
+        @include min-width($adjust-md) {
+          #{$property}: $i;
+        }
+      }
+      @if( $item == "lg") {
+        @include min-width($adjust-lg) {
+          #{$property}: $i;
+        }
+      }
+    }
+  }
+}
+
+// Create a grid and adjust the values to adjust the amount of items and breakpoints of the grid
+@mixin grid($el, $bp-half: 600px, $bp-third: 900px) {
+  margin: 0 -#{$gutter};
+
+  #{$el} {
+    width: calc(100% - #{$double-gutter});
+    display: inline-block;
+    margin: 1rem $gutter;
+    vertical-align: top;
+
+    @include min-width($bp-half) {
+      width: calc(49% - #{$double-gutter});
+    }
+    @include min-width($bp-third) {
+      width: calc(33% - #{$double-gutter});
+    }
+  }
+}
+
+// Add all the Area colors to the area according to the type
+@mixin set-type-color($map, $name) {
+  $background-color: map-get($map, "dark");
+
+  .area--title-container {
+    // @extend .match--#{$name};
+  }
+  .category--title {
+    color: get-text-color($background-color);
+
+    background-color: $background-color;
+    background: linear-gradient( 45deg, $background-color, lighten($background-color, 10%) );
+  }
+  .area--subtitle {
+    background-color: $background-color;
+  }
+
+  .last-activity--number {
+    color: $background-color;
+  }
+
+  .see-more {
+    &--title { color: $background-color; }
+
+    @include hocus {
+      .see-more--title { color: darken($background-color, 10%); }
+
+      + .category--item {
+        &:nth-of-type(1).category--hide .area--subtitle {
+          background-color: darken($background-color, 13%);
+        }
+        &:nth-of-type(2).category--hide .area--subtitle {
+          background-color: darken($background-color, 8%);
+        }
+      }
+    }
+
+    &--number {
+      background-color: $background-color;
+    }
+  }
+
+  .category--item {
+    &:nth-of-type(1).category--hide .area--subtitle {
+      background-color: darken($background-color, 10%);
+    }
+    &:nth-of-type(2).category--hide .area--subtitle {
+      background-color: darken($background-color, 5%);
+    }
+  }
+  .data--item {
+    &:nth-of-type(1) {
+      border-bottom: 1px solid lighten($background-color, 25%);
+    }
+    &:nth-of-type(2) {
+      border-bottom: 1px solid lighten($background-color, 25%);
+      border-left: 1px solid lighten($background-color, 25%);
+    }
+    &:nth-of-type(3) {
+      border-bottom: 1px solid lighten($background-color, 25%);
+    }
+    &:nth-of-type(4) {
+      border-bottom: 1px solid lighten($background-color, 25%);
+      border-left: 1px solid lighten($background-color, 25%);
+    }
+  }
+  .data--number {
+    color: $background-color;
+  }
+}
+
+@mixin icon-clock {
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 1.1rem; height: 1.1rem;
+    margin-right: .3rem;
+    background-image: url('/img/icons/clock.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    transform: translateY(.2rem);
+  }
+}

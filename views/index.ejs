@@ -1,0 +1,18 @@
+<%- include ./base/head.ejs %>
+
+  <header class="layout--header">
+    <% if (!locals.message) { %>
+      <img class="logo" src="./img/logo/logo.svg" alt="">
+    <% } %>
+    <%- include ./modules/form.ejs %>
+  </header>
+
+  <main class="layout--main">
+    <%- include ./modules/results.ejs %>
+  </main>
+
+  <footer class="layout--footer">
+
+  </footer>
+
+<%- include ./base/footer.ejs %>

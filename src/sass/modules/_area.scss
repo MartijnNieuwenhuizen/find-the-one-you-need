@@ -1,0 +1,31 @@
+.area {
+  position: relative;
+
+  &--subtitle {
+    margin: 0;
+    padding: .9375rem 1.5625rem 2.0625rem 1.5625rem;
+    @include area-subtitle;
+    background-color: orange;
+    color: white;
+
+    transition: .4s background-color;
+  }
+  &--subtitle-link {
+    @include reset-link;
+    display: inline-block;
+    max-width: calc(100% - 4rem);
+  }
+
+  &--front-end {
+    @include set-type-color($front-end, "front-end");
+  }
+
+  &--design {
+    @include set-type-color($design, "design");
+  }
+
+  &--project {
+    @include set-type-color($project, "project");
+  }
+
+}

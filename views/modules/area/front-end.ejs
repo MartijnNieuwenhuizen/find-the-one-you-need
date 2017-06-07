@@ -1,0 +1,43 @@
+<%
+  let rank = '';
+  if (i === 0) {
+    rank = 'gold';
+  } else if ( i === 1 ) {
+    rank = 'silver';
+  } else if ( i === 2 ) {
+    rank = 'bronze';
+  }
+%>
+
+<ul class="data">
+  <li class="data--item rank">
+    <div class="rank--definition <%- rank %>">
+      <span class="rank--number data--number"><%- i + 1 %></span>
+      <span class="rank--extr">th</span>
+    </div>
+    choice for <%- point.name %>
+  </li>
+
+  <li class="data--item skill">
+    <span class="skill--score demo-fed data--number" data-score="<%- point.unique %>"><%- point.unique %>%</span>
+    of your colleagues have this skill
+  </li>
+
+  <li class="data--item last-activity">
+    Last known activity
+    <span class="last-activity--number data--number"><%- point.lastActivity %></span>
+    Day's ago
+  </li>
+
+  <li class="data--item last-activity">
+    <span class="data--number">?</span>
+  </li>
+
+  <li class="data--item activity">
+    <span class="data--number">Activities</span>
+    <ul class="activity--list">
+      <li class="activity--item">Search</li>
+      <li class="activity--item">Google Maps styling</li>
+    </ul>
+  </li>
+</ul>

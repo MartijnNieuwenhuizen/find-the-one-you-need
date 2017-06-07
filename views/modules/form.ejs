@@ -1,0 +1,25 @@
+<form class="layout--form form" action="/" method="get">
+  <fieldset class="form--container">
+    <label class="form--message message" for="message">Wat voor persoon zoek je?</label> <%# @TODO: hide message for screanreaders %>
+    <div class="form--input-container">
+      <%# Only set the placeholder when there are no buzzwords %>
+      <%
+        let placeholder = 'Who designed the login on the new Fleurop website?';
+        let value = '';
+      %>
+      <%
+        if (locals.buzzWords) { placeholder = ''; }
+        if (locals.message) { value = locals.message; }
+      %>
+      <input class="form--input message--input" id="message"  type="text" name="message" autocomplete="off" value="<%- value %>" placeholder="<%- placeholder %>" <% if (!locals.message) { %>autofocus<% } %>>
+      <%- include ./buzzwords.ejs %>
+      <ul class="suggestions"></ul>
+      <div class="form--controls controls">
+        <button class="controls--submit" type="submit">Zoek</button>
+        <button class="controls--submit-specific" type="submit">Find the best options</button>
+        <button class="controls--submit-all" type="submit">Find all maches</button>
+        <button class="controls--remove" type="remove">Wis</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

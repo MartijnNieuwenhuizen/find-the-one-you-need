@@ -1,0 +1,29 @@
+.project {
+  @extend .category--item;
+  position: relative;
+
+  &--name {
+    display: block;
+  }
+  &--hours {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    margin: 0;
+    float: right;
+
+    abbr {
+      @include icon-clock;
+    }
+  }
+
+  &--last {
+    padding-left: .5rem;
+  }
+
+  &--bold {
+    font-weight: 600;
+  }
+  &--abbr {
+    text-decoration: none;
+  }
+}

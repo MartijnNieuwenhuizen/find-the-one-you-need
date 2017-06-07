@@ -1,0 +1,23 @@
+.contact {
+
+  &--list {
+    @include reset-list;
+  }
+  &--item {
+    display: inline-block;
+  }
+  &--link {
+    padding: 0 .15rem;
+
+    @include hocus {
+      .contact--img {
+        transform: rotate(2deg);
+      }
+    }
+  }
+  &--img {
+    width: 1.5rem;
+
+    transition: .2s transform;
+  }
+}

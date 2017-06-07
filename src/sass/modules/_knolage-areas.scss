@@ -1,0 +1,11 @@
+.knolage-areas {
+  @include reset-list;
+  list-style-type: none;
+
+  &--item {
+    // min-height: 9rem;
+
+    margin-bottom: 1.25rem;
+    padding: 0 1rem 0 $card-label-width !important;
+  }
+}

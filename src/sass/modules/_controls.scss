@@ -1,0 +1,71 @@
+.controls {
+
+  &--submit {
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+
+    transition: .3s color;
+
+    .no-message & {
+      display: none;
+    }
+
+    @include hocus {
+      color: $brand-primary;
+      cursor: pointer;
+    }
+  }
+  &--submit-specific {
+    display: none;
+    margin-right: 1rem;
+
+    border: 0;
+    font-size: 1rem;
+    background-color: transparent;
+    transition: .3s color;
+
+    .no-message & {
+      display: inline-block;
+      padding: .6rem 1.5rem;
+
+      color: $white;
+      background-color: $brand-primary;
+      font-style: italic;
+    }
+
+    @include hocus {
+      cursor: pointer;
+      background-color: rgba($brand-primary, .8);
+    }
+  }
+  &--submit-all {
+    display: none;
+    margin-left: 1rem;
+
+    border: 0;
+    font-size: 1rem;
+    background-color: transparent;
+    transition: .3s color;
+
+    .no-message & {
+      display: inline-block;
+      padding: .6rem 1.5rem;
+
+      color: $white;
+      background-color: $brand-primary;
+    }
+
+    @include hocus {
+      cursor: pointer;
+      background-color: rgba($brand-primary, .8);
+    }
+  }
+
+  &--remove {
+    display: none;
+    .no-message & {
+
+    }
+  }
+}

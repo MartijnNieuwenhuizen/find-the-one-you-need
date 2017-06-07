@@ -1,0 +1,34 @@
+<div class="result--personal personal contact">
+  <%
+    let imgName = `${person.name.first}_${person.name.last}_${person.location}`;
+    imgName = imgName.toLowerCase();
+  %>
+
+  <div class="personal--img-container" style="background-image: url('./img/people/<%- imgName %>.jpg')">
+    <img class="personal--img" src="./img/people/<%- imgName %>.jpg" alt="Een foto van <%- person.name.full %>">
+  </div>
+
+  <div class="personal--info">
+    <h2 class="personal--name"><%- person.name.full %></h2>
+    <p class="personal--role"><%- person.role %></p>
+    <%# If person is on location, add the class to make the icon green %>
+    <p class="personal--location on-location"><%- person.location %></p>
+    <ul class="personal--contact contact--list">
+      <li class="contact--item">
+        <a class="contact--link" href="#"><img class="contact--img" src="./img/contact/phone.png" alt="Phone icon"></a>
+      </li>
+      <li class="contact--item">
+        <a class="contact--link" href="#"><img class="contact--img" src="./img/contact/outlook.png" alt="Outlook icon"></a>
+      </li>
+      <li class="contact--item">
+        <a class="contact--link" href="#"><img class="contact--img" src="./img/contact/skype.png" alt="Skype icon"></a>
+      </li>
+      <li class="contact--item">
+        <a class="contact--link" href="#"><img class="contact--img" src="./img/contact/yammer.png" alt="Yammer icon"></a>
+      </li>
+      <li class="contact--item">
+        <a class="contact--link" href="#"><img class="contact--img" src="./img/contact/slack.png" alt="Slack icon"></a>
+      </li>
+    </ul>
+  </div>
+</div>

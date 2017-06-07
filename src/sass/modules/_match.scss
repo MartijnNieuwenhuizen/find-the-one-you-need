@@ -1,0 +1,70 @@
+.match {
+  position: relative;
+  padding: 0 .1rem 0 .3rem;
+
+  border: 0;
+  line-height: 1;
+  font-size: inherit;
+  transition: .3s color;
+  background-color: transparent;
+  font-weight: inherit;
+  z-index: 999;
+  transform: translate(0);
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -.25rem; left: 0;
+    width: 100%; height: 3px;
+  }
+
+  @include hocus {
+    color: rgba($text, .7);
+    cursor: pointer;
+
+    .match--remove {
+      width: 1rem;
+    }
+  }
+
+  &--word {
+    vertical-align: text-bottom;
+  }
+
+  &--remove {
+    width: 0;
+    transform: translate(0, 0.15rem);
+    transition: .2s width;
+  }
+}
+
+.match--front-end {
+  $color-indicator: map-get($front-end, "dark");
+
+  &:after {
+    background-color: $color-indicator;
+  }
+  .match--remove g {
+    stroke: $color-indicator;
+  }
+}
+.match--project {
+  $color-indicator: map-get($project, "dark");
+
+  &:after {
+    background-color: $color-indicator;
+  }
+  .match--remove g {
+    stroke: $color-indicator;
+  }
+}
+.match--design {
+  $color-indicator: map-get($design, "dark");
+
+  &:after {
+    background-color: $color-indicator;
+  }
+  .match--remove g {
+    stroke: $color-indicator;
+  }
+}

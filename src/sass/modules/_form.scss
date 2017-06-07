@@ -1,0 +1,93 @@
+.form {
+  @include container(56.5625rem);
+
+  &--container {
+    border: 0;
+  }
+
+  &--message {
+    display: none;
+  }
+
+  &--input-container {
+    position: relative;
+    margin-top: 1rem;
+  }
+  &--input,
+  &--buzzwords {
+    position: absolute;
+    top: 0; left: 0;
+
+    @include category-title;
+    text-transform: none;
+  }
+
+  &--input {
+    z-index: 1;
+    width: 100%;
+    padding: $input-padding;
+
+    background-color: transparent;
+    color: transparent;
+    border: 0;
+    border-bottom: 2px solid $dark-gray;
+
+    // Make the fonts the same as the overlaying styles
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    word-spacing: inherit;
+
+    &:focus {
+      color: inherit;
+      outline: 0;
+
+      // Remove the buzzwords if the input has foucs
+      + .form--buzzwords {
+        z-index: -1;
+        display: none;
+      }
+    }
+  }
+  // Default style is the style of the input because the buzzwords overlay the input
+  &--buzzwords {
+    z-index: 1;
+    margin: 0;
+    padding: $input-padding-extended;
+
+    &:after {
+      content: "filter by adding words";
+      position: absolute;
+      top: 0; right: 0;
+      width: 7rem; height: 3rem;
+      display: block;
+      transform: rotate(-3deg) translate(9.4rem, -.9rem);
+
+      color: #B7B7B7;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 2rem; height: 2rem;
+      display: block;
+
+      background-image: url("../img/icons/share.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: translate(2rem, -.5rem);
+    }
+  }
+
+  &--controls {
+    position: absolute;
+    top: 0; right: 0;
+    z-index: 2;
+    padding: $input-padding;
+
+    .no-message & {
+      right: auto; left: 50%;
+      transform: translate(-50%, 200%);
+    }
+  }
+}
