@@ -1,8 +1,10 @@
+<% 'use strict'; %>
+
 <dl class="sub-category">
 
   <a class="see-more" href="#">
     <%
-      let subAreaName = subArea.name;
+      var subAreaName = subArea.name;
       if (subAreaName === 'js') {
         subAreaName = 'JavaScript';
       } else if (subAreaName === 'css') {
@@ -20,7 +22,7 @@
       <h4 class="area--subtitle-inner"><a class="area--subtitle-link" href="#<%- point.hash %>"><%- point.name %><%- include ../../components/collapse.ejs %></a></h4>
 
       <%
-        let ranking = ['full', 'empty', 'empty'];
+        var ranking = ['full', 'empty', 'empty'];
         if (point.ranking > 33) { ranking = ['full', 'full', 'empty'] }
         if (point.ranking > 66) { ranking = ['full', 'full', 'full'] }
       %>
