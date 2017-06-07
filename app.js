@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const path = require('path');
 // const favicon = require('serve-favicon');
@@ -56,6 +58,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   console.log(err);
   res.render('error');
+});
+
+app.listen(8000, function () {
+  console.log('Running on port 8000');
 });
 
 module.exports = app;

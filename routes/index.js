@@ -1,10 +1,16 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
 
 const Hits = require('./modules/hits');
 const People = require('./modules/people');
+const Activity = require('./modules/activity');
 
 router.get('/', (req, res, next) => {
+
+  require('./utilities/polyfill');
+
   const db = req.db;
 
   const message = req.query.message || '';
@@ -16,14 +22,12 @@ router.get('/', (req, res, next) => {
 
   const people = matchedPeople.then(peopleData => People.getAllData(peopleData, db));
 
-  Promise.all([people, messageWithHits])
-    .then(([peopleRender, buzzwordMessage]) => {
-      res.render('index', { people: peopleRender, message, buzzwords: buzzwordMessage });
-    });
+  const peopleWithActivity = people.then(peopleWithoutAcitivity => Activity.add(peopleWithoutAcitivity, db));
 
-  // Relevant for the rendering
-    // Get the entire sentence with the matched words
-    // Get the area's that need to be collapsed
+  Promise.all([peopleWithActivity, messageWithHits])
+    .then((values) => {
+      res.render('index', { people: values[0], message, buzzwords: values[1] });
+    });
 
 });
 module.exports = router;

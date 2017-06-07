@@ -19,7 +19,11 @@
     color: $text;
 
     .data--item & {
+      max-width: 25rem;
+      margin-left: 1rem;
+      align-self: flex-start;
       text-align: left;
+      white-space: nowrap;
     }
   }
 }

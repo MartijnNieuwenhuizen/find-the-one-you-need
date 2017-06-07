@@ -1,3 +1,5 @@
+'use strict';
+
 const more = {
   listen: () => {
     const areas = Array.from(document.querySelectorAll('.sub-category'));
@@ -23,10 +25,20 @@ const more = {
 
     const parentArea = this.parentArea;
     const items = Array.from(parentArea.querySelectorAll('.category--hide'));
-
     items.forEach(item => {
       item.classList.remove('category--hide');
     });
+    console.log(this.parentArea);
+    if (this.parentArea.classList.contains('sub-category--hide')) {
+      console.log('jaaaa');
+      this.parentArea.classList.remove('sub-category--hide');
+    }
+
+    // const subItems = Array.from(parentArea.querySelectorAll('.sub-category--hide'));
+    // subItems.forEach(subItem => {
+    //   subItem.classList.remove('sub-category--hide');
+    // });
+
 
     this.classList.add('see-more--all');
 

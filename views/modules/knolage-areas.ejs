@@ -1,3 +1,5 @@
+<% 'use strict'; %>
+
 <ul class="knolage-areas">
   <% if (person.knolage.length)  { %>
     <% person.knolage.forEach(area => { %>
@@ -17,7 +19,7 @@
     <li class="knolage-areas--item sub-category area area--project">
       <div class="category">
         <a class="see-more" href="#">
-          <p class="see-more--title"><span class="see-more--text">Projecten</span> <span class="see-more--number"><%- person.project.length %></span></p>
+          <p class="see-more--title"><span class="see-more--text">Projecten</span> <span class="see-more--number"><%- person.project.length %></span><%- include ../components/collapse.ejs %></p>
         </a>
         <ul class="projects">
           <% person.project.forEach(project => { %>

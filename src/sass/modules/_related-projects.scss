@@ -1,0 +1,13 @@
+.related-projects {
+
+  &--list {
+    max-width: 12.5rem;
+    margin: 0 auto 0 auto; padding: 0 0 1.25rem 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}

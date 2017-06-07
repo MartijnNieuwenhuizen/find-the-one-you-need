@@ -1,17 +1,19 @@
-class People {
-  static getUnique(results) {
+'use strict';
+
+const People =  {
+  getUnique: function(results) {
     const filterUnique = (tag, i, arr) => arr.indexOf(tag) === i;
     const result = results.filter(filterUnique);
 
     return result;
-  }
+  },
 
-  static getPeopleData(peopleIds, db) {
+  getPeopleData: function(peopleIds, db) {
     return new Promise(function(resolve, reject) {
       const people = db.get('people');
       const matches = [];
       people.find({})
-        .each((person, {close, pause, resume}) => {
+        .each(person => {
           const personNeeded = peopleIds.includes(String(person._id));
           if ( personNeeded ) {
             matches.push(person);
@@ -21,21 +23,20 @@ class People {
           resolve(matches);
         });
     });
-  }
+  },
 
   // Get all possible matches
-  static getAllMatched(hits, db) {
+  getAllMatched: function(hits, db) {
     return new Promise(function(resolve, reject) {
       const peopleIds = [];
       const tags = db.get('tags');
       const hitToSmallerCase = hits.map(hit => hit.name.toLowerCase());
 
       tags.find({})
-        .each((tag, {close, pause, resume}) => {
+        .each(tag => {
           const match = hitToSmallerCase.includes(tag.name);
           if (match) {
             peopleIds.push(...tag.people);
-            resume();
           }
         })
         .then(() => {
@@ -46,22 +47,20 @@ class People {
           });
         });
     });
-  }
+  },
 
   // Get all people who match all the tags
-  static getMatched(hits, db) {
+  getMatched: function(hits, db) {
     return new Promise(function(resolve, reject) {
       const peopleIds = [];
       const tags = db.get('tags');
       const hitToSmallerCase = hits.map(hit => hit.name.toLowerCase());
 
-      const begin = [];
       tags.find({})
-        .each((tag, {close, pause, resume}) => {
+        .each(tag => {
           const match = hitToSmallerCase.includes(tag.name);
           if (match) {
             peopleIds.push(...tag.people);
-            resume();
           }
         })
         .then(() => {
@@ -91,9 +90,9 @@ class People {
           });
         });
     });
-  }
+  },
 
-  static getAllData(peopleData, db) {
+  getAllData: function(peopleData, db) {
     return new Promise(function(resolve, reject) {
       const tags = db.get('tags');
       const people = peopleData;
@@ -105,7 +104,7 @@ class People {
       });
 
       tags.find({})
-        .each((tag, {close, pause, resume}) => {
+        .each(tag => {
 
           const tagPeopleIds = tag.people;
           tagPeopleIds.forEach(id => {
@@ -122,6 +121,7 @@ class People {
                   const fakeRanking = Math.floor(Math.random() * 100);
 
                   const knolageItem = {};
+                  if (tag._id) { knolageItem.tagId = tag._id; }
                   if (tag.name) { knolageItem.name = tag.name; }
                   if (tag.fullName) { knolageItem.fullName = tag.fullName; }
                   if (tag.type) { knolageItem.type = tag.type; }
@@ -140,6 +140,7 @@ class People {
                   const fakeHours = Math.floor(Math.random() * 100);
 
                   const projectItem = {};
+                  if (tag._id) { projectItem.tagId = tag._id; }
                   if (tag.name) { projectItem.name = tag.name; }
                   if (tag.fullName) { projectItem.fullName = tag.fullName; }
                   if (tag.type) { projectItem.type = tag.type; }
@@ -162,22 +163,10 @@ class People {
 
           resolve(people);
         });
-      // loop thrue the knolage points
-      // if an people id exists in the array, add to the person
-      // return the person ready to render
-
-      // loop thrue the knolage points
-
-
-      // if an people id exists in the array, add to the person
-
-
-      // return the person ready to render
-
     });
-  }
+  },
 
-  static attachKnolage(knolage) {
+  attachKnolage: function(knolage) {
     const _knolage = knolage;
     const filterUnique = (tag, i, arr) => arr.indexOf(tag) === i;
 
@@ -199,8 +188,8 @@ class People {
       newKnolage.push({
         name: category,
         subArea: []
-      })
-    })
+      });
+    });
 
     // Create all sub categories for a person
     subCategories.forEach(subCategory => {
@@ -243,51 +232,12 @@ class People {
         hash: knolagePoint.name,
         unique: knolagePoint.unique,
         lastActivity: knolagePoint.lastActivity,
-        ranking: knolagePoint.ranking
+        ranking: knolagePoint.ranking,
+        tagId: knolagePoint.tagId
       });
     });
     return newKnolage;
   }
-
-  // static getAll(hits) {
-  //   const people = fakePeople;
-  //   const peopleWithKnolage = People.combine(people);
-  //
-  //   return peopleWithKnolage;
-  // }
-  //
-  // static combine(people) {
-  //   const knolage = fakeKnolage;
-  //
-  //   return people.map(person => {
-  //     const knolageId = person.knolageId;
-  //
-  //     const knolageOfPerson = knolage.filter(obj => obj.id === knolageId);
-  //     person.knolage = knolageOfPerson[0];
-  //
-  //     return person;
-  //   });
-  // }
-
-
-        // 58f0da01875ac759ff31f2ca
-        // 58f0da01875ac759ff31f2cb
-        // 58f0da01875ac759ff31f2cc
-
-        // nodejs
-        // es6
-
-        // tags.insert([
-        //   {
-        //     name: 'xml',
-        //     fullName: 'XML',
-        //     type: 'knolage',
-        //     category: 'front-end',
-        //     subCategory: 'js',
-        //     people: [ '58f0da01875ac759ff31f2ca' ]
-        //   }
-        // ]);
-
-}
+};
 
 module.exports = People;
