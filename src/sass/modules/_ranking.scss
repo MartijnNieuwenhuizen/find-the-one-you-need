@@ -2,8 +2,8 @@
   @include reset-list;
   position: relative;
   display: inline-block;
-  max-width: 4rem;
-  margin: -.4rem -1rem 0 0;
+  max-width: 6rem;
+  margin: 0 -1rem 0 0;
   float: right;
 
   display: inline-flex;
@@ -12,19 +12,45 @@
 
   &--item {
     display: inline-block;
+    width: 1.4rem; height: 1.4rem;
+    margin-left: .1rem;
+    color: $dark-gray;
+    background-color: transparent;
 
     @include hocus {
       cursor: pointer;
     }
+  }
+  &--svg {
+    width: 100%;
+    height: 100%;
+  }
 
-    &.added {
-      .ranking--img {
-        transform: scale(1.05) rotate(360deg);
-        transition: .2s transform;
-      }
+  &--star {
+    fill: none;
+
+    .area--front-end & { fill: map-get($front-end, "light"); }
+    .area--design & { fill: map-get($design, "light"); }
+    .area--project & { fill: map-get($project, "light"); }
+  }
+  &--starred {
+    // stroke: $dark-gray;
+    stroke-width: 4px;
+    opacity: 0;
+
+    transition: .2s opacity;
+  }
+
+  &--full {
+    .ranking--star {
+      fill: $white;
     }
   }
-  &--img {
-    transition: 0s transform;
-  }
+}
+
+.show-star .ranking--starred {
+  opacity: 1;
+}
+.personal-ranking .ranking--starred {
+  opacity: 1 !important;
 }

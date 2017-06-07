@@ -66,22 +66,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       removeButtons.forEach(function (button) {
         button.addEventListener('click', function (e) {
-          this.parentElement.classList.add('fade-out');
+          var outerElement = this.parentElement.parentElement.parentElement;
+          outerElement.classList.add('fade-out');
 
           e.preventDefault();
-
-          // setTimeout(() => {
-          //   this.parentElement.remove();
-          // }, 400);
         });
       });
+    }
+
+    if (document.querySelector('.chart')) {
+      require('./modules/barchart');
     }
 
     if (document.querySelector('.ranking')) {
       var ranking = require('./modules/ranking');
       ranking.launch();
     }
-  }, { "./modules/areas": 2, "./modules/categories": 3, "./modules/collapse": 4, "./modules/match": 5, "./modules/ranking": 6, "./modules/see-more": 7, "./modules/skills": 8, "./modules/slider": 9, "./modules/type-ahead": 10 }], 2: [function (require, module, exports) {
+  }, { "./modules/areas": 2, "./modules/barchart": 3, "./modules/categories": 4, "./modules/collapse": 5, "./modules/match": 6, "./modules/ranking": 7, "./modules/see-more": 8, "./modules/skills": 9, "./modules/slider": 10, "./modules/type-ahead": 11 }], 2: [function (require, module, exports) {
     var areaPannels = {
 
       openRelevant: function openRelevant() {
@@ -115,7 +116,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
 
       openSpesific: function openSpesific(e) {
-        this.parentElement.parentElement.classList.toggle('pannel-open');
+        this.parentElement.parentElement.parentElement.classList.toggle('pannel-open');
 
         e.preventDefault();
       },
@@ -144,6 +145,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     module.exports = areaPannels;
   }, {}], 3: [function (require, module, exports) {
+    console.log('Hurray');
+  }, {}], 4: [function (require, module, exports) {
     var categories = {
       openRelevant: function openRelevant() {
         var tags = categories.getTags();
@@ -224,7 +227,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = categories;
-  }, {}], 4: [function (require, module, exports) {
+  }, {}], 5: [function (require, module, exports) {
     var Pannels = function () {
       function Pannels() {
         _classCallCheck(this, Pannels);
@@ -310,7 +313,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     module.exports = Pannels;
-  }, {}], 5: [function (require, module, exports) {
+  }, {}], 6: [function (require, module, exports) {
     var match = {
       launch: function launch() {
         var matches = Array.from(document.querySelectorAll('.match'));
@@ -343,67 +346,80 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = match;
-  }, {}], 6: [function (require, module, exports) {
+  }, {}], 7: [function (require, module, exports) {
     var ranking = {
       launch: function launch() {
         var rankingList = Array.from(document.querySelectorAll('.ranking'));
+        console.log(rankingList);
 
         rankingList.forEach(function (list) {
           var rankingItems = list.querySelectorAll('.ranking--item');
+          ranking.setPersonal(list);
 
           rankingItems.forEach(function (item, i, arr) {
             item.order = i;
             item.arr = arr;
             item.addEventListener('mouseenter', ranking.hover, true);
             item.addEventListener('mouseleave', ranking.leave, true);
-            item.addEventListener('click', ranking.rank, true);
+            item.addEventListener('click', ranking.conform, true);
           });
         });
       },
 
-      hover: function hover(e) {
+      hover: function hover() {
         this.arr.forEach(function (item) {
-          item.firstChild.src = './img/icons/star-white-empty.svg';
+          item.classList.remove('show-star');
         });
-
         for (var i = 0; i < this.order + 1; i++) {
-          this.arr[i].firstChild.src = './img/icons/star-white-full.svg';
+          this.arr[i].classList.add('show-star');
         }
       },
 
       leave: function leave() {
         this.arr.forEach(function (item) {
-          item.firstChild.src = "./img/icons/star-white-" + item.firstChild.dataset.original + ".svg";
+          item.classList.remove('show-star');
         });
       },
 
-      rank: function rank() {
-        var _this = this;
+      conform: function conform(e) {
+        var givenRanking = this.order + 1;
+        var list = this.parentElement;
+        var key = list.dataset.name;
 
-        var counter = 0;
-        // for (var i = 0; i < this.order; i++) {
-        //
-        // }
-        var animate = setInterval(function () {
-          if (counter <= _this.order) {
-            _this.arr[counter].classList.add('added');
+        var storage = window.localStorage;
+        // if ( !storage.ranking ) { storage.ranking = []; }
+        storage.setItem(key, givenRanking);
 
-            counter++;
-          } else {
-            clearInterval(animate);
+        this.arr.forEach(function (item) {
+          item.classList.remove('personal-ranking');
+        });
+        console.log(givenRanking);
+        for (var i = 0; i < givenRanking; i++) {
+          this.arr[i].classList.add('personal-ranking');
+        }
 
-            setTimeout(function () {
-              _this.arr.forEach(function (item) {
-                item.classList.remove('added');
-              });
-            }, 300);
+        e.preventDefault();
+      },
+
+      setPersonal: function setPersonal(item) {
+        var name = item.dataset.name;
+        var storage = window.localStorage;
+
+        if (storage.getItem(name)) {
+          var personalRanking = storage.getItem(name);
+          console.log(personalRanking);
+
+          var stars = item.children;
+
+          for (var i = 0; i < personalRanking; i++) {
+            stars[i].classList.add('personal-ranking');
           }
-        }, 100);
+        }
       }
     };
 
     module.exports = ranking;
-  }, {}], 7: [function (require, module, exports) {
+  }, {}], 8: [function (require, module, exports) {
     var more = {
       listen: function listen() {
         var areas = Array.from(document.querySelectorAll('.sub-category'));
@@ -429,10 +445,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         var parentArea = this.parentArea;
         var items = Array.from(parentArea.querySelectorAll('.category--hide'));
-
         items.forEach(function (item) {
           item.classList.remove('category--hide');
         });
+        console.log(this.parentArea);
+        if (this.parentArea.classList.contains('sub-category--hide')) {
+          console.log('jaaaa');
+          this.parentArea.classList.remove('sub-category--hide');
+        }
+
+        // const subItems = Array.from(parentArea.querySelectorAll('.sub-category--hide'));
+        // subItems.forEach(subItem => {
+        //   subItem.classList.remove('sub-category--hide');
+        // });
+
 
         this.classList.add('see-more--all');
 
@@ -446,7 +472,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = more;
-  }, {}], 8: [function (require, module, exports) {
+  }, {}], 9: [function (require, module, exports) {
     var Skills = {
       visualize: function visualize() {
 
@@ -508,51 +534,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = Skills;
-  }, {}], 9: [function (require, module, exports) {
+  }, {}], 10: [function (require, module, exports) {
     var sliderList = document.querySelector('.slider--container');
     var sliderItems = document.querySelectorAll('.slider--item');
 
     // Get the total amount of slider
     var totalAmountOfItems = sliderItems.length;
-
-    var itemWidth = void 0;
     var marge = 16;
+    var itemWidth = sliderItems[0].clientWidth;
 
-    function calculateListWidth() {
-      // Get the with of one item in the list
-      itemWidth = sliderItems[0].offsetWidth;
-      // set the width of the list to the width of all the elements combined
-      sliderList.style.width = totalAmountOfItems * (itemWidth + marge) + 'px';
-    }
-    calculateListWidth();
+    var sliderContainerWidth = void 0;
+    var itemsInScreen = void 0;
+    var sliderItemWidth = void 0;
+    var newItemMarge = void 0;
 
-    var sliderShown = void 0;
+    function constructSlider() {
+      sliderContainerWidth = document.querySelector('.slider').clientWidth;
+      itemsInScreen = Math.floor(sliderContainerWidth / (itemWidth + marge));
+      sliderItemWidth = sliderContainerWidth / itemsInScreen;
+      newItemMarge = (sliderItemWidth - itemWidth) / 2;
+      sliderList.style.width = totalAmountOfItems * sliderItemWidth + 'px';
 
-    function getAmountOfPeople() {
-      if (window.innerWidth < 960) {
-        sliderShown = 1;
-      }
-      if (window.innerWidth >= 960) {
-        sliderShown = 2;
-      }
-      if (window.innerWidth >= 1200) {
-        sliderShown = 3;
-      }
-    }
-    getAmountOfPeople();
-
-    function itemsWidth() {
       sliderItems.forEach(function (item) {
-        item.style.width = itemWidth - marge + 'px';
+        item.style.marginLeft = newItemMarge + 'px';
+        item.style.marginRight = newItemMarge + 'px';
       });
     }
-    itemsWidth();
+
+    constructSlider();
 
     window.onresize = function () {
-      getAmountOfPeople();
-      calculateListWidth();
-      itemsWidth();
+      constructSlider();
     };
+
+    function moveThrueKeys(e) {
+      if (e.keyCode === 37 && counter !== 0) {
+        moveLeft();
+      }
+      if (e.keyCode === 39 && counter < totalAmountOfItems - itemsInScreen) {
+        moveRight();
+      }
+    }
 
     // create buttons
     var buttonLeft = document.querySelector('.slider--left');
@@ -561,6 +583,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     // add eventListeners to the buttons
     buttonLeft.addEventListener('click', moveLeft);
     buttonRight.addEventListener('click', moveRight);
+
+    window.addEventListener('keyup', moveThrueKeys, false);
 
     // Disable the left button on default
     buttonLeft.disabled = true;
@@ -572,14 +596,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     sliderList.style.transition = '.3s transform';
 
     function moveLeft(e) {
-      pos += itemWidth;
+      pos += sliderItemWidth;
       var posPx = pos + 'px';
       sliderList.style.transform = 'translateX(' + posPx + ')';
 
       checkRightButton(this);
     }
     function moveRight(e) {
-      pos -= itemWidth;
+      pos -= sliderItemWidth;
       var posPx = pos + 'px';
       sliderList.style.transform = 'translateX(' + posPx + ')';
 
@@ -591,26 +615,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       if (buttonLeft.disabled === true && counter !== 0) {
         buttonLeft.disabled = false;
       }
-      if (buttonRight.disabled === true && counter < totalAmountOfItems - sliderShown) {
+      if (buttonRight.disabled === true && counter < totalAmountOfItems - itemsInScreen) {
         buttonRight.disabled = false;
       }
     }
 
     function checkLeftButton(button) {
       counter += 1;
-      totalAmountOfItems === sliderShown + counter ? button.disabled = true : checkButtonsDisabled();
+      if (button) {
+        totalAmountOfItems === itemsInScreen + counter ? button.disabled = true : checkButtonsDisabled();
+      }
     }
 
     function checkRightButton(button) {
       counter -= 1;
-      counter === 0 ? button.disabled = true : checkButtonsDisabled();
+
+      if (button) {
+        counter === 0 ? button.disabled = true : checkButtonsDisabled();
+      }
     }
 
-    if (totalAmountOfItems <= sliderShown) {
+    if (totalAmountOfItems <= itemsInScreen) {
       buttonRight.remove();
       buttonLeft.remove();
     }
-  }, {}], 10: [function (require, module, exports) {
+  }, {}], 11: [function (require, module, exports) {
     // Most of this code comes from the 30 days JavaScript cource by Wes Bos.
     // https://javascript30.com/
 

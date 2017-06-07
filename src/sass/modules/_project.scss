@@ -3,13 +3,15 @@
   position: relative;
 
   &--name {
-    display: block;
+    // display: block;
   }
   &--hours {
     position: absolute;
     top: 1rem; right: 1rem;
     margin: 0;
     float: right;
+
+    color: $white;
 
     abbr {
       @include icon-clock;

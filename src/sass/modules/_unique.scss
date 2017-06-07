@@ -1,0 +1,45 @@
+.unique {
+  position: absolute;
+  top: 0; bottom: 0;
+  right: 0;
+  width: .9rem;
+
+  .area--front-end & { background-color: rgba(map-get($front-end, "lighter"), .4); }
+  .area--design & { background-color: rgba(map-get($design, "lighter"), .4); }
+  .area--project & { background-color: rgba(map-get($project, "lighter"), .4); }
+
+  &--persentage {
+    width: 100%;
+    height: 100%;
+
+    transform-origin: top;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: .45rem; height: .45rem;
+
+      border-radius: 50%;
+      transform: translateY(50%);
+    }
+
+    &:before {
+      left: 0;
+      .area--front-end & { background-color: map-get($front-end, "lighter"); }
+      .area--design & { background-color: map-get($design, "lighter"); }
+      .area--project & { background-color: map-get($project, "lighter"); }
+    }
+    &:after {
+      right: 0;
+      .area--front-end & { background-color: rgba(map-get($front-end, "lighter"), .4); }
+      .area--design & { background-color: rgba(map-get($design, "lighter"), .4); }
+      .area--project & { background-color: rgba(map-get($project, "lighter"), .4); }
+    }
+
+    .area--front-end & { background-color: map-get($front-end, "lighter"); }
+    .area--design & { background-color: map-get($design, "lighter"); }
+    .area--project & { background-color: map-get($project, "lighter"); }
+  }
+}

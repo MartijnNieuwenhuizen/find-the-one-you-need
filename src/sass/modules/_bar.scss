@@ -1,0 +1,104 @@
+.bar {
+  position: relative;
+  height: 100%;
+  width: 8%;
+  margin: 0 .186rem;
+  background-color: rgba(#B8E986, .3);
+
+  .area--front-end & { background-color: rgba(map-get($front-end, "light"), .3) }
+  .area--design & { background-color: rgba(map-get($design, "light"), .3) }
+  .area--project & { background-color: rgba(map-get($project, "light"), .3) }
+
+  &:nth-of-type(1),
+  &:nth-of-type(4),
+  &:nth-of-type(7),
+  &:nth-of-type(10) {
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -.3em; left: 50%;
+
+      @include adjust($skill-annotaion);
+      font-weight: 300;
+
+      transform: translate(-50%, 100%) rotate(45deg);
+    }
+  }
+
+  &:nth-of-type(1)::after { content: "jan" }
+  &:nth-of-type(4)::after { content: "apr" }
+  &:nth-of-type(7)::after { content: "jul" }
+  &:nth-of-type(10)::after { content: "okt" }
+
+
+
+  &--active {
+    position: relative;
+    width: 100%; height: 100%;
+    z-index: 2;
+
+    transform: scaleY(.8);
+    transition: .3s transform;
+    transform-origin: bottom;
+    transition: .2s background-color;
+
+    .area--front-end & { background-color: map-get($front-end, "dark"); }
+    .area--design & { background-color: map-get($design, "dark"); }
+    .area--project & { background-color: map-get($project, "dark"); }
+
+    @include hocus {
+      .area--front-end & { background-color: map-get($front-end, "light"); }
+      .area--design & { background-color: map-get($design, "light"); }
+      .area--project & { background-color: map-get($project, "light"); }
+      cursor: pointer;
+
+      .bar--activity {
+        .area--front-end & { background-color: map-get($front-end, "light"); }
+        .area--design & { background-color: map-get($design, "light"); }
+        .area--project & { background-color: map-get($project, "light"); }
+
+        &:after {
+          .area--front-end & { border-top: 1rem solid map-get($front-end, "light"); }
+          .area--design & { border-top: 1rem solid map-get($design, "light"); }
+          .area--project & { border-top: 1rem solid map-get($project, "light"); }
+        }
+      }
+    }
+  }
+
+  &--activity {
+    position: absolute;
+    top: -2.125rem; left: 50%;
+    width: 6.125rem; height: 2.125rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: $white;
+    font-weight: 300;
+    font-stretch: condensed;
+
+    transform: translate(-50%, -100%);
+    transition: .2s background-color;
+
+    .area--front-end & { background-color: map-get($front-end, "dark"); }
+    .area--design & { background-color: map-get($design, "dark"); }
+    .area--project & { background-color: map-get($project, "dark"); }
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 1px; left: 50%;
+      transform: translate(-50%, 100%);
+    	border-left: .5rem solid transparent;
+    	border-right: .5rem solid transparent;
+
+      transition: .2s border-top;
+
+      .area--front-end & { border-top: 1rem solid map-get($front-end, "dark"); }
+      .area--design & { border-top: 1rem solid map-get($design, "dark"); }
+      .area--project & { border-top: 1rem solid map-get($project, "dark"); }
+    }
+  }
+}

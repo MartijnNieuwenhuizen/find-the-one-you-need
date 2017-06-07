@@ -1,0 +1,10 @@
+.related-project {
+  margin: 0;
+  padding: 0;
+
+  &--link {
+    text-transform: capitalize;
+    padding: .37rem .3437rem;
+    color: map-get($project, "dark");
+  }
+}

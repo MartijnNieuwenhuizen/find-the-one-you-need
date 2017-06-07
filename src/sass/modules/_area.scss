@@ -10,10 +10,12 @@
 
     transition: .4s background-color;
   }
+  &--subtitle-inner {
+    display: inline-block;
+  }
   &--subtitle-link {
     @include reset-link;
-    display: inline-block;
-    max-width: calc(100% - 4rem);
+    max-width: 10.4rem;
   }
 
   &--front-end {

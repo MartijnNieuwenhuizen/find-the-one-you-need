@@ -1,0 +1,14 @@
+.collapse {
+  margin-left: .3rem;
+  vertical-align: middle;
+
+  transition: .3s transform;
+  transform-origin: center;
+
+  &--circle {
+    fill: $white;
+  }
+  &--inficator {
+    fill: $white;
+  }
+}
