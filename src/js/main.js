@@ -50,13 +50,10 @@ if ( document.querySelector('.remove') ) {
 
   removeButtons.forEach(button => {
     button.addEventListener('click', function(e) {
-      this.parentElement.classList.add('fade-out');
+      const outerElement = this.parentElement.parentElement.parentElement;
+      outerElement.classList.add('fade-out');
 
       e.preventDefault();
-
-      // setTimeout(() => {
-      //   this.parentElement.remove();
-      // }, 400);
     });
   })
 }

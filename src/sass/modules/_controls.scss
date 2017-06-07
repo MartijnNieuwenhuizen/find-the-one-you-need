@@ -1,5 +1,18 @@
 .controls {
 
+  .no-message & {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      margin: .3rem;
+    }
+  }
+
   &--submit {
     border: none;
     background-color: white;
