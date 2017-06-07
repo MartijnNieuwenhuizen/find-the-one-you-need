@@ -1,3 +1,5 @@
+'use strict';
+
 const ranking = {
   launch: function() {
     const rankingList = Array.from(document.querySelectorAll('.ranking'));

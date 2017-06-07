@@ -1,3 +1,5 @@
+'use strict';
+
 const categories = {
   openRelevant: () => {
     const tags = categories.getTags();
@@ -14,7 +16,7 @@ const categories = {
     const relevantCategories = tags
       .map(tag => Array.from(document.querySelectorAll(`#${tag}`)))
       .reduce((a, b) => a.concat(b) );
-      
+
     return relevantCategories;
   },
 

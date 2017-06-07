@@ -1,3 +1,5 @@
+'use strict';
+
 // Most of this code comes from the 30 days JavaScript cource by Wes Bos.
 // https://javascript30.com/
 

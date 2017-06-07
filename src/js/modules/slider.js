@@ -1,3 +1,5 @@
+'use strict';
+
 const sliderList = document.querySelector('.slider--container');
 const sliderItems = document.querySelectorAll('.slider--item');
 
