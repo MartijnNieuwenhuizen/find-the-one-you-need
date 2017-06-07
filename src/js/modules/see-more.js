@@ -1,3 +1,5 @@
+'use strict';
+
 const more = {
   listen: () => {
     const areas = Array.from(document.querySelectorAll('.sub-category'));

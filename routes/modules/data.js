@@ -1,3 +1,5 @@
+'use strict';
+
 const data = {};
 data.people = [
   {
