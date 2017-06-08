@@ -442,7 +442,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         setTimeout(function () {
           feedback.classList.remove('show');
-          console.log('gone');
         }, 3000);
       }
     };

@@ -84,7 +84,6 @@ const ranking = {
 
     setTimeout(function() {
       feedback.classList.remove('show');
-      console.log('gone');
     }, 3000);
   }
 };
