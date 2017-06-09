@@ -431,7 +431,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       sendFeedback: function sendFeedback(item, givenRanking) {
         var _item = item;
         var _givenRanking = givenRanking;
-        var name = 'Peter';
+        var name = 'Sandy';
 
         var feedback = document.querySelector('.user-feedback');
         var feedbackMessage = feedback.children[0];

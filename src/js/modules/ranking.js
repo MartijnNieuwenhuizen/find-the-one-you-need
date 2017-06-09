@@ -73,7 +73,7 @@ const ranking = {
   sendFeedback: function(item, givenRanking) {
     const _item = item;
     const _givenRanking = givenRanking;
-    const name = 'Peter';
+    const name = 'Sandy';
 
     const feedback = document.querySelector('.user-feedback');
     const feedbackMessage = feedback.children[0];
