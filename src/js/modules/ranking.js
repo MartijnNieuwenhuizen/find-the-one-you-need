@@ -3,7 +3,6 @@
 const ranking = {
   launch: function() {
     const rankingList = Array.from(document.querySelectorAll('.ranking'));
-    console.log(rankingList);
 
     rankingList.forEach(list => {
       const rankingItems = list.querySelectorAll('.ranking--item');
@@ -46,10 +45,12 @@ const ranking = {
     this.arr.forEach(item => {
       item.classList.remove('personal-ranking');
     });
-    console.log(givenRanking);
+
     for (var i = 0; i < givenRanking; i++) {
       this.arr[i].classList.add('personal-ranking');
     }
+
+    ranking.sendFeedback(this, givenRanking);
 
     e.preventDefault();
   },
@@ -60,7 +61,6 @@ const ranking = {
 
     if ( storage.getItem(name) ) {
       const personalRanking = storage.getItem(name);
-      console.log(personalRanking);
 
       const stars = item.children;
 
@@ -68,6 +68,23 @@ const ranking = {
         stars[i].classList.add('personal-ranking');
       }
     }
+  },
+
+  sendFeedback: function(item, givenRanking) {
+    const _item = item;
+    const _givenRanking = givenRanking;
+    const name = 'Sandy';
+
+    const feedback = document.querySelector('.user-feedback');
+    const feedbackMessage = feedback.children[0];
+
+    feedbackMessage.innerHTML = `Je hebt ${name} beoordeld met ${_givenRanking} sterren`;
+
+    feedback.classList.add('show');
+
+    setTimeout(function() {
+      feedback.classList.remove('show');
+    }, 3000);
   }
 };
 

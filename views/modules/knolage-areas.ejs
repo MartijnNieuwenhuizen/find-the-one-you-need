@@ -1,3 +1,5 @@
+<% 'use strict'; %>
+
 <ul class="knolage-areas">
   <% if (person.knolage.length)  { %>
     <% person.knolage.forEach(area => { %>
@@ -24,6 +26,17 @@
             <%- include ./area/project.ejs %>
           <% }) %>
         </ul>
+
+        <div class="project project--overview category--item">
+          <h2 class="project--overview-title">Projecturen</h2>
+          <% if (person.project[0].hours < 33) { %>
+            <img src="./img/project/overview-one.svg" alt="">
+          <% } else if (person.project[0].hours >= 33) { %>
+            <img src="./img/project/overview-two.svg" alt="">
+          <% } else if (person.project[0].hours >= 66) { %>
+            <img src="./img/project/overview-three.svg" alt="">
+          <% } %>
+        </div>
       </div>
     </li>
 

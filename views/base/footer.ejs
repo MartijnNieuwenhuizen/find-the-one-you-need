@@ -1,15 +1,15 @@
-<% if (people.length) { %>
- <footer class="layout--footer">
-   <dl class="colors">
-     <%# For each used color %>
-     <dt class="colors--color"></dt><dd class="colors--definition">Front-end Development</dd>
-     <dt class="colors--color"></dt><dd class="colors--definition">Design</dd>
-     <dt class="colors--color"></dt><dd class="colors--definition">Projects</dd>
-   </dl>
- </footer>
-<% } else { %>
-  <footer></footer>
-<% } %>
+  <% if (message.length) { %>
+    <% if (people.length) { %>
+      <footer class="layout--footer">
+        <dl class="colors">
+          <%# For each used color %>
+          <dt class="colors--color"></dt><dd class="colors--definition">Front-end Development</dd>
+          <dt class="colors--color"></dt><dd class="colors--definition">Design</dd>
+          <dt class="colors--color"></dt><dd class="colors--definition">Projects</dd>
+        </dl>
+      </footer>
+      <% } %>
+    <% } %>
 
   <script type="text/javascript" src="/js/script.min.js"></script>
 </body>

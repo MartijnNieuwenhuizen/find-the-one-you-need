@@ -17,6 +17,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     s(r[o]);
   }return s;
 })({ 1: [function (require, module, exports) {
+    'use strict';
+
     if (document.querySelector('.category')) {
       var Pannels = require('./modules/collapse');
       Pannels.launch();
@@ -83,6 +85,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       ranking.launch();
     }
   }, { "./modules/areas": 2, "./modules/barchart": 3, "./modules/categories": 4, "./modules/collapse": 5, "./modules/match": 6, "./modules/ranking": 7, "./modules/see-more": 8, "./modules/skills": 9, "./modules/slider": 10, "./modules/type-ahead": 11 }], 2: [function (require, module, exports) {
+    'use strict';
+
     var areaPannels = {
 
       openRelevant: function openRelevant() {
@@ -144,9 +148,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     module.exports = areaPannels;
-  }, {}], 3: [function (require, module, exports) {
-    console.log('Hurray');
-  }, {}], 4: [function (require, module, exports) {
+  }, {}], 3: [function (require, module, exports) {}, {}], 4: [function (require, module, exports) {
+    'use strict';
+
     var categories = {
       openRelevant: function openRelevant() {
         var tags = categories.getTags();
@@ -228,6 +232,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     module.exports = categories;
   }, {}], 5: [function (require, module, exports) {
+    'use strict';
+
     var Pannels = function () {
       function Pannels() {
         _classCallCheck(this, Pannels);
@@ -314,6 +320,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     module.exports = Pannels;
   }, {}], 6: [function (require, module, exports) {
+    'use strict';
+
     var match = {
       launch: function launch() {
         var matches = Array.from(document.querySelectorAll('.match'));
@@ -347,10 +355,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     module.exports = match;
   }, {}], 7: [function (require, module, exports) {
+    'use strict';
+
     var ranking = {
       launch: function launch() {
         var rankingList = Array.from(document.querySelectorAll('.ranking'));
-        console.log(rankingList);
 
         rankingList.forEach(function (list) {
           var rankingItems = list.querySelectorAll('.ranking--item');
@@ -393,10 +402,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.arr.forEach(function (item) {
           item.classList.remove('personal-ranking');
         });
-        console.log(givenRanking);
+
         for (var i = 0; i < givenRanking; i++) {
           this.arr[i].classList.add('personal-ranking');
         }
+
+        ranking.sendFeedback(this, givenRanking);
 
         e.preventDefault();
       },
@@ -407,7 +418,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         if (storage.getItem(name)) {
           var personalRanking = storage.getItem(name);
-          console.log(personalRanking);
 
           var stars = item.children;
 
@@ -415,11 +425,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             stars[i].classList.add('personal-ranking');
           }
         }
+      },
+
+
+      sendFeedback: function sendFeedback(item, givenRanking) {
+        var _item = item;
+        var _givenRanking = givenRanking;
+        var name = 'Sandy';
+
+        var feedback = document.querySelector('.user-feedback');
+        var feedbackMessage = feedback.children[0];
+
+        feedbackMessage.innerHTML = "Je hebt " + name + " beoordeld met " + _givenRanking + " sterren";
+
+        feedback.classList.add('show');
+
+        setTimeout(function () {
+          feedback.classList.remove('show');
+        }, 3000);
       }
     };
 
     module.exports = ranking;
   }, {}], 8: [function (require, module, exports) {
+    'use strict';
+
     var more = {
       listen: function listen() {
         var areas = Array.from(document.querySelectorAll('.sub-category'));
@@ -473,6 +503,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     module.exports = more;
   }, {}], 9: [function (require, module, exports) {
+    'use strict';
+
     var Skills = {
       visualize: function visualize() {
 
@@ -535,6 +567,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     module.exports = Skills;
   }, {}], 10: [function (require, module, exports) {
+    'use strict';
+
     var sliderList = document.querySelector('.slider--container');
     var sliderItems = document.querySelectorAll('.slider--item');
 
@@ -640,6 +674,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       buttonLeft.remove();
     }
   }, {}], 11: [function (require, module, exports) {
+    'use strict';
+
     // Most of this code comes from the 30 days JavaScript cource by Wes Bos.
     // https://javascript30.com/
 

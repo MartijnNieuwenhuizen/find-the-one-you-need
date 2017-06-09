@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="295px" height="211px" viewBox="0 0 295 211" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>overview-one</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="overview-one">
+            <text id="Transavia" font-family="Lato-Regular, Lato" font-size="16" font-weight="normal" fill="#4A4A4A">
+                <tspan x="214.244" y="41">Transavia</tspan>
+            </text>
+            <text id="Nuon" font-family="Lato-Regular, Lato" font-size="16" font-weight="normal" fill="#4A4A4A">
+                <tspan x="217" y="182">Nuon</tspan>
+            </text>
+            <text id="Fleurop" font-family="Lato-Regular, Lato" font-size="16" font-weight="normal" fill="#4A4A4A">
+                <tspan x="21.392" y="180">Fleurop</tspan>
+            </text>
+            <text id="KLM" font-family="Lato-Regular, Lato" font-size="16" font-weight="normal" fill="#4A4A4A">
+                <tspan x="40.16" y="42">KLM</tspan>
+            </text>
+            <g id="Group" transform="translate(56.000000, 15.000000)">
+                <path d="M90,182 C140.257912,182 181,141.257912 181,91 C181,40.7420878 140.257912,0 90,0 C90,0.674074074 90,31.0074074 90,91 C90,151.666667 90,182 90,182 Z" id="Oval-12-Copy-10" fill="#7E99BA"></path>
+                <path d="M77.4355219,103.564478 C127.693434,103.564478 168.435522,62.8223903 168.435522,12.5644781 C168.435522,-20.9407968 138.102189,-20.9407968 77.4355219,12.5644781 C77.4355219,73.2311447 77.4355219,103.564478 77.4355219,103.564478 Z" id="Oval-12-Copy-8" fill="#7287A0" transform="translate(122.935522, 45.500000) rotate(-90.000000) translate(-122.935522, -45.500000) "></path>
+                <path d="M0.0111111111,182 C50.2690233,182 91.0111111,141.257912 91.0111111,91 C91.0111111,40.7420878 50.2690233,0 0.0111111111,0 C0.0111111111,0.674074074 0.0111111111,31.0074074 0.0111111111,91 C0.0111111111,151.666667 0.0111111111,182 0.0111111111,182 Z" id="Oval-12-Copy-9" fill="#8CB1DE" transform="translate(45.511111, 91.000000) rotate(-180.000000) translate(-45.511111, -91.000000) "></path>
+                <path d="M0.0111111111,182 C50.2690233,182 91.0111111,141.257912 91.0111111,91 C91.0111111,91 60.6777778,91 0.0111111111,91 C0.0111111111,151.666667 0.0111111111,182 0.0111111111,182 Z" id="Oval-12-Copy-9" fill="#87A6CB" transform="translate(45.511111, 136.500000) rotate(-270.000000) translate(-45.511111, -136.500000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

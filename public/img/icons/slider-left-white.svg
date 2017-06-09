@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="119px" height="207px" viewBox="0 0 119 207" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="Artboard-Copy" stroke="#FFFFFF" stroke-width="10">
+            <g id="Group" transform="translate(59.500000, 104.000000) scale(-1, 1) translate(-59.500000, -104.000000) translate(12.000000, 9.000000)">
+                <path d="M0.5,0.5 L94.587725,94.587725" id="Line"></path>
+                <path d="M0.5,95.5 L94.587725,189.587725" id="Line" transform="translate(47.500000, 142.500000) scale(1, -1) translate(-47.500000, -142.500000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

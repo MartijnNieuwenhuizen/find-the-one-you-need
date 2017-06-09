@@ -28,4 +28,21 @@
   &--abbr {
     text-decoration: none;
   }
+
+  &--overview {
+    padding-top: 2rem;
+  }
+  &--overview-title {
+    margin: 0 auto;
+    text-align: center;
+    @include area-subtitle;
+    color: $text;
+    font-weight: 300;
+    font-stretch: normal;
+  }
+  &--graph {
+    width: 7rem; height: 7rem;
+    border-radius: 50%;
+    background-color: blue;
+  }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="295px" height="211px" viewBox="0 0 295 211" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>overview-three</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="overview-three">
+            <g id="Group" transform="translate(19.000000, 16.000000)">
+                <g id="Group-2" transform="translate(36.000000, 0.000000)">
+                    <path d="M2.1176394e-12,182 C50.2579122,182 91,141.257912 91,91 C91,40.7420878 50.2579122,0 2.1176394e-12,0 C2.04954919e-12,0.674074074 1.49051489e-12,31.0074074 4.40536496e-13,91 C8.71599089e-13,151.666667 1.43063339e-12,182 2.1176394e-12,182 Z" id="Oval-12-Copy-4" fill="#87A6CC" transform="translate(45.500000, 91.000000) rotate(-180.000000) translate(-45.500000, -91.000000) "></path>
+                    <path d="M45.5,227.5 C95.7579122,227.5 136.5,186.757912 136.5,136.5 C136.5,86.2420878 95.7579122,45.5 45.5,45.5 C45.5,46.1740741 45.5,76.5074074 45.5,136.5 C45.5,197.166667 45.5,227.5 45.5,227.5 Z" id="Oval-12-Copy-2" fill="#7E99BA" transform="translate(91.000000, 136.500000) rotate(-270.000000) translate(-91.000000, -136.500000) "></path>
+                    <path d="M91,182 C141.257912,182 182,141.257912 182,91 C182,40.7420878 141.257912,0 91,0 C91,0.674074074 91,31.0074074 91,91 C91,151.666667 91,182 91,182 Z" id="Oval-12-Copy-3" fill="#7287A0"></path>
+                </g>
+                <text id="KLM" font-family="Lato-Regular, Lato" font-size="16" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="219" y="96">KLM</tspan>
+                </text>
+                <text id="Nuon-Copy-2" font-family="Lato-Regular, Lato" font-size="16" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="11" y="160">Nuon</tspan>
+                </text>
+                <text id="Fleurop-Copy" font-family="Lato-Regular, Lato" font-size="16" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="0.392" y="24">Fleurop</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
